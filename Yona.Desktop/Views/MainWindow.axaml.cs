@@ -1,12 +1,11 @@
-using Avalonia.Controls;
+using SukiUI.Controls;
 
-namespace Yona.Desktop.Views
+namespace Yona.Desktop.Views;
+
+public partial class MainWindow : SukiWindow
 {
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
