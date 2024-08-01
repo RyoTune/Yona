@@ -3,8 +3,8 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using Yona.Desktop.ViewModels;
 using Yona.Desktop.Views;
+using Yona.Library.ViewModels;
 
 namespace Yona.Desktop
 {

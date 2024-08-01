@@ -25,6 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Yona.Library\Yona.Library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="SukiUI">
       <HintPath>DLLs\SukiUI.dll</HintPath>
     </Reference>
