@@ -1,0 +1,27 @@
+<UserControl
+    x:Class="Yona.Desktop.Controls.Page"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Template>
+        <ControlTemplate>
+            <Grid Margin="16,0" RowDefinitions="auto *">
+                <Grid ColumnDefinitions="auto * auto">
+                    <ContentPresenter Content="{TemplateBinding Icon}" />
+                    <TextBlock
+                        Grid.Column="1"
+                        Classes="h2"
+                        Text="{TemplateBinding Title}"
+                        TextTrimming="CharacterEllipsis"
+                        TextWrapping="NoWrap" />
+                    <ContentPresenter Grid.Column="2" Content="{TemplateBinding MenuItems}" />
+                </Grid>
+                <ContentControl Grid.Row="1" Content="{TemplateBinding Content}" />
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>
