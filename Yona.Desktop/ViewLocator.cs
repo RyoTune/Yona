@@ -13,7 +13,9 @@ public class ViewLocator : IDataTemplate
         if (data is null)
             return null;
 
-        var name = data.GetType().FullName!.Replace("Yona.Library.ViewModel", "Yona.Desktop.View", StringComparison.Ordinal);
+        var name = data.GetType().FullName!
+            .Replace("ViewModel", "View", StringComparison.Ordinal)
+            .Replace("Yona.Library", "Yona.Desktop", StringComparison.Ordinal);
         var type = Type.GetType(name);
 
         if (type != null)
