@@ -27,7 +27,7 @@ public partial class App : Application
 
         services.AddViewModels();
         services.AddServices();
-        services.AddLoggers();
+        services.AddLogger();
 
         this.serviceProvider = services.BuildServiceProvider();
         this.settings = this.serviceProvider.GetRequiredService<SettingsService>();
