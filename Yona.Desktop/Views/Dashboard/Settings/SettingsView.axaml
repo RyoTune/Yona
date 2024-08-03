@@ -1,0 +1,59 @@
+<UserControl
+    x:Class="Yona.Desktop.Views.Dashboard.Settings.SettingsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Yona.Library.ViewModels.Dashboard.Settings"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:SettingsViewModel"
+    mc:Ignorable="d">
+    <cc:Page Title="Settings">
+        <cc:Page.MenuItems>
+            <Button
+                VerticalAlignment="Center"
+                Command="{Binding ResetCommand}"
+                Content="Reset Defaults" />
+        </cc:Page.MenuItems>
+        <Grid ColumnDefinitions="* *">
+            <StackPanel>
+                <TextBlock Classes="h3" Text="Appearance" />
+
+                <StackPanel Spacing="16">
+                    <StackPanel.Styles>
+                        <Style Selector="TextBlock.setting-label">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+							<Setter Property="FontSize" Value="16"/>
+                        </Style>
+                    </StackPanel.Styles>
+
+                    <Grid ColumnDefinitions="* auto">
+                        <TextBlock Classes="setting-label" Text="Theme Color" />
+                        <ComboBox
+                            Grid.Column="1"
+                            Width="150"
+                            DisplayMemberBinding="{ReflectionBinding Name}"
+                            ItemsSource="{Binding ColorOptions}"
+                            SelectedItem="{Binding SelectedColor}" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="* auto">
+                        <TextBlock Classes="setting-label" Text="Animated Background" />
+                        <CheckBox Grid.Column="1" IsChecked="{Binding Settings.Current.UseAnimBackground}" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="* auto">
+                        <TextBlock Classes="setting-label" Text="Start Page" />
+                        <ComboBox
+                            Grid.Column="1"
+                            Width="150"
+                            ItemsSource="{Binding Pages}"
+                            SelectedItem="{Binding SelectedPage}" />
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </cc:Page>
+</UserControl>
