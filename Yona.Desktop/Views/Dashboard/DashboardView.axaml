@@ -1,0 +1,64 @@
+<UserControl
+    x:Class="Yona.Desktop.Views.Dashboard.DashboardView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ma="using:Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:suki="using:SukiUI.Controls"
+    xmlns:vm="using:Yona.Library.ViewModels.Dashboard"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:DashboardViewModel"
+    mc:Ignorable="d">
+    <UserControl.Styles>
+        <Style Selector="ma|MaterialIcon">
+            <Setter Property="Width" Value="20" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+    </UserControl.Styles>
+    <suki:SukiSideMenu
+        x:Name="sukiSideMenu"
+        IsMenuExpanded="{Binding IsMenuExpanded, Mode=TwoWay}"
+        OpenPaneLength="200">
+        <suki:SukiSideMenu.Items>
+
+            <suki:SukiSideMenuItem Header="Home">
+                <suki:SukiSideMenuItem.Icon>
+                    <ma:MaterialIcon Kind="House" />
+                </suki:SukiSideMenuItem.Icon>
+                <suki:SukiSideMenuItem.PageContent>
+                    <ContentControl Content="{Binding Home}" />
+                </suki:SukiSideMenuItem.PageContent>
+            </suki:SukiSideMenuItem>
+
+            <suki:SukiSideMenuItem Header="Projects">
+                <suki:SukiSideMenuItem.Icon>
+                    <ma:MaterialIcon Kind="NotebookHeart" />
+                </suki:SukiSideMenuItem.Icon>
+                <suki:SukiSideMenuItem.PageContent>
+                    <ContentControl Content="{Binding Projects}" />
+                </suki:SukiSideMenuItem.PageContent>
+            </suki:SukiSideMenuItem>
+
+            <suki:SukiSideMenuItem Header="Convert">
+                <suki:SukiSideMenuItem.Icon>
+                    <ma:MaterialIcon Kind="SwapHorizontalVariant" />
+                </suki:SukiSideMenuItem.Icon>
+                <suki:SukiSideMenuItem.PageContent>
+                    <ContentControl Content="{Binding Convert}" />
+                </suki:SukiSideMenuItem.PageContent>
+            </suki:SukiSideMenuItem>
+
+            <suki:SukiSideMenuItem Header="Settings">
+                <suki:SukiSideMenuItem.Icon>
+                    <ma:MaterialIcon Kind="Settings" />
+                </suki:SukiSideMenuItem.Icon>
+                <suki:SukiSideMenuItem.PageContent>
+                    <ContentControl Content="{Binding Settings}" />
+                </suki:SukiSideMenuItem.PageContent>
+            </suki:SukiSideMenuItem>
+
+        </suki:SukiSideMenu.Items>
+    </suki:SukiSideMenu>
+</UserControl>
