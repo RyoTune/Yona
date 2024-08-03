@@ -15,4 +15,7 @@ public partial class AppSettings : ObservableObject
 
     [ObservableProperty]
     private bool isMenuExpanded = true;
+
+    [ObservableProperty]
+    private PageType startPage = PageType.Home;
 }
