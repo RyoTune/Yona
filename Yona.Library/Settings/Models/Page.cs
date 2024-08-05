@@ -1,9 +1,12 @@
 ﻿namespace Yona.Library.Settings.Models;
 
-public enum PageType
+public enum Page
 {
     Home,
     Projects,
     Convert,
+
+#if DEBUG
     Settings,
+#endif
 }

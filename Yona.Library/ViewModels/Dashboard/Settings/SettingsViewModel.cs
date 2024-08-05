@@ -16,6 +16,14 @@ public partial class SettingsViewModel : ViewModelBase
 
     public SettingsService Settings { get; }
 
+    public ThemeMode[] Themes { get; } = Enum.GetValues<ThemeMode>();
+
+    public ThemeMode SelectedTheme
+    {
+        get => this.Settings.Current.ThemeMode;
+        set => this.SetProperty(this.Settings.Current.ThemeMode, value, this.Settings.Current, (s, n) => s.ThemeMode = n);
+    }
+
     public ThemeColorOption[] ColorOptions { get; } = ThemeColorOption.AvailableOptions;
 
     public ThemeColorOption SelectedColor
@@ -28,9 +36,9 @@ public partial class SettingsViewModel : ViewModelBase
         }
     }
 
-    public PageType[] Pages { get; } = Enum.GetValues<PageType>();
+    public Page[] Pages { get; } = Enum.GetValues<Page>();
 
-    public PageType SelectedPage
+    public Page SelectedPage
     {
         get => this.Settings.Current.StartPage;
         set => this.SetProperty(this.Settings.Current.StartPage, value, this.Settings.Current, (s, n) => s.StartPage = n);

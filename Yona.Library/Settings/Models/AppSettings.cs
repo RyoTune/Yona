@@ -11,11 +11,14 @@ public partial class AppSettings : ObservableObject
     private ThemeColor themeColor = ThemeColor.Orange;
 
     [ObservableProperty]
+    private ThemeMode themeMode = ThemeMode.Auto;
+
+    [ObservableProperty]
     private bool useAnimBackground = true;
 
     [ObservableProperty]
     private bool isMenuExpanded = true;
 
     [ObservableProperty]
-    private PageType startPage = PageType.Home;
+    private Page startPage = Page.Home;
 }
