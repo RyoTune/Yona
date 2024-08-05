@@ -39,6 +39,6 @@ public partial class DashboardView : UserControl
     /// </summary>
     private void SetStartPage(DashboardViewModel vm)
     {
-        this.sukiSideMenu.SelectedIndex = (int)vm.StartPage;
+        this.sukiSideMenu.SelectedIndex = (int)vm.StartPage % this.sukiSideMenu.ItemCount;
     }
 }

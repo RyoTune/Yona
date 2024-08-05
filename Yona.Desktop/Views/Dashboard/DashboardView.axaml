@@ -21,6 +21,9 @@
         x:Name="sukiSideMenu"
         IsMenuExpanded="{Binding IsMenuExpanded, Mode=TwoWay}"
         OpenPaneLength="200">
+        <suki:SukiSideMenu.HeaderContent>
+            <Image Source="/Assets/title.webp" Stretch="Uniform" />
+        </suki:SukiSideMenu.HeaderContent>
         <suki:SukiSideMenu.Items>
 
             <suki:SukiSideMenuItem Header="Home">
