@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using Avalonia.Styling;
 using Microsoft.Extensions.DependencyInjection;
 using SukiUI;
 using SukiUI.Enums;
@@ -64,7 +65,9 @@ public partial class App : Application
     private void SetupTheming()
     {
         var sukiTheme = SukiTheme.GetInstance();
-        sukiTheme.ChangeColorTheme(this.GetSukiColor(settings.Current.ThemeColor));
+
+        this.SetThemeMode(sukiTheme);
+        this.SetThemeColor(sukiTheme);
 
         settings.Current.PropertyChanged += Settings_PropertyChanged;
     }
@@ -72,10 +75,41 @@ public partial class App : Application
     private void Settings_PropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
         var sukiTheme = SukiTheme.GetInstance();
-        sukiTheme.ChangeColorTheme(this.GetSukiColor(settings.Current.ThemeColor));
+
+        if (e.PropertyName == nameof(this.settings.Current.ThemeMode))
+        {
+            this.SetThemeMode(sukiTheme);
+        }
+
+        if (e.PropertyName == nameof(this.settings.Current.ThemeColor))
+        {
+            this.SetThemeColor(sukiTheme);
+        }
     }
 
-    private SukiColor GetSukiColor(ThemeColor color) => color switch
+    private void SetThemeMode(SukiTheme sukiTheme)
+    {
+        if (this.settings.Current.ThemeMode == ThemeMode.Dark)
+        {
+            sukiTheme.ChangeBaseTheme(ThemeVariant.Dark);
+        }
+        else if (this.settings.Current.ThemeMode == ThemeMode.Light)
+        {
+            sukiTheme.ChangeBaseTheme(ThemeVariant.Light);
+        }
+        else
+        {
+            sukiTheme.ChangeBaseTheme(ThemeVariant.Default);
+        }
+    }
+
+    private void SetThemeColor(SukiTheme sukiTheme)
+    {
+        // Set color theme.
+        sukiTheme.ChangeColorTheme(GetSukiColor(this.settings.Current.ThemeColor));
+    }
+
+    private static SukiColor GetSukiColor(ThemeColor color) => color switch
     {
         ThemeColor.Blue => SukiColor.Blue,
         ThemeColor.Orange => SukiColor.Orange,

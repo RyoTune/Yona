@@ -4,11 +4,120 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cc="using:Yona.Desktop.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:design="using:Yona.Desktop.DesignData"
+    xmlns:ma="using:Material.Icons.Avalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    xmlns:models="using:Yona.Library.Projects.Models"
+    xmlns:suki="using:SukiUI.Controls"
+    xmlns:vm="using:Yona.Library.ViewModels.Dashboard.Home"
+    d:DesignHeight="540"
+    d:DesignWidth="960"
+    x:DataType="vm:HomeViewModel"
     mc:Ignorable="d">
+    <Design.DataContext>
+        <design:DesignHomeViewModel />
+    </Design.DataContext>
     <cc:Page Title="Home">
-        <Border Background="Pink" />
+        <Grid
+            Margin="0,0,0,16"
+            ColumnDefinitions="3* 1*"
+            RowDefinitions="2* 1*">
+            <Grid
+                Grid.RowSpan="2"
+                Margin="0,0,16,0"
+                RowDefinitions="auto *">
+                <TextBlock Classes="h3" Text="Create Project" />
+                <suki:GlassCard Grid.Row="1">
+                    <ScrollViewer>
+                        <ItemsControl ItemsSource="{Binding Templates}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid
+                                        Width="128"
+                                        Height="128"
+                                        Margin="4"
+                                        ColumnDefinitions="*"
+                                        RowDefinitions="*">
+                                        <Border Background="#1a1a1a" />
+                                        <Image Source="{Binding Converter={StaticResource ProjectIconConverter}}" Stretch="UniformToFill" />
+                                        <Border
+                                            Padding="2"
+                                            VerticalAlignment="Bottom"
+                                            Background="#DD000000">
+                                            <TextBlock
+                                                Height="32"
+                                                FontSize="12"
+                                                Foreground="White"
+                                                MaxLines="2"
+                                                Text="{Binding Name}"
+                                                TextAlignment="Center"
+                                                TextTrimming="WordEllipsis"
+                                                TextWrapping="Wrap" />
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </suki:GlassCard>
+            </Grid>
+
+            <Grid Grid.Column="1" RowDefinitions="auto *">
+                <TextBlock Classes="h3" Text="Recent Projects" />
+                <suki:GlassCard Grid.Row="1">
+                    <ScrollViewer>
+                        <ItemsControl ItemsSource="{Binding RecentProjects}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="{Binding Name}" />
+                                        <TextBlock
+                                            FontSize="12"
+                                            Text="{Binding FilePath}"
+                                            TextTrimming="CharacterEllipsis"
+                                            TextWrapping="NoWrap" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </suki:GlassCard>
+            </Grid>
+
+            <suki:GlassCard
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="0,16,0,0"
+                IsInteractive="True">
+                <suki:GroupBox>
+                    <suki:GroupBox.Header>
+                        <Grid ColumnDefinitions="* auto">
+                            <TextBlock Text="Quick Convert" />
+                            <ma:MaterialIcon
+                                Grid.Column="1"
+                                Width="16"
+                                Height="16"
+                                Kind="SwapHorizontalVariant" />
+                        </Grid>
+                    </suki:GroupBox.Header>
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Spacing="4">
+                        <TextBlock
+                            Width="100"
+                            VerticalAlignment="Center"
+                            Text="Drag and Drop a File or Folder"
+                            TextAlignment="Center"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </suki:GroupBox>
+            </suki:GlassCard>
+        </Grid>
     </cc:Page>
 </UserControl>

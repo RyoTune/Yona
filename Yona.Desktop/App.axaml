@@ -2,6 +2,7 @@
     x:Class="Yona.Desktop.App"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Yona.Desktop.Converters"
     xmlns:local="using:Yona.Desktop"
     xmlns:ma="using:Material.Icons.Avalonia"
     xmlns:suki="using:SukiUI"
@@ -16,4 +17,8 @@
         <suki:SukiTheme ThemeColor="Blue" />
         <ma:MaterialIconStyles />
     </Application.Styles>
+
+    <Application.Resources>
+        <converters:ProjectIconConverter x:Key="ProjectIconConverter" />
+    </Application.Resources>
 </Application>
