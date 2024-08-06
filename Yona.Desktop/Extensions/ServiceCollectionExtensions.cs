@@ -4,13 +4,15 @@ using Serilog.Extensions.Logging;
 using System;
 using System.IO;
 using System.Linq;
-using Yona.Library.Settings;
-using Yona.Library.ViewModels;
-using Yona.Library.ViewModels.Dashboard;
-using Yona.Library.ViewModels.Dashboard.Convert;
-using Yona.Library.ViewModels.Dashboard.Home;
-using Yona.Library.ViewModels.Dashboard.Projects;
-using Yona.Library.ViewModels.Dashboard.Settings;
+using Yona.Core.App;
+using Yona.Core.Projects;
+using Yona.Core.Settings;
+using Yona.Core.ViewModels;
+using Yona.Core.ViewModels.Dashboard;
+using Yona.Core.ViewModels.Dashboard.Convert;
+using Yona.Core.ViewModels.Dashboard.Home;
+using Yona.Core.ViewModels.Dashboard.Projects;
+using Yona.Core.ViewModels.Dashboard.Settings;
 
 namespace Yona.Desktop.Extensions;
 
@@ -30,7 +32,9 @@ internal static class ServiceCollectionExtensions
 
     public static IServiceCollection AddServices(this IServiceCollection service)
     {
+        service.AddSingleton<AppService>();
         service.AddSingleton<SettingsService>();
+        service.AddSingleton<TemplatesRegistry>();
 
         return service;
     }
