@@ -16,6 +16,7 @@
     <Application.Styles>
         <suki:SukiTheme ThemeColor="Blue" />
         <ma:MaterialIconStyles />
+        <StyleInclude Source="/Styles/Global.axaml" />
     </Application.Styles>
 
     <Application.Resources>

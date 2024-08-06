@@ -1,0 +1,22 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ma="using:Material.Icons.Avalonia">
+    <Design.PreviewWith>
+        <Button Classes="icon-button">
+            <ma:MaterialIcon Kind="File" />
+        </Button>
+    </Design.PreviewWith>
+
+    <Style Selector="Button.icon-button > ma|MaterialIcon">
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Width" Value="16" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="Button.icon-button">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Width" Value="32" />
+    </Style>
+</Styles>
