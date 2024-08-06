@@ -9,12 +9,12 @@
     mc:Ignorable="d">
     <UserControl.Template>
         <ControlTemplate>
-            <Grid Margin="16,0" RowDefinitions="auto *">
+            <Grid Margin="16,0,16,16" RowDefinitions="auto *">
                 <Grid ColumnDefinitions="auto * auto">
                     <ContentPresenter Content="{TemplateBinding Icon}" />
                     <TextBlock
                         Grid.Column="1"
-                        Classes="h2"
+                        Classes="h1"
                         Text="{TemplateBinding Title}"
                         TextTrimming="CharacterEllipsis"
                         TextWrapping="NoWrap" />
