@@ -14,7 +14,7 @@
                     <ContentPresenter Content="{TemplateBinding Icon}" />
                     <TextBlock
                         Grid.Column="1"
-                        Classes="h1"
+                        Classes="h2"
                         Text="{TemplateBinding Title}"
                         TextTrimming="CharacterEllipsis"
                         TextWrapping="NoWrap" />
