@@ -18,10 +18,7 @@
         <design:DesignHomeViewModel />
     </Design.DataContext>
     <cc:Page Title="Home">
-        <Grid
-            Margin="0,0,0,16"
-            ColumnDefinitions="3* 1*"
-            RowDefinitions="2* 1*">
+        <Grid ColumnDefinitions="3* 1*" RowDefinitions="2* 1*">
             <Grid
                 Grid.RowSpan="2"
                 Margin="0,0,16,0"
@@ -78,7 +75,6 @@
                                         <TextBlock FontWeight="Bold" Text="{Binding Name}" />
                                         <TextBlock
                                             FontSize="12"
-                                            Text="{Binding FilePath}"
                                             TextTrimming="CharacterEllipsis"
                                             TextWrapping="NoWrap" />
                                     </StackPanel>
