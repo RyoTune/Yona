@@ -20,5 +20,8 @@
 
     <Application.Resources>
         <converters:ProjectIconConverter x:Key="ProjectIconConverter" />
+        <converters:ToUpperConverter x:Key="ToUpper" />
+        <converters:PathFileNameConverter x:Key="PathFileName" />
+        <converters:IsNullConverter x:Key="IsNull" />
     </Application.Resources>
 </Application>

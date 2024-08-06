@@ -9,7 +9,7 @@ using Yona.Library.Projects.Models;
 
 namespace Yona.Desktop.Converters;
 
-public class ProjectIconConverter : IValueConverter
+internal class ProjectIconConverter : IValueConverter
 {
     private static readonly Uri appIcon = new("avares://Yona.Desktop/Assets/Icons/logo-icon.webp");
 
