@@ -13,7 +13,7 @@
     MinHeight="540"
     x:DataType="vm:MainWindowViewModel"
     BackgroundAnimationEnabled="{Binding Settings.Current.UseAnimBackground}"
-    Icon="/Assets/avalonia-logo.ico"
+    Icon="/Assets/icon.ico"
     mc:Ignorable="d">
 
     <Design.DataContext>
