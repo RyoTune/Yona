@@ -2,7 +2,7 @@
 
 namespace Yona.Desktop.DesignData;
 
-public class DesignHomeViewModel : HomeViewModel
+internal class DesignHomeViewModel : HomeViewModel
 {
     public DesignHomeViewModel()
         : base(new(new()))
