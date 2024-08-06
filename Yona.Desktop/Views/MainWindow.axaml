@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:suki="using:SukiUI.Controls"
-    xmlns:vm="using:Yona.Library.ViewModels"
+    xmlns:vm="using:Yona.Core.ViewModels"
     Title="Yona"
     Width="960"
     Height="540"

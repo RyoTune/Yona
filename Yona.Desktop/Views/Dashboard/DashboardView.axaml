@@ -6,7 +6,7 @@
     xmlns:ma="using:Material.Icons.Avalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:suki="using:SukiUI.Controls"
-    xmlns:vm="using:Yona.Library.ViewModels.Dashboard"
+    xmlns:vm="using:Yona.Core.ViewModels.Dashboard"
     d:DesignHeight="450"
     d:DesignWidth="800"
     x:DataType="vm:DashboardViewModel"
