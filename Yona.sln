@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yona.Desktop", "Yona.Desktop\Yona.Desktop.csproj", "{BFFF87A2-E347-439E-9E55-6086CBB92934}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yona.Library", "Yona.Library\Yona.Library.csproj", "{A53668AA-E569-4E14-AACB-E4DD1B245AAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yona.Core", "Yona.Core\Yona.Core.csproj", "{A53668AA-E569-4E14-AACB-E4DD1B245AAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using System;
-using Yona.Library.ViewModels;
+using Yona.Core.ViewModels;
 
 namespace Yona.Desktop;
 
@@ -15,7 +15,7 @@ public class ViewLocator : IDataTemplate
 
         var name = data.GetType().FullName!
             .Replace("ViewModel", "View", StringComparison.Ordinal)
-            .Replace("Yona.Library", "Yona.Desktop", StringComparison.Ordinal);
+            .Replace("Yona.Core", "Yona.Desktop", StringComparison.Ordinal);
         var type = Type.GetType(name);
 
         if (type != null)

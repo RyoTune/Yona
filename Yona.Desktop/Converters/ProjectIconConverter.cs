@@ -5,7 +5,7 @@ using Avalonia.Platform;
 using System;
 using System.Globalization;
 using Yona.Desktop.Common;
-using Yona.Library.Projects.Models;
+using Yona.Core.Projects.Models;
 
 namespace Yona.Desktop.Converters;
 

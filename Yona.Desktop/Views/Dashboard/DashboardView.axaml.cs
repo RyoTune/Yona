@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using SukiUI.Controls;
-using Yona.Library.ViewModels.Dashboard;
+using Yona.Core.ViewModels.Dashboard;
 
 namespace Yona.Desktop.Views.Dashboard;
 

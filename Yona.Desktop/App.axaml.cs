@@ -8,12 +8,12 @@ using SukiUI;
 using SukiUI.Enums;
 using System;
 using System.ComponentModel;
+using Yona.Core.Settings;
+using Yona.Core.Settings.Models;
+using Yona.Core.ViewModels;
+using Yona.Core.ViewModels.Dashboard;
 using Yona.Desktop.Extensions;
 using Yona.Desktop.Views;
-using Yona.Library.Settings;
-using Yona.Library.Settings.Models;
-using Yona.Library.ViewModels;
-using Yona.Library.ViewModels.Dashboard;
 
 namespace Yona.Desktop;
 

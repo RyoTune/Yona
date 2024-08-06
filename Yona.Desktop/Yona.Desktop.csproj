@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Yona.Library\Yona.Library.csproj" />
+    <ProjectReference Include="..\Yona.Core\Yona.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿using Yona.Library.ViewModels.Dashboard.Home;
+﻿using Yona.Core.ViewModels.Dashboard.Home;
 
 namespace Yona.Desktop.DesignData;
 

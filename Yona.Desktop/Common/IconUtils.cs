@@ -1,4 +1,4 @@
-﻿using Yona.Library.Common;
+﻿using Yona.Core.Common;
 
 namespace Yona.Desktop.Common;
 
