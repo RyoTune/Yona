@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using Yona.Library.Settings;
-using Yona.Library.Settings.Models;
+using Yona.Core.Settings;
+using Yona.Core.Settings.Models;
 
-namespace Yona.Library.ViewModels.Dashboard.Settings;
+namespace Yona.Core.ViewModels.Dashboard.Settings;
 
 public partial class SettingsViewModel : ViewModelBase
 {

@@ -1,6 +1,6 @@
-﻿using Yona.Library.Common.Serializers;
+﻿using Yona.Core.Common.Serializers;
 
-namespace Yona.Library.Common;
+namespace Yona.Core.Common;
 
 public class SavableFile<T>
     where T : new()
@@ -13,22 +13,22 @@ public class SavableFile<T>
         this.filePath = filePath;
         this.serializer = serializer;
 
-        this.Value = this.GetValue();
+        Value = GetValue();
     }
 
     public T Value { get; set; }
 
-    public void Save() => this.serializer.SerializeFile(this.filePath, this.Value);
+    public void Save() => serializer.SerializeFile(filePath, Value);
 
     private T GetValue()
     {
-        if (File.Exists(this.filePath))
+        if (File.Exists(filePath))
         {
-            return this.serializer.DeserializeFile<T>(this.filePath);
+            return serializer.DeserializeFile<T>(filePath);
         }
 
         var defaultValue = new T();
-        this.serializer.SerializeFile(this.filePath, defaultValue);
+        serializer.SerializeFile(filePath, defaultValue);
         return defaultValue;
     }
 }

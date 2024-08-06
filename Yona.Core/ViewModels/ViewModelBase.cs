@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Yona.Library.ViewModels;
+namespace Yona.Core.ViewModels;
 
 public class ViewModelBase : ObservableObject
 {

@@ -9,6 +9,13 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+    <PackageReference Include="YamlDotNet" Version="16.0.0" />
   </ItemGroup>
-
+	
+	<ItemGroup>
+		<Content Include="Data\Templates\**" Link="Templates\%(RecursiveDir)\%(Filename)%(Extension)">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Visible>false</Visible>
+		</Content>
+	</ItemGroup>
 </Project>

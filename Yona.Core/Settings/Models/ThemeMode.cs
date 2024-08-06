@@ -1,4 +1,4 @@
-﻿namespace Yona.Library.Settings.Models;
+﻿namespace Yona.Core.Settings.Models;
 
 public enum ThemeMode
 {

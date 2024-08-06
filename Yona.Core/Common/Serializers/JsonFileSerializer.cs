@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Yona.Library.Common.Serializers;
+namespace Yona.Core.Common.Serializers;
 
 internal class JsonFileSerializer : IFileSerializer
 {

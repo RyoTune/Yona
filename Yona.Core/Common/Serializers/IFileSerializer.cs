@@ -1,4 +1,4 @@
-﻿namespace Yona.Library.Common.Serializers;
+﻿namespace Yona.Core.Common.Serializers;
 
 public interface IFileSerializer
 {

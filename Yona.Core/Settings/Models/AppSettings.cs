@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Yona.Library.Settings.Models;
+namespace Yona.Core.Settings.Models;
 
 public partial class AppSettings : ObservableObject
 {
