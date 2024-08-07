@@ -1,21 +1,20 @@
-﻿using System.Collections.ObjectModel;
-using Yona.Core.Projects;
+﻿using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
 
 namespace Yona.Core.ViewModels.Dashboard.Home;
 
 public class HomeViewModel : ViewModelBase
 {
-    private readonly TemplatesRegistry _templates;
+    private readonly TemplatesRepository templates;
 
-    public HomeViewModel(TemplatesRegistry templates)
+    public HomeViewModel(TemplatesRepository templates)
     {
-        _templates = templates;
+        this.templates = templates;
     }
 
     public List<Project> Projects { get; init; } = [];
 
     public List<Project> RecentProjects => Projects.Take(10).ToList();
 
-    public ObservableCollection<ProjectTemplate> Templates => _templates.Templates;
+    public IReadOnlyList<ProjectTemplate> Templates => this.templates.Items;
 }
