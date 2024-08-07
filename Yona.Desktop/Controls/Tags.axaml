@@ -15,11 +15,11 @@
     <ItemsControl.ItemTemplate>
         <DataTemplate>
             <Border
-                Padding="4,2"
-                BorderBrush="{DynamicResource SukiPrimaryColor}"
+                Padding="8,2"
+                BorderBrush="{DynamicResource ThemeForegroundLowBrush}"
                 BorderThickness="1"
                 CornerRadius="16">
-                <TextBlock Text="{Binding}" FontSize="12" />
+                <TextBlock FontSize="12" Text="{Binding}" />
             </Border>
         </DataTemplate>
     </ItemsControl.ItemTemplate>
