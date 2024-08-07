@@ -1,5 +1,5 @@
-﻿Name: Blank Project
-Version: 1
-DefaultBaseOutputPath: 
-DefaultEncoder: HCA
-Tracks:
+﻿name: Blank Project
+version: 1
+base_output_path: 
+default_encoder: HCA
+tracks:

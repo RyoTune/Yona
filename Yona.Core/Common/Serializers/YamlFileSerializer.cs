@@ -14,6 +14,7 @@ public class YamlFileSerializer : IFileSerializer
 
     private static readonly IDeserializer Deserializer = new DeserializerBuilder()
         .IgnoreUnmatchedProperties()
+        .WithNamingConvention(UnderscoredNamingConvention.Instance)
         .Build();
 
     public T DeserializeFile<T>(string filePath) => Deserializer.Deserialize<T>(File.ReadAllText(filePath));
