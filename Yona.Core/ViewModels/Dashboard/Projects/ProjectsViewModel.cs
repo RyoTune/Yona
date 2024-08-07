@@ -1,13 +1,36 @@
-﻿using Yona.Core.Projects;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
+using Yona.Core.ViewModels.TrackPanel;
 
 namespace Yona.Core.ViewModels.Dashboard.Projects;
 
-public class ProjectsViewModel : ViewModelBase
+public partial class ProjectsViewModel : ViewModelBase
 {
-    public ProjectsViewModel(TemplatesRegistry templates)
+    private readonly IRelayCommand closePanelCommand;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(TrackPanel))]
+    private AudioTrack? _selectedTrack;
+
+    public ProjectsViewModel(TemplatesRepository templates)
     {
-        Tracks = templates.Templates[3].Tracks;
+        this.closePanelCommand = new RelayCommand(() => this.SelectedTrack = null);
+        this.Tracks = templates.Items[3].Tracks;
+    }
+
+    public TrackPanelViewModel? TrackPanel
+    {
+        get
+        {
+            if (this.SelectedTrack != null)
+            {
+                return new(this.SelectedTrack, this.closePanelCommand);
+            }
+
+            return null;
+        }
     }
 
     public List<AudioTrack> Tracks { get; set; }
