@@ -5,7 +5,7 @@ namespace Yona.Desktop.DesignData;
 internal class DesignProjectsViewModel : ProjectsViewModel
 {
     public DesignProjectsViewModel()
-        : base(new(new()))
+        : base(new(new(), null!))
     {
     }
 }

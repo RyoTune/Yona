@@ -17,11 +17,7 @@ internal class ProjectIconConverter : IValueConverter
     {
         if (value is Project project)
         {
-            return null;
-        }
-        else if (value is ProjectTemplate template)
-        {
-            if (IconUtils.GetDefaultIconFromName(template.Name) is string internalName)
+            if (IconUtils.GetDefaultIconFromName(project.Name) is string internalName)
             {
                 var iconUri = new Uri($"avares://Yona.Desktop/Assets/Icons/{internalName}.webp");
 
