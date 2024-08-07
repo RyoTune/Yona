@@ -1,4 +1,4 @@
-﻿using Yona.Core.ViewModels.Tracks;
+﻿using Yona.Core.ViewModels.TrackPanel;
 
 namespace Yona.Desktop.DesignData;
 
