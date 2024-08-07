@@ -7,30 +7,32 @@ using Yona.Core.Projects.Models;
 
 namespace Yona.Core.Projects;
 
-public class TemplatesRepository : IRepository<ProjectTemplate, string>
+public class TemplatesRepository : IRepository<Project, string>
 {
     private readonly ILogger? log;
     private readonly string templatesDir;
-    private readonly ObservableCollection<ProjectTemplate> _templates = new();
-
+    private readonly ObservableCollection<Project> _templates = [];
     private readonly Dictionary<string, string> templateFiles = [];
 
-    public TemplatesRepository(AppService app, ILogger? log = null)
+    public TemplatesRepository(AppService app, ILogger log)
     {
         this.log = log;
-        this.templatesDir = Directory.CreateDirectory(Path.Join(app.BaseDir, "templates")).FullName;
+
+        this.templatesDir = Path.Join(app.BaseDir, "templates");
+        Directory.CreateDirectory(this.templatesDir);
+
         LoadTemplates();
     }
 
-    public IReadOnlyList<ProjectTemplate> Items => this._templates;
+    public IReadOnlyList<Project> Items => this._templates;
 
-    public void Add(ProjectTemplate entity) => this._templates.Add(entity);
+    public void Add(Project entity) => this._templates.Add(entity);
 
-    public void Delete(ProjectTemplate entity) => this._templates.Remove(entity);
+    public void Delete(Project entity) => this._templates.Remove(entity);
 
-    public ProjectTemplate Get(string id) => this._templates.First(x => x.Id == id);
+    public Project Get(string id) => this._templates.First(x => x.Id == id);
 
-    public void Update(ProjectTemplate entity)
+    public void Update(Project entity)
     {
         if (this.templateFiles.TryGetValue(entity.Id, out var templateFile))
         {
@@ -49,7 +51,7 @@ public class TemplatesRepository : IRepository<ProjectTemplate, string>
             {
                 try
                 {
-                    var template = YamlFileSerializer.Instance.DeserializeFile<ProjectTemplate>(templateFile);
+                    var template = YamlFileSerializer.Instance.DeserializeFile<Project>(templateFile);
                     this._templates.Add(template);
                     this.templateFiles[template.Id] = templateFile;
                 }
