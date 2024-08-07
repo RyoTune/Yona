@@ -34,29 +34,34 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid
-                                        Width="128"
-                                        Height="128"
+                                    <Button
                                         Margin="4"
-                                        ColumnDefinitions="*"
-                                        RowDefinitions="*">
-                                        <Border Background="#1a1a1a" />
-                                        <Image Source="{Binding Converter={StaticResource ProjectIconConverter}}" Stretch="UniformToFill" />
-                                        <Border
-                                            Padding="2"
-                                            VerticalAlignment="Bottom"
-                                            Background="#DD000000">
+                                        Padding="0"
+                                        Command="{Binding $parent[UserControl].((vm:HomeViewModel)DataContext).CreateProjectCommand}"
+                                        CommandParameter="{Binding}">
+                                        <Grid
+                                            Width="256"
+                                            Height="64"
+                                            ColumnDefinitions="64 *">
+                                            <Border
+                                                Background="#1c1c1c"
+                                                ClipToBounds="True"
+                                                CornerRadius="{StaticResource SmallCornerRadius}">
+                                                <Image
+                                                    RenderOptions.BitmapInterpolationMode="MediumQuality"
+                                                    Source="{Binding Converter={StaticResource ProjectIconConverter}}"
+                                                    Stretch="UniformToFill" />
+                                            </Border>
                                             <TextBlock
-                                                Height="32"
-                                                FontSize="12"
-                                                Foreground="White"
+                                                Grid.Column="1"
+                                                Padding="8,0"
+                                                VerticalAlignment="Center"
                                                 MaxLines="2"
                                                 Text="{Binding Name}"
-                                                TextAlignment="Center"
                                                 TextTrimming="WordEllipsis"
                                                 TextWrapping="Wrap" />
-                                        </Border>
-                                    </Grid>
+                                        </Grid>
+                                    </Button>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
@@ -71,13 +76,7 @@
                         <ItemsControl ItemsSource="{Binding RecentProjects}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock FontWeight="Bold" Text="{Binding Name}" />
-                                        <TextBlock
-                                            FontSize="12"
-                                            TextTrimming="CharacterEllipsis"
-                                            TextWrapping="NoWrap" />
-                                    </StackPanel>
+                                    <TextBlock Text="{Binding Name}" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
