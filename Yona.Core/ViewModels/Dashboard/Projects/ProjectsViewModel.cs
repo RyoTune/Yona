@@ -33,5 +33,5 @@ public partial class ProjectsViewModel : ViewModelBase
         }
     }
 
-    public List<AudioTrack> Tracks { get; set; }
+    public IReadOnlyList<AudioTrack> Tracks { get; set; }
 }
