@@ -1,0 +1,23 @@
+<UserControl
+    x:Class="Yona.Desktop.Views.TrackPanel.TrackEncoder"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:Yona.Core.ViewModels.TrackPanel"
+    d:DesignHeight="80"
+    d:DesignWidth="300"
+    x:DataType="vm:TrackPanelViewModel"
+    mc:Ignorable="d">
+    <UserControl.Styles>
+        <StyleInclude Source="/Styles/TrackPanelStyles.axaml" />
+    </UserControl.Styles>
+    <StackPanel>
+        <TextBlock Classes="section-header" Text="Encoder" />
+        <ComboBox
+            HorizontalAlignment="Stretch"
+            ItemsSource="{Binding Encoders}"
+            MaxDropDownHeight="200"
+            SelectedItem="{Binding Track.Encoder}" />
+    </StackPanel>
+</UserControl>
