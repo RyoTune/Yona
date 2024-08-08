@@ -1,12 +1,15 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
+using ReactiveUI;
 using System;
 using Yona.Core.ViewModels;
 
 namespace Yona.Desktop;
 
-public class ViewLocator : IDataTemplate
+public class ViewLocator : IDataTemplate, IViewLocator
 {
+    public IViewFor? ResolveView<T>(T? viewModel, string? contract = null)
+        => this.Build(viewModel) as IViewFor;
 
     public Control? Build(object? data)
     {

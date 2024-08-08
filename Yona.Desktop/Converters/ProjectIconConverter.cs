@@ -5,7 +5,6 @@ using Avalonia.Platform;
 using System;
 using System.Globalization;
 using Yona.Desktop.Common;
-using Yona.Core.Projects.Models;
 
 namespace Yona.Desktop.Converters;
 
@@ -15,7 +14,7 @@ internal class ProjectIconConverter : IValueConverter
 
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is Project project)
+        if (value is Core.Projects.Models.Project project)
         {
             if (IconUtils.GetDefaultIconFromName(project.Name) is string internalName)
             {

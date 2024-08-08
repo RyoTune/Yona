@@ -3,6 +3,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cc="using:Yona.Desktop.Controls"
+    xmlns:controls="using:Yona.Desktop.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:design="using:Yona.Desktop.DesignData"
     xmlns:ma="using:Material.Icons.Avalonia"
@@ -24,54 +25,15 @@
                 Margin="0,0,16,0"
                 RowDefinitions="auto *">
                 <TextBlock Classes="h3" Text="Create Project" />
-                <suki:GlassCard Grid.Row="1">
-                    <ScrollViewer>
-                        <ItemsControl ItemsSource="{Binding Templates}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Button
-                                        Margin="4"
-                                        Padding="0"
-                                        Command="{Binding $parent[UserControl].((vm:HomeViewModel)DataContext).CreateProjectCommand}"
-                                        CommandParameter="{Binding}">
-                                        <Grid
-                                            Width="256"
-                                            Height="64"
-                                            ColumnDefinitions="64 *">
-                                            <Border
-                                                Background="#1c1c1c"
-                                                ClipToBounds="True"
-                                                CornerRadius="{StaticResource SmallCornerRadius}">
-                                                <Image
-                                                    RenderOptions.BitmapInterpolationMode="MediumQuality"
-                                                    Source="{Binding Converter={StaticResource ProjectIconConverter}}"
-                                                    Stretch="UniformToFill" />
-                                            </Border>
-                                            <TextBlock
-                                                Grid.Column="1"
-                                                Padding="8,0"
-                                                VerticalAlignment="Center"
-                                                MaxLines="2"
-                                                Text="{Binding Name}"
-                                                TextTrimming="WordEllipsis"
-                                                TextWrapping="Wrap" />
-                                        </Grid>
-                                    </Button>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </ScrollViewer>
-                </suki:GlassCard>
+                <controls:ProjectsGallery
+                    Grid.Row="1"
+                    Command="{Binding CreateProjectCommand}"
+                    ProjectsSource="{Binding Templates}" />
             </Grid>
 
             <Grid Grid.Column="1" RowDefinitions="auto *">
                 <TextBlock Classes="h3" Text="Recent Projects" />
-                <suki:GlassCard Grid.Row="1">
+                <suki:GlassCard Grid.Row="1" Height="">
                     <ScrollViewer>
                         <ItemsControl ItemsSource="{Binding RecentProjects}">
                             <ItemsControl.ItemTemplate>
