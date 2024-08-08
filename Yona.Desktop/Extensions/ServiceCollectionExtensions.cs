@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Yona.Core.App;
+using Yona.Core.Audio;
 using Yona.Core.Projects;
 using Yona.Core.Settings;
 using Yona.Core.ViewModels;
@@ -36,6 +37,7 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<SettingsService>();
         service.AddSingleton<TemplateRepository>();
         service.AddSingleton<ProjectRepository>();
+        service.AddSingleton<LoopService>();
 
         return service;
     }
