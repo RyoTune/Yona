@@ -1,14 +1,12 @@
 using Avalonia.ReactiveUI;
-using ReactiveUI;
 using Yona.Core.ViewModels.Dashboard.Projects;
 
 namespace Yona.Desktop.Views.Dashboard.Projects;
 
-public partial class ProjectsView : ReactiveUserControl<ProjectsViewModel>
+public partial class ProjectsGalleryView : ReactiveUserControl<ProjectsGalleryViewModel>
 {
-    public ProjectsView()
+    public ProjectsGalleryView()
     {
         InitializeComponent();
-        this.WhenActivated(disposables => { });
     }
 }

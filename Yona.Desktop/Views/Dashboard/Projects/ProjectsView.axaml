@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:design="using:Yona.Desktop.DesignData"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rxui="using:Avalonia.ReactiveUI"
     xmlns:suki="using:SukiUI.Controls"
     xmlns:vm="using:Yona.Core.ViewModels.Dashboard.Projects"
     d:DesignHeight="540"
@@ -15,46 +16,5 @@
     <Design.DataContext>
         <design:DesignProjectsViewModel />
     </Design.DataContext>
-    <cc:Page Title="Projects">
-        <Grid ColumnDefinitions="* auto">
-            <suki:GlassCard>
-                <ListBox
-                    Foreground="{DynamicResource SukiText}"
-                    ItemsSource="{Binding Tracks}"
-                    SelectedItem="{Binding SelectedTrack}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid ColumnDefinitions="* auto" RowDefinitions="auto auto">
-                                <TextBlock FontWeight="Bold" Text="{Binding Name}" />
-                                <TextBlock
-                                    Grid.Column="1"
-                                    HorizontalAlignment="Right"
-                                    FontWeight="Light"
-                                    Text="{Binding Category}" />
-                                <TextBlock
-                                    Grid.Row="1"
-                                    Foreground="{DynamicResource ThemeAccentBrush}"
-                                    Text="{Binding InputFile, TargetNullValue=''}"
-                                    TextTrimming="CharacterEllipsis"
-                                    ToolTip.Tip="{Binding InputFile}" />
-                                <cc:Tags
-                                    Grid.Row="1"
-                                    Grid.Column="1"
-                                    HorizontalAlignment="Right"
-                                    ItemsSource="{Binding Tags}" />
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </suki:GlassCard>
-
-            <suki:GlassCard
-                Grid.Column="1"
-                Width="250"
-                Margin="8,0,0,0"
-                IsVisible="{Binding !TrackPanel, Converter={StaticResource IsNull}}">
-                <ContentControl Content="{Binding TrackPanel}" />
-            </suki:GlassCard>
-        </Grid>
-    </cc:Page>
+    <rxui:RoutedViewHost Router="{Binding Router}" ViewLocator="{StaticResource ViewLocator}" />
 </UserControl>
