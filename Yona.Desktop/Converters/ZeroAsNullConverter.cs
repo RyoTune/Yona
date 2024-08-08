@@ -18,5 +18,12 @@ internal class ZeroAsNullConverter : IValueConverter
     }
 
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
-        => value;
+    {
+        if (value == null)
+        {
+            return 0;
+        }
+
+        return value;
+    }
 }
