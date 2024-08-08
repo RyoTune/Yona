@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
     
-namespace Yona.Core.Audio;
+namespace Yona.Core.Audio.Models;
 
 public partial class Loop : ObservableObject
 {

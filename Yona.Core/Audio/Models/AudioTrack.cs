@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Yona.Core.Audio;
 
-namespace Yona.Core.Projects.Models;
+namespace Yona.Core.Audio.Models;
 
 public partial class AudioTrack : ObservableObject
 {
