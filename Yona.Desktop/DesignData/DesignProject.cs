@@ -1,12 +1,13 @@
-﻿using Yona.Core.Projects.Models;
+﻿using System;
+using System.IO;
+using Yona.Core.Projects.Models;
 
 namespace Yona.Desktop.DesignData;
 
-internal class DesignProject : Project
+internal class DesignProject : ProjectBundle
 {
     public DesignProject()
+        : base(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "design-project.yaml"))
     {
-        this.Name = "Project Name";
-        this.Tracks = [];
     }
 }

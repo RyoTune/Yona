@@ -4,6 +4,8 @@ using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using System;
 using System.Globalization;
+using System.IO;
+using Yona.Core.Projects.Models;
 using Yona.Desktop.Common;
 
 namespace Yona.Desktop.Converters;
@@ -14,19 +16,25 @@ internal class ProjectIconConverter : IValueConverter
 
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is Core.Projects.Models.Project project)
+        if (value is ProjectBundle project)
         {
-            if (IconUtils.GetDefaultIconFromName(project.Name) is string internalName)
+            if (File.Exists(project.IconFile))
             {
-                var iconUri = new Uri($"avares://Yona.Desktop/Assets/Icons/{internalName}.webp");
+                try
+                {
+                    return new Bitmap(project.IconFile);
+                }
+                catch (Exception) { }
+            }
+            else if (IconUtils.GetDefaultIconFromName(project.Data.Name) is string knownName)
+            {
+                var iconUri = new Uri($"avares://Yona.Desktop/Assets/Icons/{knownName}.webp");
 
                 try
                 {
                     return new Bitmap(AssetLoader.Open(iconUri));
                 }
-                catch (Exception)
-                {
-                }
+                catch (Exception) { }
             }
 
             return new Bitmap(AssetLoader.Open(appIcon));

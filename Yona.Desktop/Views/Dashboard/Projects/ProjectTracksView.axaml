@@ -21,11 +21,11 @@
                         <TextBlock VerticalAlignment="Center" Text="Projects" />
                     </StackPanel>
                 </Button>
-                <TextBlock Classes="h2" Text="{Binding Project.Name}" />
+                <TextBlock Classes="h2" Text="{Binding Project.Data.Name}" />
             </StackPanel>
         </cc:Page.Title>
         <Grid ColumnDefinitions="* auto">
-            <cc:AudioTracksList SelectedTrack="{Binding SelectedTrack}" Tracks="{Binding Project.Tracks}" />
+            <cc:AudioTracksList SelectedTrack="{Binding SelectedTrack}" Tracks="{Binding Project.Data.Tracks}" />
             <suki:GlassCard
                 Grid.Column="1"
                 Width="250"

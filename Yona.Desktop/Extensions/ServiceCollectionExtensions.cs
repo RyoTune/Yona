@@ -34,8 +34,8 @@ internal static class ServiceCollectionExtensions
     {
         service.AddSingleton<AppService>();
         service.AddSingleton<SettingsService>();
-        service.AddSingleton<TemplatesRepository>();
-        service.AddSingleton<ProjectsRepository>();
+        service.AddSingleton<TemplateRepository>();
+        service.AddSingleton<ProjectRepository>();
 
         return service;
     }

@@ -6,7 +6,7 @@
     xmlns:design="using:Yona.Desktop.DesignData"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:Yona.Core.Projects.Models"
-    x:DataType="models:Project"
+    x:DataType="models:ProjectBundle"
     mc:Ignorable="d">
     <Design.DataContext>
         <design:DesignProject />
@@ -29,7 +29,7 @@
             Padding="8,0"
             VerticalAlignment="Center"
             MaxLines="2"
-            Text="{Binding Name}"
+            Text="{Binding Data.Name}"
             TextTrimming="WordEllipsis"
             TextWrapping="Wrap" />
     </Grid>
