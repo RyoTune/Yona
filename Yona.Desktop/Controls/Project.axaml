@@ -1,0 +1,36 @@
+<UserControl
+    x:Class="Yona.Desktop.Controls.Project"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:design="using:Yona.Desktop.DesignData"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Yona.Core.Projects.Models"
+    x:DataType="models:Project"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <design:DesignProject />
+    </Design.DataContext>
+    <Grid
+        Width="256"
+        Height="64"
+        ColumnDefinitions="64 *">
+        <Border
+            Background="#1c1c1c"
+            ClipToBounds="True"
+            CornerRadius="{StaticResource SmallCornerRadius}">
+            <Image
+                RenderOptions.BitmapInterpolationMode="MediumQuality"
+                Source="{Binding Converter={StaticResource ProjectIconConverter}}"
+                Stretch="UniformToFill" />
+        </Border>
+        <TextBlock
+            Grid.Column="1"
+            Padding="8,0"
+            VerticalAlignment="Center"
+            MaxLines="2"
+            Text="{Binding Name}"
+            TextTrimming="WordEllipsis"
+            TextWrapping="Wrap" />
+    </Grid>
+</UserControl>

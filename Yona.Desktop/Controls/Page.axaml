@@ -12,12 +12,7 @@
             <Grid Margin="16,0,16,16" RowDefinitions="auto *">
                 <Grid ColumnDefinitions="auto * auto">
                     <ContentPresenter Content="{TemplateBinding Icon}" />
-                    <TextBlock
-                        Grid.Column="1"
-                        Classes="h2"
-                        Text="{TemplateBinding Title}"
-                        TextTrimming="CharacterEllipsis"
-                        TextWrapping="NoWrap" />
+                    <ContentPresenter Grid.Column="1" Content="{TemplateBinding Title}" />
                     <ContentPresenter Grid.Column="2" Content="{TemplateBinding MenuItems}" />
                 </Grid>
                 <ContentControl Grid.Row="1" Content="{TemplateBinding Content}" />

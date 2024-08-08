@@ -1,0 +1,47 @@
+<UserControl
+    x:Class="Yona.Desktop.Controls.AudioTracksList"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Yona.Core.Audio.Models"
+    xmlns:suki="using:SukiUI.Controls"
+    x:Name="root"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <suki:GlassCard>
+        <ListBox
+            Foreground="{DynamicResource SukiText}"
+            ItemsSource="{Binding #root.Tracks}"
+            SelectedItem="{Binding #root.SelectedTrack}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DataTemplate.DataType>
+                        <x:Type TypeName="models:AudioTrack" />
+                    </DataTemplate.DataType>
+                    <Grid ColumnDefinitions="* auto" RowDefinitions="auto auto">
+                        <TextBlock FontWeight="Bold" Text="{Binding Name}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            FontWeight="Light"
+                            Text="{Binding Category}" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Foreground="{DynamicResource ThemeAccentBrush}"
+                            Text="{Binding InputFile, TargetNullValue=''}"
+                            TextTrimming="CharacterEllipsis"
+                            ToolTip.Tip="{Binding InputFile}" />
+                        <cc:Tags
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            ItemsSource="{Binding Tags}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </suki:GlassCard>
+</UserControl>

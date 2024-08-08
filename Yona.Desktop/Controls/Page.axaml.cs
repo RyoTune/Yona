@@ -5,8 +5,8 @@ namespace Yona.Desktop.Controls;
 
 public partial class Page : UserControl
 {
-    public static readonly StyledProperty<string?> TitleProperty =
-        AvaloniaProperty.Register<Page, string?>(nameof(Title));
+    public static readonly StyledProperty<object?> TitleProperty =
+        AvaloniaProperty.Register<Page, object?>(nameof(Title));
 
     public static readonly DirectProperty<Page, object?> MenuItemsProperty =
         AvaloniaProperty.RegisterDirect<Page, object?>(nameof(MenuItems), o => o.MenuItems, (o, v) => o.MenuItems = v);
@@ -22,10 +22,29 @@ public partial class Page : UserControl
         InitializeComponent();
     }
 
-    public string? Title
+    public object? Title
     {
         get => this.GetValue(TitleProperty);
-        set => this.SetValue(TitleProperty, value);
+        set
+        {
+            if (value is string text)
+            {
+                var textBlock = new TextBlock()
+                {
+                    Text = text,
+                    TextTrimming = Avalonia.Media.TextTrimming.CharacterEllipsis,
+                    TextWrapping = Avalonia.Media.TextWrapping.NoWrap,
+                };
+
+                textBlock.Classes.Add("h2");
+
+                this.SetValue(TitleProperty, textBlock);
+            }
+            else
+            {
+                this.SetValue(TitleProperty, value);
+            }
+        }
     }
 
     public object? MenuItems
