@@ -7,29 +7,36 @@ namespace Yona.Core.ViewModels.Dashboard.Home;
 
 public partial class HomeViewModel : ViewModelBase
 {
-    private readonly ProjectsRepository projects;
-    private readonly TemplatesRepository templates;
+    private readonly ProjectRepository projects;
+    private readonly TemplateRepository templates;
     private readonly ILogger log;
 
-    public HomeViewModel(ProjectsRepository projects, TemplatesRepository templates, ILogger log)
+    public HomeViewModel(ProjectRepository projects, TemplateRepository templates, ILogger log)
     {
         this.log = log;
         this.projects = projects;
         this.templates = templates;
     }
 
-    public List<Project> Projects { get; init; } = [];
+    public List<ProjectBundle> RecentProjects => this.projects.Items.Take(10).ToList();
 
-    public List<Project> RecentProjects => this.projects.Items.Take(10).ToList();
-
-    public IReadOnlyList<Project> Templates => this.templates.Items;
+    public IReadOnlyList<ProjectBundle> Templates => this.templates.Items;
 
     [RelayCommand]
-    public void CreateProject(Project template)
+    public void CreateProject(ProjectBundle template)
     {
         try
         {
-            this.projects.Add(template);
+            // TODO: Tracks are a reference collection here.
+            // new projects will edit the tracks as the template's probably.
+            // Have to clone first.
+            var newProject = new ProjectData()
+            {
+                Name = template.Data.Name,
+                Tracks = template.Data.Tracks,
+            };
+
+            this.projects.Create(newProject);
         }
         catch (Exception ex)
         {

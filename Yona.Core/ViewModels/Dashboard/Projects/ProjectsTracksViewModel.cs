@@ -16,17 +16,17 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel
     [NotifyPropertyChangedFor(nameof(TrackPanel))]
     private AudioTrack? _selectedTrack;
 
-    public ProjectTracksViewModel(IScreen host, Project project)
+    public ProjectTracksViewModel(IScreen host, ProjectBundle project)
     {
         this.HostScreen = host;
-        this.UrlPathSegment = $"{project.Id}/tracks";
+        this.UrlPathSegment = $"{project.Data.Id}/tracks";
 
         this.closePanelCommand = new RelayCommand(() => this.SelectedTrack = null);
         this.Project = project;
 
     }
 
-    public Project Project { get; }
+    public ProjectBundle Project { get; }
 
     public IScreen HostScreen { get; }
 

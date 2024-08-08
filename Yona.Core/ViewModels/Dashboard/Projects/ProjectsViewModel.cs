@@ -8,7 +8,7 @@ public partial class ProjectsViewModel : ViewModelBase, IActivatableViewModel, I
 {
     private readonly ProjectsGalleryViewModel projectsGallery;
 
-    public ProjectsViewModel(ProjectsRepository projects)
+    public ProjectsViewModel(ProjectRepository projects)
     {
         this.projectsGallery = new ProjectsGalleryViewModel(this, projects);
         this.Router.Navigate.Execute(this.projectsGallery);

@@ -23,13 +23,13 @@ public class SettingsService : ObservableObject
         Current.PropertyChanged += OnSettingsChanged;
     }
 
-    public AppSettings Current => settings.Value;
+    public AppSettings Current => settings.Data;
 
     public void Reset()
     {
         Current.PropertyChanged -= OnSettingsChanged;
 
-        settings.Value = new();
+        settings.Data = new();
         settings.Save();
         OnPropertyChanged(nameof(Current));
 

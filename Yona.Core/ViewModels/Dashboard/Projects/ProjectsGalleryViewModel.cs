@@ -7,22 +7,22 @@ namespace Yona.Core.ViewModels.Dashboard.Projects;
 
 public partial class ProjectsGalleryViewModel : ViewModelBase, IRoutableViewModel
 {
-    private readonly ProjectsRepository projects;
+    private readonly ProjectRepository projects;
 
-    public ProjectsGalleryViewModel(IScreen host, ProjectsRepository projects)
+    public ProjectsGalleryViewModel(IScreen host, ProjectRepository projects)
     {
         this.HostScreen = host;
         this.projects = projects;
     }
 
-    public IReadOnlyList<Project> Projects => this.projects.Items;
+    public IReadOnlyList<ProjectBundle> Projects => this.projects.Items;
 
     public string? UrlPathSegment { get; } = "gallery";
 
     public IScreen HostScreen { get; }
 
     [RelayCommand]
-    private void OpenProject(Project project)
+    private void OpenProject(ProjectBundle project)
     {
         this.HostScreen.Router.Navigate.Execute(new ProjectTracksViewModel(this.HostScreen, project));
     }
