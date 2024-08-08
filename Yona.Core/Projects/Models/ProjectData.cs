@@ -4,7 +4,7 @@ using Yona.Core.Audio.Models;
 
 namespace Yona.Core.Projects.Models;
 
-public partial class Project : ObservableObject
+public partial class ProjectData : ObservableObject
 {
     [ObservableProperty]
     private string id = Guid.NewGuid().ToString();

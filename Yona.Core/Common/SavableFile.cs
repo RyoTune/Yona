@@ -13,12 +13,12 @@ public class SavableFile<T>
         this.filePath = filePath;
         this.serializer = serializer;
 
-        Value = GetValue();
+        this.Data = GetValue();
     }
 
-    public T Value { get; set; }
+    public T Data { get; set; }
 
-    public void Save() => serializer.SerializeFile(filePath, Value);
+    public void Save() => serializer.SerializeFile(filePath, this.Data);
 
     private T GetValue()
     {
@@ -28,7 +28,7 @@ public class SavableFile<T>
         }
 
         var defaultValue = new T();
-        serializer.SerializeFile(filePath, defaultValue);
+        serializer.SerializeFile(this.filePath, defaultValue);
         return defaultValue;
     }
 }
