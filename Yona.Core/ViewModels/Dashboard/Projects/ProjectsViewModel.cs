@@ -1,37 +1,24 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using ReactiveUI;
+using System.Reactive.Disposables;
 using Yona.Core.Projects;
-using Yona.Core.Projects.Models;
-using Yona.Core.ViewModels.TrackPanel;
 
 namespace Yona.Core.ViewModels.Dashboard.Projects;
 
-public partial class ProjectsViewModel : ViewModelBase
+public partial class ProjectsViewModel : ViewModelBase, IActivatableViewModel, IScreen
 {
-    private readonly IRelayCommand closePanelCommand;
+    private readonly ProjectsGalleryViewModel projectsGallery;
 
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(TrackPanel))]
-    private AudioTrack? _selectedTrack;
-
-    public ProjectsViewModel(TemplatesRepository templates)
+    public ProjectsViewModel(ProjectsRepository projects)
     {
-        this.closePanelCommand = new RelayCommand(() => this.SelectedTrack = null);
-        this.Tracks = templates.Items[3].Tracks;
-    }
+        this.projectsGallery = new ProjectsGalleryViewModel(this, projects);
+        this.Router.Navigate.Execute(this.projectsGallery);
 
-    public TrackPanelViewModel? TrackPanel
-    {
-        get
+        this.WhenActivated((CompositeDisposable disposables) =>
         {
-            if (this.SelectedTrack != null)
-            {
-                return new(this.SelectedTrack, this.closePanelCommand);
-            }
-
-            return null;
-        }
+        });
     }
 
-    public IReadOnlyList<AudioTrack> Tracks { get; set; }
+    public ViewModelActivator Activator { get; } = new();
+
+    public RoutingState Router { get; } = new();
 }

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
+using Yona.Core.Audio.Models;
 
 namespace Yona.Core.Projects.Models;
 
