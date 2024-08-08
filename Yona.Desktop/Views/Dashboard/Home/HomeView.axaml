@@ -38,7 +38,7 @@
                         <ItemsControl ItemsSource="{Binding RecentProjects}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Data.Name}" />
+                                    <TextBlock Text="{Binding Data.Name}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
