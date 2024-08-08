@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
-using Yona.Core.Projects.Models;
+using Yona.Core.Audio.Models;
 
 namespace Yona.Core.ViewModels.TrackPanel;
 

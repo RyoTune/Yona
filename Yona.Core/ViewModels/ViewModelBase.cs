@@ -1,7 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ReactiveUI;
+using System.ComponentModel;
 
 namespace Yona.Core.ViewModels;
 
-public class ViewModelBase : ObservableObject
+public partial class ViewModelBase : ObservableObject, IReactiveObject
 {
+    public void RaisePropertyChanged(PropertyChangedEventArgs args) => this.OnPropertyChanged(args);
+
+    public void RaisePropertyChanging(PropertyChangingEventArgs args) => this.OnPropertyChanging(args);
 }
