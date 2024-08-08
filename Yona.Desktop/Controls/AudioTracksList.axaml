@@ -21,7 +21,7 @@
                     <DataTemplate.DataType>
                         <x:Type TypeName="models:AudioTrack" />
                     </DataTemplate.DataType>
-                    <Grid ColumnDefinitions="* auto" RowDefinitions="auto auto">
+                    <Grid ColumnDefinitions="* auto" RowDefinitions="* *">
                         <TextBlock FontWeight="Bold" Text="{Binding Name}" />
                         <TextBlock
                             Grid.Column="1"
@@ -30,10 +30,13 @@
                             Text="{Binding Category}" />
                         <TextBlock
                             Grid.Row="1"
+                            FlowDirection="RightToLeft"
                             Foreground="{DynamicResource ThemeAccentBrush}"
                             Text="{Binding InputFile, TargetNullValue=''}"
                             TextTrimming="CharacterEllipsis"
-                            ToolTip.Tip="{Binding InputFile}" />
+							VerticalAlignment="Center"
+                            ToolTip.Tip="{Binding InputFile}"
+							Margin="0 0 8 0"/>
                         <cc:Tags
                             Grid.Row="1"
                             Grid.Column="1"
