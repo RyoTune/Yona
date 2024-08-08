@@ -15,13 +15,9 @@
     <Design.DataContext>
         <design:DesignTrackPanelViewModel />
     </Design.DataContext>
-    <UserControl.Resources>
-        <ma:MaterialIcon x:Key="EditIcon" Kind="Edit" />
-        <ma:MaterialIcon x:Key="DeleteIcon" Kind="Delete" />
-    </UserControl.Resources>
     <Border>
         <Grid RowDefinitions="auto * auto">
-            <Grid ColumnDefinitions="* auto" RowDefinitions="* auto">
+            <Grid ColumnDefinitions="* auto" RowDefinitions="40 auto">
                 <TextBlock
                     VerticalAlignment="Center"
                     FontSize="16"
@@ -38,13 +34,9 @@
                     <Button
                         Classes="icon-button"
                         Command="{Binding EditCommand}"
-                        Content="{StaticResource EditIcon}"
-                        ToolTip.Tip="Edit" />
-                    <Button
-                        Classes="icon-button"
-                        Command="{Binding DeleteCommand}"
-                        Content="{StaticResource DeleteIcon}"
-                        ToolTip.Tip="Delete" />
+                        ToolTip.Tip="Edit">
+                        <ma:MaterialIcon Kind="Edit" />
+                    </Button>
                 </StackPanel>
                 <Separator
                     Grid.Row="1"
