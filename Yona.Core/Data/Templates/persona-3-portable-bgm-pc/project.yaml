@@ -1,7 +1,8 @@
 name: Persona 3 Portable BGM (PC)
 version: 1
-base_output_path: P5REssentials/CPK/Yona/data/sound/bgm
+default_output_path: P5REssentials/CPK/Yona/data/sound/bgm
 default_encoder: ADX
+default_loop_state: true
 tracks:
 - name: tartarus_0d01
   category: Location

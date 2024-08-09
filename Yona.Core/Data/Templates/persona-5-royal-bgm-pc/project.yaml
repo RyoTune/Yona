@@ -1,7 +1,8 @@
 name: Persona 5 Royal BGM (PC)
 version: 1
-base_output_path: FEmulator/AWB/BGM.AWB
+default_output_path: FEmulator/AWB/BGM.AWB
 default_encoder: ADX (Persona 5 Royal PC)
+default_loop_state: true
 tracks:
 - name: Endless Days
   category: Daily Life

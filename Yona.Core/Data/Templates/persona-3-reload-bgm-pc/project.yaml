@@ -1,7 +1,8 @@
 name: Persona 3 Reload BGM (PC)
 version: 1
-base_output_path: Ryo/P3R
+default_output_path: Ryo/P3R
 default_encoder: HCA (Persona 3 Reload)
+default_loop_state: true
 tracks:
 - name: tartarus_0d01
   category: Location

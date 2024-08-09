@@ -1,7 +1,8 @@
 name: Persona 4 Golden BGM (PC)
 version: 1
-base_output_path: FEmulator/AWB/snd00_bgm.awb
+default_output_path: FEmulator/AWB/snd00_bgm.awb
 default_encoder: HCA
+default_loop_state: true
 tracks:
 - name: Memory
   category: Story
