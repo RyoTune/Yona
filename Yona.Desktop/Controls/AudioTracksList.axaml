@@ -30,13 +30,14 @@
                             Text="{Binding Category}" />
                         <TextBlock
                             Grid.Row="1"
+                            Margin="0,0,8,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
                             FlowDirection="RightToLeft"
                             Foreground="{DynamicResource ThemeAccentBrush}"
                             Text="{Binding InputFile, TargetNullValue=''}"
                             TextTrimming="CharacterEllipsis"
-							VerticalAlignment="Center"
-                            ToolTip.Tip="{Binding InputFile}"
-							Margin="0 0 8 0"/>
+                            ToolTip.Tip="{Binding InputFile}" />
                         <cc:Tags
                             Grid.Row="1"
                             Grid.Column="1"
