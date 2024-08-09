@@ -1,4 +1,4 @@
-﻿using Yona.Core.Common.Serializers;
+﻿using Yona.Core.Utils.Serializers;
 
 namespace Yona.Core.Common;
 

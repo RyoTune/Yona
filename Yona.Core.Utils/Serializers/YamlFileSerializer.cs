@@ -1,7 +1,7 @@
 ﻿using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
 
-namespace Yona.Core.Common.Serializers;
+namespace Yona.Core.Utils.Serializers;
 
 public class YamlFileSerializer : IFileSerializer
 {

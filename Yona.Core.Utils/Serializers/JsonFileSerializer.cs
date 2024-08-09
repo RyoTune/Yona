@@ -1,8 +1,8 @@
 ﻿using System.Text.Json;
 
-namespace Yona.Core.Common.Serializers;
+namespace Yona.Core.Utils.Serializers;
 
-internal class JsonFileSerializer : IFileSerializer
+public class JsonFileSerializer : IFileSerializer
 {
     private readonly static JsonSerializerOptions defaults = new() { WriteIndented = true };
 
