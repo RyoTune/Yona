@@ -48,8 +48,8 @@
                 <StackPanel Spacing="12">
                     <local:TrackInputFile />
                     <local:TrackLoop />
-                    <local:TrackEncoder IsVisible="{Binding DevModeEnabled}" />
-                    <local:TrackOutput IsVisible="{Binding DevModeEnabled}" />
+                    <local:TrackEncoder IsVisible="{Binding IsDevMode}" />
+                    <local:TrackOutput IsVisible="{Binding IsDevMode}" />
                 </StackPanel>
             </ScrollViewer>
             <Button

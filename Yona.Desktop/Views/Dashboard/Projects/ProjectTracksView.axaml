@@ -14,16 +14,29 @@
     mc:Ignorable="d">
     <cc:Page>
         <cc:Page.Title>
-            <StackPanel Orientation="Horizontal" Spacing="16">
+            <StackPanel
+                Height="64"
+                Orientation="Horizontal"
+                Spacing="16">
                 <Button VerticalAlignment="Center" Command="{Binding GoBackCommand}">
                     <StackPanel Orientation="Horizontal" Spacing="8">
                         <ma:MaterialIcon VerticalAlignment="Center" Kind="ArrowLeftThick" />
                         <TextBlock VerticalAlignment="Center" Text="Projects" />
                     </StackPanel>
                 </Button>
-                <TextBlock Classes="h2" Text="{Binding Project.Data.Name}" />
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Text="{Binding Project.Data.Name}" />
             </StackPanel>
         </cc:Page.Title>
+        <cc:Page.MenuItems>
+            <Button
+                VerticalAlignment="Center"
+                Command="{Binding BuildCommand}"
+                Content="Build" />
+        </cc:Page.MenuItems>
         <Grid ColumnDefinitions="* auto">
             <cc:AudioTracksList SelectedTrack="{Binding SelectedTrack}" Tracks="{Binding Project.Data.Tracks}" />
             <suki:GlassCard

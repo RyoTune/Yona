@@ -65,7 +65,7 @@
 
                     <Grid ColumnDefinitions="* auto">
                         <TextBlock Classes="setting-label" Text="Developer Mode" />
-                        <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.DevModeEnabled}" />
+                        <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.IsDevMode}" />
                     </Grid>
 
                 </StackPanel>
