@@ -1,95 +1,150 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using ReactiveUI;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
+using System.Reactive.Disposables;
 using System.Windows.Input;
 using Yona.Core.Audio.Models;
+using System.Reactive.Linq;
+using DynamicData.Binding;
+using Yona.Core.Audio;
+using Yona.Core.Common.Dialog;
 
 namespace Yona.Core.ViewModels.TrackPanel;
 
-public partial class TrackPanelViewModel : ViewModelBase
+public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
 {
-    private const string NoReplacement = "None";
+    private const string NoInputFile = "None";
 
-    //private readonly AudioService audioManager;
-    //private readonly LoopService loopService;
-    //private readonly AudioEncoderRegistry encoderRegistry;
-    //private readonly IDialogService dialog;
+    private readonly LoopService loops;
+    private readonly EncoderRepository encoders;
 
-    private string selectedReplacement;
+    private AudioTrack _track;
+    private string _selectedInputFile;
+
+    private readonly ObservableAsPropertyHelper<bool> isLoopInputEnabled;
+
+    public bool IsLoopInputEnabled => this.isLoopInputEnabled.Value;
 
     public TrackPanelViewModel(
         AudioTrack track,
+        LoopService loops,
+        EncoderRepository encoders,
+        ICommand saveProjectCommand,
         ICommand closeCommand)
     {
         //this.audioManager = audioManager;
-        //this.loopService = loopService;
-        //this.encoderRegistry = encoderRegistry;
-        //this.dialog = dialog;
 
-        this.Track = track;
-        //this.Encoders = encoderRegistry.Encoders.Keys.ToArray();
+        this.loops = loops;
+        this.encoders = encoders;
         this.CloseCommand = closeCommand;
+        this._track = track;
 
-        // Set current replacement selection.
-        //if (track.ReplacementFile != null)
-        //{
-        //    this.Replacements.Add(track.ReplacementFile);
-        //    this.selectedReplacement = track.ReplacementFile;
-        //}
-        //else
-        //{
-        //    this.selectedReplacement = NoReplacement;
-        //}
-
-        // Save tracks on changes made.
-        //this.Track.PropertyChanged += this.Track_PropertyChanged;
-        //this.Track.Loop.PropertyChanged += this.Track_PropertyChanged;
-        //this.Track.Loop.PropertyChanged += this.Loop_PropertyChanged;
-    }
-
-    public AudioTrack Track { get; init; }
-
-    public ICommand CloseCommand { get; init; }
-
-    public bool LoopInputEnabled => this.Track.InputFile != null /*&& this.Track.Loop.Enabled*/;
-
-    public ObservableCollection<string> Replacements { get; } = new() { NoReplacement };
-
-    public string SelectedReplacement
-    {
-        get => this.selectedReplacement;
-        set
+        // Set current input selection.
+        if (track.InputFile != null)
         {
-            this.SetProperty(ref this.selectedReplacement, value);
-
-            // Push selection to track.
-            if (this.selectedReplacement == NoReplacement)
-            {
-                this.Track.InputFile = null;
-            }
-            else
-            {
-                this.Track.InputFile = this.selectedReplacement;
-            }
+            this.InputFileOptions.Add(track.InputFile);
+            this._selectedInputFile = track.InputFile;
         }
+        else
+        {
+            this._selectedInputFile = NoInputFile;
+        }
+
+        this.isLoopInputEnabled = this.WhenAnyValue(x => x.Track.InputFile, x => x.Track.Loop.Enabled, (file, loopEnabled) => file != null && loopEnabled)
+            .ToProperty(this, x => x.IsLoopInputEnabled);
+
+        this.WhenActivated((CompositeDisposable disposables) =>
+        {
+            var trackObs = track.WhenAnyPropertyChanged();
+            var loopObs = track.Loop.WhenAnyPropertyChanged();
+
+            // Save loop.
+            loopObs.Throttle(TimeSpan.FromMilliseconds(250))
+            .Subscribe(_ =>
+            {
+                if (track.InputFile != null)
+                {
+                    loops.SaveLoop(track.InputFile, track.Loop);
+                }
+            })
+            .DisposeWith(disposables);
+
+            // Save project on changes made.
+            Observable.Merge<object?>(trackObs, loopObs)
+            .Throttle(TimeSpan.FromMilliseconds(250))
+            .Subscribe(values => saveProjectCommand?.Execute(null))
+            .DisposeWith(disposables);
+
+            // Set track properties on selection made.
+            this.WhenAnyValue(x => x.SelectedInputFile)
+            .Subscribe(file =>
+            {
+                if (file == null || file == NoInputFile)
+                {
+                    this.Track.InputFile = null;
+                    this.Track.Loop.Enabled = false;
+                    this.Track.Loop.StartSample = 0;
+                    this.Track.Loop.EndSample = 0;
+                }
+                else
+                {
+                    this.Track.InputFile = file;
+
+                    var existingLoop = this.loops.GetLoop(file);
+                    if (existingLoop != null)
+                    {
+                        this.Track.Loop.Enabled = existingLoop.Enabled;
+                        this.Track.Loop.StartSample = existingLoop.StartSample;
+                        this.Track.Loop.EndSample = existingLoop.EndSample;
+                    }
+                }
+            })
+            .DisposeWith(disposables);
+
+            this.isLoopInputEnabled.DisposeWith(disposables);
+        });
     }
 
-    public string[] Encoders { get; }
-
-    public void Dispose()
+    public string SelectedInputFile
     {
-        this.Track.PropertyChanged -= this.Track_PropertyChanged;
-        //this.Track.Loop.PropertyChanged -= this.Track_PropertyChanged;
-        //this.Track.Loop.PropertyChanged -= this.Loop_PropertyChanged;
-        GC.SuppressFinalize(this);
+        get => this._selectedInputFile;
+        set => this.RaiseAndSetIfChanged(ref _selectedInputFile, value, nameof(SelectedInputFile));
     }
+
+    public AudioTrack Track
+    {
+        get => this._track;
+        init => this.RaiseAndSetIfChanged(ref this._track, value);
+    }
+
+    public ICommand CloseCommand { get; }
+
+    public Interaction<FileSelectOptions, string[]> ShowSelectFile { get; } = new();
+
+    public ObservableCollection<string> InputFileOptions { get; } = [NoInputFile];
+
+    public string[] Encoders => this.encoders.Items;
+
+    public ViewModelActivator Activator { get; } = new();
 
     [RelayCommand]
-    private async Task SelectReplacementFile()
+    private async Task SelectInputFile()
     {
         if (this.Track.Encoder == null)
         {
             return;
+        }
+
+        var result = await this.ShowSelectFile.Handle(new()
+        {
+            Title = "Select Audio File...",
+        });
+
+        if (result.Length > 0)
+        {
+            var file = result[0];
+            this.InputFileOptions.Add(file);
+            this.SelectedInputFile = file;
         }
 
         //if (this.encoderRegistry.Encoders.TryGetValue(this.Track.Encoder, out var encoder))
@@ -139,26 +194,5 @@ public partial class TrackPanelViewModel : ViewModelBase
     private void Delete()
     {
         //this.audioManager.RemoveTrack(this.Track);
-    }
-
-    private void Track_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        // Save tracks on changes.
-        //this.audioManager.SaveTracks();
-
-        //// Update loop input enabled state.
-        //if (e.PropertyName == nameof(this.Track.ReplacementFile) || e.PropertyName == nameof(this.Track.Loop.Enabled))
-        //{
-        //    this.OnPropertyChanged(nameof(this.LoopInputEnabled));
-        //}
-    }
-
-    private void Loop_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        // Save loop settings for replacement file on changes.
-        //if (this.Track.ReplacementFile != null)
-        //{
-        //    this.loopService.SaveLoop(this.Track.ReplacementFile, this.Track.Loop);
-        //}
     }
 }
