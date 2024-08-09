@@ -1,6 +1,7 @@
 ﻿using ReactiveUI;
 using System.Reactive.Disposables;
 using Yona.Core.Projects;
+using Yona.Core.ViewModels.TrackPanel;
 
 namespace Yona.Core.ViewModels.Dashboard.Projects;
 
@@ -8,9 +9,9 @@ public partial class ProjectsViewModel : ViewModelBase, IActivatableViewModel, I
 {
     private readonly ProjectsGalleryViewModel projectsGallery;
 
-    public ProjectsViewModel(ProjectRepository projects)
+    public ProjectsViewModel(ProjectRepository projects, TrackPanelFactory trackPanel)
     {
-        this.projectsGallery = new ProjectsGalleryViewModel(this, projects);
+        this.projectsGallery = new ProjectsGalleryViewModel(this, projects, trackPanel);
         this.Router.Navigate.Execute(this.projectsGallery);
 
         this.WhenActivated((CompositeDisposable disposables) =>

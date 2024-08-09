@@ -11,17 +11,21 @@ namespace Yona.Core.ViewModels.Dashboard.Projects;
 public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel
 {
     private readonly IRelayCommand closePanelCommand;
+    private readonly RelayCommand saveProjectCommand;
+    private readonly TrackPanelFactory trackPanel;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(TrackPanel))]
     private AudioTrack? _selectedTrack;
 
-    public ProjectTracksViewModel(IScreen host, ProjectBundle project)
+    public ProjectTracksViewModel(IScreen host, ProjectBundle project, TrackPanelFactory trackPanel)
     {
+        this.trackPanel = trackPanel;
         this.HostScreen = host;
         this.UrlPathSegment = $"{project.Data.Id}/tracks";
 
         this.closePanelCommand = new RelayCommand(() => this.SelectedTrack = null);
+        this.saveProjectCommand = new RelayCommand(project.Save);
         this.Project = project;
 
     }
@@ -40,7 +44,7 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel
         {
             if (this.SelectedTrack != null)
             {
-                return new(this.SelectedTrack, this.closePanelCommand);
+                return this.trackPanel.Create(this.SelectedTrack, this.saveProjectCommand, this.closePanelCommand);
             }
 
             return null;
