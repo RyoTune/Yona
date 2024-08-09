@@ -32,20 +32,22 @@
                 Grid.Column="1"
                 Height="20"
                 Margin="0,2,0,0">
-                <ToggleSwitch />
+                <ToggleSwitch IsChecked="{Binding Track.Loop.Enabled}" IsEnabled="{Binding Track.InputFile, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
             </Viewbox>
         </StackPanel>
 
-        <Grid ColumnDefinitions="* *">
+        <Grid ColumnDefinitions="* auto *">
             <NumericUpDown
-                Classes.disabled="{Binding Track.InputFile, Converter={StaticResource IsNull}}"
-                IsEnabled="{Binding LoopInputEnabled}"
+                IsEnabled="{Binding IsLoopInputEnabled}"
                 Watermark="Start Sample"
                 Value="{Binding Track.Loop.StartSample, Converter={StaticResource ZeroAsNull}}" />
-            <NumericUpDown
+            <ma:MaterialIcon
                 Grid.Column="1"
-                Classes.disabled="{Binding Track.InputFile, Converter={StaticResource IsNull}}"
-                IsEnabled="{Binding LoopInputEnabled}"
+                VerticalAlignment="Center"
+                Kind="Sync" />
+            <NumericUpDown
+                Grid.Column="2"
+                IsEnabled="{Binding IsLoopInputEnabled}"
                 Watermark="End Sample"
                 Value="{Binding Track.Loop.EndSample, Converter={StaticResource ZeroAsNull}}" />
         </Grid>

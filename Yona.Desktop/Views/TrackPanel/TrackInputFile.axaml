@@ -21,18 +21,21 @@
         <Grid ColumnDefinitions="* auto">
             <ComboBox
                 HorizontalAlignment="Stretch"
-                ItemsSource="{Binding Replacements}"
-                SelectedItem="{Binding SelectedReplacement}">
+                ItemsSource="{Binding InputFileOptions}"
+                SelectedItem="{Binding SelectedInputFile}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Converter={StaticResource PathFileName}}" />
+                        <TextBlock
+                            FontSize="12"
+                            Text="{Binding Converter={StaticResource PathFileName}}"
+                            TextTrimming="CharacterEllipsis" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
             <Button
                 Grid.Column="1"
                 Classes="icon-button"
-                Command="{Binding SelectReplacementFileCommand}"
+                Command="{Binding SelectInputFileCommand}"
                 ToolTip.Tip="Select File...">
                 <ma:MaterialIcon Kind="FileDocumentAdd" />
             </Button>
