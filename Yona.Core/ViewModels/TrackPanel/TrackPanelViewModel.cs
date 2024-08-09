@@ -147,9 +147,17 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             return;
         }
 
+        var encoder = this.encoders.Items.FirstOrDefault(x => x.Name.Equals(this.Track.Encoder, StringComparison.OrdinalIgnoreCase));
+        if (encoder == null)
+        {
+            return;
+        }
+
+        var filter = $"Supported Types|{string.Join(';', encoder.InputTypes.Select(x => $"*{x}"))}";
         var result = await this.ShowSelectFile.Handle(new()
         {
             Title = "Select Audio File...",
+            Filter = filter,
         });
 
         if (result.Length > 0)
@@ -158,32 +166,6 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             this.InputFileOptions.Add(file);
             this.SelectedInputFile = file;
         }
-
-        //if (this.encoderRegistry.Encoders.TryGetValue(this.Track.Encoder, out var encoder))
-        //{
-        //    var inputTypes = this.encoderRegistry.Encoders[this.Track.Encoder].InputTypes;
-        //    var fileFilter = $"Supported Types|{string.Join(';', inputTypes.Select(x => $"*{x}"))}";
-        //    var replacementFile = await this.dialog.OpenFileSelect("Select Replacement File...", fileFilter);
-        //    if (replacementFile != null)
-        //    {
-        //        var savedLoop = this.loopService.GetLoop(replacementFile);
-        //        if (savedLoop != null)
-        //        {
-        //            this.Track.Loop.Enabled = savedLoop.Enabled;
-        //            this.Track.Loop.StartSample = savedLoop.StartSample;
-        //            this.Track.Loop.EndSample = savedLoop.EndSample;
-        //        }
-        //        else
-        //        {
-        //            this.Track.Loop.Enabled = true;
-        //            this.Track.Loop.StartSample = 0;
-        //            this.Track.Loop.EndSample = 0;
-        //        }
-
-        //        this.Replacements.Add(replacementFile);
-        //        this.SelectedReplacement = replacementFile;
-        //    }
-        //}
     }
 
     [RelayCommand]
