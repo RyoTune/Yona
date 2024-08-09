@@ -28,7 +28,7 @@
             <cc:AudioTracksList SelectedTrack="{Binding SelectedTrack}" Tracks="{Binding Project.Data.Tracks}" />
             <suki:GlassCard
                 Grid.Column="1"
-                Width="250"
+                Width="280"
                 Margin="8,0,0,0"
                 IsVisible="{Binding !TrackPanel, Converter={StaticResource IsNull}}">
                 <ContentControl Content="{Binding TrackPanel}" />
