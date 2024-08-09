@@ -8,6 +8,7 @@ using System.Reactive.Linq;
 using DynamicData.Binding;
 using Yona.Core.Audio;
 using Yona.Core.Common.Dialog;
+using Yona.Core.Settings;
 
 namespace Yona.Core.ViewModels.TrackPanel;
 
@@ -21,14 +22,18 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
     private AudioTrack _track;
     private string _selectedInputFile;
 
-    private readonly ObservableAsPropertyHelper<bool> isLoopInputEnabled;
+    private readonly ObservableAsPropertyHelper<bool> _isLoopInputEnabled;
+    private readonly ObservableAsPropertyHelper<bool> _devModeEnabled;
 
-    public bool IsLoopInputEnabled => this.isLoopInputEnabled.Value;
+    public bool IsLoopInputEnabled => this._isLoopInputEnabled.Value;
+
+    public bool DevModeEnabled => this._devModeEnabled.Value;
 
     public TrackPanelViewModel(
         AudioTrack track,
         LoopService loops,
         EncoderRepository encoders,
+        SettingsService settings,
         ICommand saveProjectCommand,
         ICommand closeCommand)
     {
@@ -50,8 +55,10 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             this._selectedInputFile = NoInputFile;
         }
 
-        this.isLoopInputEnabled = this.WhenAnyValue(x => x.Track.InputFile, x => x.Track.Loop.Enabled, (file, loopEnabled) => file != null && loopEnabled)
+        this._isLoopInputEnabled = this.WhenAnyValue(x => x.Track.InputFile, x => x.Track.Loop.Enabled, (file, loopEnabled) => file != null && loopEnabled)
             .ToProperty(this, x => x.IsLoopInputEnabled);
+
+        this._devModeEnabled = settings.WhenAnyValue(x => x.Current.DevModeEnabled).ToProperty(this, x => x.DevModeEnabled);
 
         this.WhenActivated((CompositeDisposable disposables) =>
         {
@@ -105,7 +112,8 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             })
             .DisposeWith(disposables);
 
-            this.isLoopInputEnabled.DisposeWith(disposables);
+            this._isLoopInputEnabled.DisposeWith(disposables);
+            this._devModeEnabled.DisposeWith(disposables);
         });
     }
 

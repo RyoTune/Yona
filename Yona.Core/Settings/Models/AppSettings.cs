@@ -5,9 +5,6 @@ namespace Yona.Core.Settings.Models;
 public partial class AppSettings : ObservableObject
 {
     [ObservableProperty]
-    private bool useDarkMode = true;
-
-    [ObservableProperty]
     private ThemeColor themeColor = ThemeColor.Orange;
 
     [ObservableProperty]
@@ -21,4 +18,7 @@ public partial class AppSettings : ObservableObject
 
     [ObservableProperty]
     private Page startPage = Page.Home;
+
+    [ObservableProperty]
+    private bool devModeEnabled;
 }
