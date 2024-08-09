@@ -9,6 +9,11 @@
         <Setter Property="FontSize" Value="16" />
     </Style>
 
+    <Style Selector="TextBlock.input-text">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    </Style>
+
     <Style Selector="StackPanel">
         <Setter Property="Spacing" Value="4" />
     </Style>

@@ -25,10 +25,7 @@
                 SelectedItem="{Binding SelectedInputFile}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock
-                            FontSize="12"
-                            Text="{Binding Converter={StaticResource PathFileName}}"
-                            TextTrimming="CharacterEllipsis" />
+                        <TextBlock Classes="input-text" Text="{Binding Converter={StaticResource PathFileName}}" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>

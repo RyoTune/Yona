@@ -18,6 +18,12 @@
             HorizontalAlignment="Stretch"
             ItemsSource="{Binding Encoders}"
             MaxDropDownHeight="200"
-            SelectedItem="{Binding Track.Encoder}" />
+            SelectedItem="{Binding Track.Encoder}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Classes="input-text" Text="{Binding}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </StackPanel>
 </UserControl>

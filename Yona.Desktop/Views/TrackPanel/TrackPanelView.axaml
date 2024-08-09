@@ -48,6 +48,7 @@
                 <StackPanel Spacing="12">
                     <local:TrackInputFile />
                     <local:TrackLoop />
+                    <local:TrackEncoder />
                 </StackPanel>
             </ScrollViewer>
             <Button
