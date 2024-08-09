@@ -9,18 +9,25 @@ public class VgAudioEncoder : IEncoder
     private readonly IAudioWriter writer;
     private readonly Configuration? configuration;
 
-    public VgAudioEncoder(Config config)
+    public VgAudioEncoder(string configFile) : this(ConfigParser.Parse(configFile))
+    {
+    }
+
+    public VgAudioEncoder(VgAudioConfig config)
     {
         if (config.OutContainerFormat == null)
         {
             throw new ArgumentException("Config missing output container format.");
         }
 
-        outputContainer = ContainerTypes.Containers.First(container => container.Value.Names.Contains(config.OutContainerFormat, StringComparer.OrdinalIgnoreCase)).Value;
-        writer = outputContainer.GetWriter();
-        configuration = outputContainer.GetConfiguration(config);
-        EncodedExt = $".{config.OutContainerFormat}";
+        this.Name = config.Name!;
+        this.outputContainer = ContainerTypes.Containers.First(container => container.Value.Names.Contains(config.OutContainerFormat, StringComparer.OrdinalIgnoreCase)).Value;
+        this.writer = outputContainer.GetWriter();
+        this.configuration = outputContainer.GetConfiguration(config);
+        this.EncodedExt = $".{config.OutContainerFormat}";
     }
+
+    public string Name { get; }
 
     public string EncodedExt { get; }
 

@@ -13,7 +13,7 @@ namespace Yona.Core.Audio.Encoding.VGAudio;
 
 internal static class CreateConfiguration
 {
-    public static Configuration Wave(Config config)
+    public static Configuration Wave(VgAudioConfig config)
     {
         var waveConfig = new WaveConfiguration();
 
@@ -32,7 +32,7 @@ internal static class CreateConfiguration
         return waveConfig;
     }
 
-    public static Configuration Dsp(Config config)
+    public static Configuration Dsp(VgAudioConfig config)
     {
         var dspConfig = new DspConfiguration();
 
@@ -52,7 +52,7 @@ internal static class CreateConfiguration
         return dspConfig;
     }
 
-    public static Configuration Idsp(Config config)
+    public static Configuration Idsp(VgAudioConfig config)
     {
         var idspConfig = new IdspConfiguration();
 
@@ -72,7 +72,7 @@ internal static class CreateConfiguration
         return idspConfig;
     }
 
-    public static Configuration Bxstm(Config config)
+    public static Configuration Bxstm(VgAudioConfig config)
     {
         var bxstmConfig = new BxstmConfiguration
         {
@@ -100,7 +100,7 @@ internal static class CreateConfiguration
         return bxstmConfig;
     }
 
-    public static Configuration Hps(Config config)
+    public static Configuration Hps(VgAudioConfig config)
     {
         var hpsConfig = new HpsConfiguration();
 
@@ -117,7 +117,7 @@ internal static class CreateConfiguration
         return hpsConfig;
     }
 
-    public static Configuration Adx(Config config)
+    public static Configuration Adx(VgAudioConfig config)
     {
         var adxConfig = new AdxConfiguration();
 
@@ -156,7 +156,7 @@ internal static class CreateConfiguration
         return adxConfig;
     }
 
-    public static Configuration Hca(Config config)
+    public static Configuration Hca(VgAudioConfig config)
     {
         var hcaConfig = new HcaConfiguration();
 

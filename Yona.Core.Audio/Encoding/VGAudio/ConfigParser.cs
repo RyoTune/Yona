@@ -8,7 +8,7 @@ namespace Yona.Core.Audio.Encoding.VGAudio;
 /// <summary>
 /// VGAudio config parser.
 /// </summary>
-public static class ConfigParser
+internal static class ConfigParser
 {
     private static readonly FileIniDataParser Parser = new();
 
@@ -17,10 +17,10 @@ public static class ConfigParser
     /// </summary>
     /// <param name="file">Config file.</param>
     /// <returns>VGAudio config.</returns>
-    public static Config Parse(string file)
+    public static VgAudioConfig Parse(string file)
     {
         var data = Parser.ReadFile(file);
-        var config = new Config
+        var config = new VgAudioConfig
         {
             Name = data.GetKey("name") ?? throw new Exception("Name is missing."),
             OutContainerFormat = data.GetKey("out_container_format")?.ToLower() ?? throw new Exception("Missing output container format."),

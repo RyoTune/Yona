@@ -4,7 +4,7 @@ using VGAudio.Utilities;
 
 namespace Yona.Core.Audio.Encoding.VGAudio;
 
-public class Config
+public class VgAudioConfig
 {
     public string? Name { get; set; }
 

@@ -26,6 +26,8 @@ public class CachedEncoder : IEncoder
         this.cachedFolder = cachedFolder;
     }
 
+    public string Name => this.encoder.Name;
+
     public string EncodedExt => this.encoder.EncodedExt;
 
     public string[] InputTypes => this.encoder.InputTypes;

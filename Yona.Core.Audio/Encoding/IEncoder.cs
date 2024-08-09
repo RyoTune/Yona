@@ -5,6 +5,11 @@ namespace Yona.Core.Audio.Encoding;
 public interface IEncoder
 {
     /// <summary>
+    /// Gets encoder name.
+    /// </summary>
+    string Name { get; }
+
+    /// <summary>
     /// Gets default file extension of encoded file.
     /// </summary>
     string EncodedExt { get; }

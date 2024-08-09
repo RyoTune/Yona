@@ -4,7 +4,7 @@ namespace Yona.Core.Audio.Encoding.VGAudio;
 
 internal class ContainerType
 {
-    public ContainerType(IEnumerable<string> names, Func<IAudioReader> getReader, Func<IAudioWriter> getWriter, Func<Config, Configuration> getConfiguration)
+    public ContainerType(IEnumerable<string> names, Func<IAudioReader> getReader, Func<IAudioWriter> getWriter, Func<VgAudioConfig, Configuration> getConfiguration)
     {
         Names = names;
         GetReader = getReader;
@@ -18,5 +18,5 @@ internal class ContainerType
 
     public Func<IAudioWriter> GetWriter { get; }
 
-    public Func<Config, Configuration> GetConfiguration { get; }
+    public Func<VgAudioConfig, Configuration> GetConfiguration { get; }
 }

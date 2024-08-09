@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Encoding\VGAudio\" />
     <Folder Include="lib\" />
   </ItemGroup>
 
