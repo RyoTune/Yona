@@ -27,6 +27,8 @@ public class EncoderRepository
 
     public ObservableCollection<CachedEncoder> Items { get; } = [];
 
+    public IEncoder? GetEncoder(string name) => this.Items.FirstOrDefault(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
     private void LoadEncoders()
     {
         this.LoadVgaudioEncoders();

@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using ReactiveUI;
 using System.Reactive;
 using Yona.Core.Audio.Models;
+using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
 using Yona.Core.ViewModels.TrackPanel;
 
@@ -13,15 +14,17 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel
     private readonly IRelayCommand closePanelCommand;
     private readonly RelayCommand saveProjectCommand;
     private readonly TrackPanelFactory trackPanel;
+    private readonly ProjectBuilder builder;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(TrackPanel))]
     private AudioTrack? _selectedTrack;
 
-    public ProjectTracksViewModel(IScreen host, ProjectBundle project, TrackPanelFactory trackPanel)
+    public ProjectTracksViewModel(IScreen host, ProjectBundle project, TrackPanelFactory trackPanel, ProjectBuilder builder)
     {
-        this.trackPanel = trackPanel;
         this.HostScreen = host;
+        this.trackPanel = trackPanel;
+        this.builder = builder;
         this.UrlPathSegment = $"{project.Data.Id}/tracks";
 
         this.closePanelCommand = new RelayCommand(() => this.SelectedTrack = null);
@@ -48,6 +51,18 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel
             }
 
             return null;
+        }
+    }
+
+    [RelayCommand]
+    private async Task Build()
+    {
+        try
+        {
+            await this.builder.Build(this.Project);
+        }
+        catch (Exception)
+        {
         }
     }
 }

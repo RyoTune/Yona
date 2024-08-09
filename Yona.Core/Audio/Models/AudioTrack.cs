@@ -20,7 +20,7 @@ public partial class AudioTrack : ObservableObject
     private string? inputFile;
 
     [ObservableProperty]
-    private string? encoder;
+    private string encoder = "HCA";
 
     [ObservableProperty]
     private ObservableLoop loop = new();

@@ -10,12 +10,18 @@ public partial class ProjectsGalleryViewModel : ViewModelBase, IRoutableViewMode
 {
     private readonly ProjectRepository projects;
     private readonly TrackPanelFactory trackPanel;
+    private readonly ProjectBuilder builder;
 
-    public ProjectsGalleryViewModel(IScreen host, ProjectRepository projects, TrackPanelFactory trackPanel)
+    public ProjectsGalleryViewModel(
+        IScreen host,
+        ProjectRepository projects,
+        TrackPanelFactory trackPanel,
+        ProjectBuilder builder)
     {
         this.HostScreen = host;
         this.projects = projects;
         this.trackPanel = trackPanel;
+        this.builder = builder;
     }
 
     public IReadOnlyList<ProjectBundle> Projects => this.projects.Items;
@@ -27,6 +33,6 @@ public partial class ProjectsGalleryViewModel : ViewModelBase, IRoutableViewMode
     [RelayCommand]
     private void OpenProject(ProjectBundle project)
     {
-        this.HostScreen.Router.Navigate.Execute(new ProjectTracksViewModel(this.HostScreen, project, trackPanel));
+        this.HostScreen.Router.Navigate.Execute(new ProjectTracksViewModel(this.HostScreen, project, this.trackPanel, this.builder));
     }
 }

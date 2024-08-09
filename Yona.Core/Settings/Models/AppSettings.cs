@@ -20,5 +20,5 @@ public partial class AppSettings : ObservableObject
     private Page startPage = Page.Home;
 
     [ObservableProperty]
-    private bool devModeEnabled;
+    private bool isDevMode;
 }

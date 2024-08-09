@@ -23,11 +23,11 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
     private string _selectedInputFile;
 
     private readonly ObservableAsPropertyHelper<bool> _isLoopInputEnabled;
-    private readonly ObservableAsPropertyHelper<bool> _devModeEnabled;
+    private readonly ObservableAsPropertyHelper<bool> _isDevMode;
 
     public bool IsLoopInputEnabled => this._isLoopInputEnabled.Value;
 
-    public bool DevModeEnabled => this._devModeEnabled.Value;
+    public bool IsDevMode => this._isDevMode.Value;
 
     public TrackPanelViewModel(
         AudioTrack track,
@@ -58,7 +58,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
         this._isLoopInputEnabled = this.WhenAnyValue(x => x.Track.InputFile, x => x.Track.Loop.Enabled, (file, loopEnabled) => file != null && loopEnabled)
             .ToProperty(this, x => x.IsLoopInputEnabled);
 
-        this._devModeEnabled = settings.WhenAnyValue(x => x.Current.DevModeEnabled).ToProperty(this, x => x.DevModeEnabled);
+        this._isDevMode = settings.WhenAnyValue(x => x.Current.IsDevMode).ToProperty(this, x => x.IsDevMode);
 
         this.WhenActivated((CompositeDisposable disposables) =>
         {
@@ -113,7 +113,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             .DisposeWith(disposables);
 
             this._isLoopInputEnabled.DisposeWith(disposables);
-            this._devModeEnabled.DisposeWith(disposables);
+            this._isDevMode.DisposeWith(disposables);
         });
     }
 
@@ -147,7 +147,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             return;
         }
 
-        var encoder = this.encoders.Items.FirstOrDefault(x => x.Name.Equals(this.Track.Encoder, StringComparison.OrdinalIgnoreCase));
+        var encoder = this.encoders.GetEncoder(this.Track.Encoder);
         if (encoder == null)
         {
             return;

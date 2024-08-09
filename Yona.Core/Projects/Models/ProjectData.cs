@@ -54,4 +54,10 @@ public partial class ProjectData : ObservableObject
 
     [ObservableProperty]
     private ObservableCollection<AudioTrack> tracks = [];
+
+    [ObservableProperty]
+    private string? outputDir;
+
+    [ObservableProperty]
+    private bool useFastBuild = true;
 }

@@ -9,9 +9,9 @@ public partial class ProjectsViewModel : ViewModelBase, IActivatableViewModel, I
 {
     private readonly ProjectsGalleryViewModel projectsGallery;
 
-    public ProjectsViewModel(ProjectRepository projects, TrackPanelFactory trackPanel)
+    public ProjectsViewModel(ProjectRepository projects, TrackPanelFactory trackPanel, ProjectBuilder builder)
     {
-        this.projectsGallery = new ProjectsGalleryViewModel(this, projects, trackPanel);
+        this.projectsGallery = new ProjectsGalleryViewModel(this, projects, trackPanel, builder);
         this.Router.Navigate.Execute(this.projectsGallery);
 
         this.WhenActivated((CompositeDisposable disposables) =>

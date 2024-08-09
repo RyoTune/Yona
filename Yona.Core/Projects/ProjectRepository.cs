@@ -24,7 +24,7 @@ public class ProjectRepository
 
     public void Delete(ProjectBundle entity)
     {
-        var projectDir = Path.GetDirectoryName(entity.File)!;
+        var projectDir = Path.GetDirectoryName(entity.ProjectFile)!;
         if (Directory.Exists(projectDir))
         {
             Directory.Delete(projectDir, true);
