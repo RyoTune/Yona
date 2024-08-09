@@ -13,7 +13,11 @@
   </ItemGroup>
 	
 	<ItemGroup>
-		<Content Include="Data\Templates\**" Link="Templates\%(RecursiveDir)\%(Filename)%(Extension)">
+		<Content Include="Data\templates\**" Link="templates\%(RecursiveDir)\%(Filename)%(Extension)">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Visible>false</Visible>
+		</Content>
+		<Content Include="Data\audio\**" Link="audio\%(RecursiveDir)\%(Filename)%(Extension)">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<Visible>false</Visible>
 		</Content>

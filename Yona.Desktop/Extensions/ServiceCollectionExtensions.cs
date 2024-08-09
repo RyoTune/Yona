@@ -39,8 +39,8 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<TemplateRepository>();
         service.AddSingleton<ProjectRepository>();
         service.AddSingleton<LoopService>();
-        service.AddSingleton<EncoderRepository>();
         service.AddSingleton<TrackPanelFactory>();
+        service.AddSingleton<EncoderRepository>();
 
         return service;
     }

@@ -127,7 +127,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
 
     public ObservableCollection<string> InputFileOptions { get; } = [NoInputFile];
 
-    public string[] Encoders => this.encoders.Items;
+    public string[] Encoders => this.encoders.Items.Select(x => x.Name).ToArray();
 
     public ViewModelActivator Activator { get; } = new();
 
