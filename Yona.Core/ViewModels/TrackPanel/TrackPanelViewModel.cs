@@ -50,7 +50,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             this._selectedInputFile = NoInputFile;
         }
 
-        this.isLoopInputEnabled = this.WhenAnyValue(x => x.Track.InputFile, x => x.Track.LoopEnabled, (file, loopEnabled) => file != null && loopEnabled)
+        this.isLoopInputEnabled = this.WhenAnyValue(x => x.Track.InputFile, x => x.Track.Loop.Enabled, (file, loopEnabled) => file != null && loopEnabled)
             .ToProperty(this, x => x.IsLoopInputEnabled);
 
         this.WhenActivated((CompositeDisposable disposables) =>
@@ -82,7 +82,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
                 if (file == null || file == NoInputFile)
                 {
                     this.Track.InputFile = null;
-                    this.Track.LoopEnabled = false;
+                    this.Track.Loop.Enabled = false;
                     this.Track.Loop.StartSample = 0;
                     this.Track.Loop.EndSample = 0;
                 }
@@ -95,7 +95,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
                     {
                         if (existingLoop.StartSample != 0 || existingLoop.EndSample != 0)
                         {
-                            this.Track.LoopEnabled = true;
+                            this.Track.Loop.Enabled = true;
                         }
 
                         this.Track.Loop.StartSample = existingLoop.StartSample;

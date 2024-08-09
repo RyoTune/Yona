@@ -2,8 +2,8 @@
 using Microsoft.Extensions.Logging;
 using System.ComponentModel;
 using Yona.Core.Common;
-using Yona.Core.Common.Serializers;
 using Yona.Core.Settings.Models;
+using Yona.Core.Utils.Serializers;
 
 namespace Yona.Core.Settings;
 

@@ -10,7 +10,6 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
     <PackageReference Include="ReactiveUI" Version="20.1.1" />
-    <PackageReference Include="YamlDotNet" Version="16.0.0" />
   </ItemGroup>
 	
 	<ItemGroup>
@@ -18,5 +17,10 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<Visible>false</Visible>
 		</Content>
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\Yona.Core.Audio\Yona.Core.Audio.csproj" />
+	  <ProjectReference Include="..\Yona.Core.Utils\Yona.Core.Utils.csproj" />
 	</ItemGroup>
 </Project>
