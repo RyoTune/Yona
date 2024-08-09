@@ -32,7 +32,7 @@
                 Grid.Column="1"
                 Height="20"
                 Margin="0,2,0,0">
-                <ToggleSwitch IsChecked="{Binding Track.Loop.Enabled}" IsEnabled="{Binding Track.InputFile, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                <ToggleSwitch IsChecked="{Binding Track.LoopEnabled}" IsEnabled="{Binding Track.InputFile, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
             </Viewbox>
         </StackPanel>
 

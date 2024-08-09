@@ -23,5 +23,8 @@ public partial class AudioTrack : ObservableObject
     private string? encoder;
 
     [ObservableProperty]
+    private bool loopEnabled;
+
+    [ObservableProperty]
     private Loop loop = new();
 }
