@@ -1,6 +1,7 @@
 ﻿using Yona.Core.App;
+using Yona.Core.Audio.Loops;
 using Yona.Core.Audio.Models;
-using Yona.Core.Common.Serializers;
+using Yona.Core.Utils.Serializers;
 
 namespace Yona.Core.Audio;
 
@@ -19,7 +20,7 @@ public class LoopService
     /// </summary>
     /// <param name="file">File to get loop for.</param>
     /// <returns>Saved loop settings or new loop.</returns>
-    public Loop GetLoop(string file)
+    public ObservableLoop GetLoop(string file)
     {
         var loopFile = this.GetLoopFile(file);
         if (loopFile == null)
@@ -27,7 +28,7 @@ public class LoopService
             return new();
         }
 
-        var loop = JsonFileSerializer.Instance.DeserializeFile<Loop>(loopFile);
+        var loop = new ObservableLoop(LoopSerializer.DeserializeFile(loopFile));
         return loop;
     }
 
@@ -37,33 +38,46 @@ public class LoopService
     /// <param name="file">File to save loop for.</param>
     /// <param name="loop">Loop settings.</param>
     /// <param name="outputLoopFile">Optional output loop file.</param>
-    public void SaveLoop(string file, Loop loop, string? outputLoopFile = null)
+    public void SaveLoop(string file, ObservableLoop loop, string? outputLoopFile = null)
     {
-        JsonFileSerializer.Instance.SerializeFile(this.GetFileLoopPath(file), loop);
+        LoopSerializer.SerializeFile(this.GetLoopFileDat(file), loop.Model);
         if (outputLoopFile != null)
         {
-            JsonFileSerializer.Instance.SerializeFile(outputLoopFile, loop);
+            LoopSerializer.SerializeFile(outputLoopFile, loop.Model);
         }
     }
 
     private string? GetLoopFile(string file)
     {
         // Loop settings saved by app.
-        var loopFile = this.GetFileLoopPath(file);
-        if (File.Exists(loopFile))
+        var loopFileDat = this.GetLoopFileDat(file);
+        if (File.Exists(loopFileDat))
         {
-            return loopFile;
+            return loopFileDat;
+        }
+
+        // Convert JSON loops to dat.
+        var loopFileJson = this.GetLoopFileJson(file);
+        if (File.Exists(loopFileJson))
+        {
+            var jsonLoop = JsonFileSerializer.Instance.DeserializeFile<Loop>(loopFileJson);
+            LoopSerializer.SerializeFile(loopFileDat, jsonLoop);
+            return loopFileDat;
         }
 
         // Loop settings relative to file.
         var relLoopFile = $"{file}.json";
         if (File.Exists(relLoopFile))
         {
-            return relLoopFile;
+            var jsonLoop = JsonFileSerializer.Instance.DeserializeFile<Loop>(loopFileJson);
+            LoopSerializer.SerializeFile(loopFileDat, jsonLoop);
+            return loopFileDat;
         }
 
         return null;
     }
 
-    private string GetFileLoopPath(string file) => Path.Join(this.loopsDir, $"{Path.GetFileName(file)}.json");
+    private string GetLoopFileDat(string file) => Path.Join(this.loopsDir, $"{Path.GetFileName(file)}.dat");
+
+    private string GetLoopFileJson(string file) => Path.Join(this.loopsDir, $"{Path.GetFileName(file)}.json");
 }
