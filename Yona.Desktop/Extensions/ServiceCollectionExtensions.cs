@@ -14,6 +14,7 @@ using Yona.Core.ViewModels.Dashboard.Convert;
 using Yona.Core.ViewModels.Dashboard.Home;
 using Yona.Core.ViewModels.Dashboard.Projects;
 using Yona.Core.ViewModels.Dashboard.Settings;
+using Yona.Core.ViewModels.TrackPanel;
 
 namespace Yona.Desktop.Extensions;
 
@@ -38,6 +39,8 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<TemplateRepository>();
         service.AddSingleton<ProjectRepository>();
         service.AddSingleton<LoopService>();
+        service.AddSingleton<EncoderRepository>();
+        service.AddSingleton<TrackPanelFactory>();
 
         return service;
     }
