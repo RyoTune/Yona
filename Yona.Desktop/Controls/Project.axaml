@@ -26,7 +26,7 @@
         </Border>
         <TextBlock
             Grid.Column="1"
-            Padding="8,0"
+            Padding="8"
             VerticalAlignment="Center"
             MaxLines="2"
             Text="{Binding Data.Name}"

@@ -6,6 +6,25 @@ namespace Yona.Core.Projects.Models;
 
 public partial class ProjectData : ObservableObject
 {
+    public ProjectData()
+    {
+    }
+
+    /// <summary>
+    /// Create new project data that copies from an existing
+    /// project data.
+    /// </summary>
+    /// <param name="existingData">Existing project data.</param>
+    public ProjectData(ProjectData existingData)
+    {
+        this.Name = existingData.Name;
+        this.DefaultEncoder = existingData.DefaultEncoder;
+        this.DefaultLoopState = existingData.DefaultLoopState;
+        this.DefaultOutputPath = existingData.DefaultOutputPath;
+        this.Version = existingData.Version;
+        this.Tracks = existingData.Tracks;
+    }
+
     [ObservableProperty]
     private string id = Guid.NewGuid().ToString();
 

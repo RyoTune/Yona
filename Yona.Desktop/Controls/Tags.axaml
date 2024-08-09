@@ -9,7 +9,7 @@
     mc:Ignorable="d">
     <ItemsControl.ItemsPanel>
         <ItemsPanelTemplate>
-            <StackPanel Orientation="Horizontal" Spacing="8" />
+            <StackPanel Orientation="Horizontal" Spacing="4" />
         </ItemsPanelTemplate>
     </ItemsControl.ItemsPanel>
     <ItemsControl.ItemTemplate>

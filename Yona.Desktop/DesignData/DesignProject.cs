@@ -9,5 +9,6 @@ internal class DesignProject : ProjectBundle
     public DesignProject()
         : base(Path.Join(AppDomain.CurrentDomain.BaseDirectory, "design-project.yaml"))
     {
+        this.Data.Name = "Test Project";
     }
 }

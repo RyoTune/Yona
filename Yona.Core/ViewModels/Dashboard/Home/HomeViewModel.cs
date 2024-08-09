@@ -30,11 +30,7 @@ public partial class HomeViewModel : ViewModelBase
             // TODO: Tracks are a reference collection here.
             // new projects will edit the tracks as the template's probably.
             // Have to clone first.
-            var newProject = new ProjectData()
-            {
-                Name = template.Data.Name,
-                Tracks = template.Data.Tracks,
-            };
+            var newProject = new ProjectData(template.Data);
 
             this.projects.Create(newProject);
         }
