@@ -2,37 +2,26 @@
 using ReactiveUI;
 using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
-using Yona.Core.ViewModels.TrackPanel;
 
 namespace Yona.Core.ViewModels.Dashboard.Projects;
 
 public partial class ProjectsGalleryViewModel : ViewModelBase, IRoutableViewModel
 {
+    private readonly ProjectsRouter router;
     private readonly ProjectRepository projects;
-    private readonly TrackPanelFactory trackPanel;
-    private readonly ProjectBuilder builder;
 
-    public ProjectsGalleryViewModel(
-        IScreen host,
-        ProjectRepository projects,
-        TrackPanelFactory trackPanel,
-        ProjectBuilder builder)
+    public ProjectsGalleryViewModel(ProjectsRouter router, ProjectRepository projects)
     {
-        this.HostScreen = host;
+        this.router = router;
         this.projects = projects;
-        this.trackPanel = trackPanel;
-        this.builder = builder;
     }
 
     public IReadOnlyList<ProjectBundle> Projects => this.projects.Items;
 
     public string? UrlPathSegment { get; } = "gallery";
 
-    public IScreen HostScreen { get; }
+    public IScreen HostScreen => this.router.HostScreen;
 
     [RelayCommand]
-    private void OpenProject(ProjectBundle project)
-    {
-        this.HostScreen.Router.Navigate.Execute(new ProjectTracksViewModel(this.HostScreen, project, this.trackPanel, this.builder));
-    }
+    private void OpenProject(ProjectBundle project) => this.router.OpenProject(project);
 }
