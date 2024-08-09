@@ -52,7 +52,7 @@
         <Grid ColumnDefinitions="* auto *">
             <NumericUpDown
                 IsEnabled="{Binding IsLoopInputEnabled}"
-                Watermark="Start Sample"
+                Watermark="Start"
                 Value="{Binding Track.Loop.StartSample, Converter={StaticResource ZeroAsNull}}" />
             <ma:MaterialIcon
                 Grid.Column="1"
@@ -61,7 +61,7 @@
             <NumericUpDown
                 Grid.Column="2"
                 IsEnabled="{Binding IsLoopInputEnabled}"
-                Watermark="End Sample"
+                Watermark="End"
                 Value="{Binding Track.Loop.EndSample, Converter={StaticResource ZeroAsNull}}" />
         </Grid>
     </StackPanel>
