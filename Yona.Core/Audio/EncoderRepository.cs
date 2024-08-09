@@ -9,6 +9,7 @@ namespace Yona.Core.Audio;
 public class EncoderRepository
 {
     private readonly string encodersDir;
+    private readonly string cachedDir;
     private readonly ILogger log;
 
     public EncoderRepository(AppService app, ILogger log)
@@ -16,16 +17,38 @@ public class EncoderRepository
         this.log = log;
 
         this.encodersDir = Path.Join(app.BaseDir, "audio", "encoders");
-        Directory.CreateDirectory(encodersDir);
+        this.cachedDir = Path.Join(app.BaseDir, "audio", "cached");
+
+        Directory.CreateDirectory(this.encodersDir);
+        Directory.CreateDirectory(this.cachedDir);
 
         this.LoadEncoders();
     }
 
-    public ObservableCollection<IEncoder> Items { get; } = [];
+    public ObservableCollection<CachedEncoder> Items { get; } = [];
 
     private void LoadEncoders()
     {
         this.LoadVgaudioEncoders();
+        this.LoadDefaultEncoders();
+    }
+
+    private void LoadDefaultEncoders()
+    {
+        foreach (var container in ContainerTypes.Containers)
+        {
+            try
+            {
+                var type = container.Value;
+                var name = type.Names.First();
+                var encoder = new VgAudioEncoder(new VgAudioConfig() { Name = name.ToUpper(), OutContainerFormat = name });
+                this.Items.Add(this.CreateCachedEncoder(encoder));
+            }
+            catch (Exception ex)
+            {
+                this.log?.LogError(ex, "Failed to create default encoder.");
+            }
+        }
     }
 
     private void LoadVgaudioEncoders()
@@ -41,12 +64,20 @@ public class EncoderRepository
             try
             {
                 var encoder = new VgAudioEncoder(configFile);
-                this.Items.Add(encoder);
+                this.Items.Add(this.CreateCachedEncoder(encoder));
             }
             catch (Exception ex)
             {
                 this.log.LogError(ex, "Failed to load VGAudio INI.\nFile: {configFile}", configFile);
             }
         }
+    }
+
+    private CachedEncoder CreateCachedEncoder(IEncoder encoder)
+    {
+        var encoderCachedDir = Path.Join(this.cachedDir, encoder.Name);
+        Directory.CreateDirectory(encoderCachedDir);
+
+        return new CachedEncoder(encoder, encoderCachedDir, this.log);
     }
 }

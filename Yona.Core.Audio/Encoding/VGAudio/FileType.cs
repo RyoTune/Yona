@@ -1,6 +1,6 @@
 ﻿namespace Yona.Core.Audio.Encoding.VGAudio;
 
-internal enum FileType
+public enum FileType
 {
     NotSet,
     Wave,

@@ -8,7 +8,7 @@ using VGAudio.Containers.Wave;
 
 namespace Yona.Core.Audio.Encoding.VGAudio;
 
-internal static class ContainerTypes
+public static class ContainerTypes
 {
     public static readonly Dictionary<FileType, ContainerType> Containers = new()
     {
