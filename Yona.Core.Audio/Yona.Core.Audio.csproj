@@ -14,4 +14,20 @@
     <ProjectReference Include="..\Yona.Core.Utils\Yona.Core.Utils.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="VGAudio">
+      <HintPath>lib\VGAudio\VGAudio.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="lib\VGAudio\LICENSE.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
