@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: write
 
@@ -25,15 +25,13 @@ jobs:
       run: dotnet publish Yona.Desktop -c Release -o build
     
     - name: Zip Build
-      run: |
-        cd build
-        zip -r ../Release.zip ./*
+      run: Compress-Archive -Path build -DestinationPath Release.zip
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
         name: Build
-        path: Release.zip
+        path: build
         retention-days: 0
            
     - name: Release
