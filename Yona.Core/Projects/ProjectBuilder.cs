@@ -38,7 +38,7 @@ public class ProjectBuilder
 
             if (this.encoders.GetEncoder(track.Encoder) is IEncoder encoder)
             {
-                await encoder.Encode(track.InputFile, outputFile);
+                await encoder.Encode(track.InputFile, outputFile, track.Loop.Model);
             }
             else
             {
