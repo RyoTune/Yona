@@ -27,8 +27,4 @@
 	  <ProjectReference Include="..\Yona.Core.Audio\Yona.Core.Audio.csproj" />
 	  <ProjectReference Include="..\Yona.Core.Utils\Yona.Core.Utils.csproj" />
 	</ItemGroup>
-	
-	<ItemGroup>
-	  <Folder Include="ViewModels\Common\" />
-	</ItemGroup>
 </Project>

@@ -9,6 +9,7 @@ using DynamicData.Binding;
 using Yona.Core.Audio;
 using Yona.Core.Common.Dialog;
 using Yona.Core.Settings;
+using Yona.Core.Extensions;
 
 namespace Yona.Core.ViewModels.TrackPanel;
 
@@ -16,18 +17,13 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
 {
     private const string NoInputFile = "None";
 
-    private readonly LoopService loops;
-    private readonly EncoderRepository encoders;
-
-    private AudioTrack _track;
-    private string _selectedInputFile;
-
+    private readonly LoopService _loops;
+    private readonly EncoderRepository _encoders;
     private readonly ObservableAsPropertyHelper<bool> _isLoopInputEnabled;
     private readonly ObservableAsPropertyHelper<bool> _isDevMode;
 
-    public bool IsLoopInputEnabled => this._isLoopInputEnabled.Value;
-
-    public bool IsDevMode => this._isDevMode.Value;
+    private AudioTrack _track;
+    private string _selectedInputFile;
 
     public TrackPanelViewModel(
         AudioTrack track,
@@ -37,12 +33,12 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
         ICommand saveProjectCommand,
         ICommand closeCommand)
     {
-        //this.audioManager = audioManager;
-
-        this.loops = loops;
-        this.encoders = encoders;
-        this.CloseCommand = closeCommand;
+        this._loops = loops;
+        this._encoders = encoders;
         this._track = track;
+
+        this.Encoders = encoders.AvailableEncoders;
+        this.CloseCommand = closeCommand;
 
         // Set current input selection.
         if (track.InputFile != null)
@@ -66,7 +62,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             var loopObs = track.Loop.WhenAnyPropertyChanged();
 
             // Save loop.
-            loopObs.Throttle(TimeSpan.FromMilliseconds(250))
+            loopObs.Throttle(TimeSpan.FromMilliseconds(SavableFileExtensions.SAVE_BUFFER_MS))
             .Subscribe(_ =>
             {
                 if (track.InputFile != null)
@@ -78,7 +74,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
 
             // Save project on changes made.
             Observable.Merge<object?>(trackObs, loopObs)
-            .Throttle(TimeSpan.FromMilliseconds(250))
+            .Throttle(TimeSpan.FromMilliseconds(SavableFileExtensions.SAVE_BUFFER_MS))
             .Subscribe(values => saveProjectCommand?.Execute(null))
             .DisposeWith(disposables);
 
@@ -97,7 +93,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
                 {
                     this.Track.InputFile = file;
 
-                    var existingLoop = this.loops.GetLoop(file);
+                    var existingLoop = loops.GetLoop(file);
                     if (existingLoop != null)
                     {
                         if (existingLoop.StartSample != 0 || existingLoop.EndSample != 0)
@@ -117,6 +113,10 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
         });
     }
 
+    public bool IsLoopInputEnabled => this._isLoopInputEnabled.Value;
+
+    public bool IsDevMode => this._isDevMode.Value;
+
     public string SelectedInputFile
     {
         get => this._selectedInputFile;
@@ -131,11 +131,11 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
 
     public ICommand CloseCommand { get; }
 
-    public Interaction<FileSelectOptions, string[]> ShowSelectFile { get; } = new();
+    public FileSelectInteraction ShowSelectFile { get; } = new();
 
     public ObservableCollection<string> InputFileOptions { get; } = [NoInputFile];
 
-    public string[] Encoders => this.encoders.Items.Select(x => x.Name).ToArray();
+    public string[] Encoders { get; }
 
     public ViewModelActivator Activator { get; } = new();
 
@@ -147,16 +147,16 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             return;
         }
 
-        var encoder = this.encoders.GetEncoder(this.Track.Encoder);
+        var encoder = this._encoders.GetEncoder(this.Track.Encoder);
         if (encoder == null)
         {
             return;
         }
 
-        var filter = $"Supported Types|{string.Join(';', encoder.InputTypes.Select(x => $"*{x}"))}";
+        var filter = (encoder.InputTypes != null) ? $"Supported Types|{string.Join(';', encoder.InputTypes.Select(x => $"*{x}"))}" : null;
         var result = await this.ShowSelectFile.Handle(new()
         {
-            Title = "Select Audio File...",
+            Title = "Select Audio File",
             Filter = filter,
         });
 
