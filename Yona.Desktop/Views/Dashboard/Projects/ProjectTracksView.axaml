@@ -32,10 +32,15 @@
             </StackPanel>
         </cc:Page.Title>
         <cc:Page.MenuItems>
-            <Button
-                VerticalAlignment="Center"
-                Command="{Binding BuildCommand}"
-                Content="Build" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button Classes="icon-button" Command="{Binding OpenEditProjectCommand}">
+                    <ma:MaterialIcon Kind="Settings" />
+                </Button>
+                <Button
+                    VerticalAlignment="Center"
+                    Command="{Binding BuildCommand}"
+                    Content="Build" />
+            </StackPanel>
         </cc:Page.MenuItems>
         <Grid ColumnDefinitions="* auto">
             <cc:AudioTracksList SelectedTrack="{Binding SelectedTrack}" Tracks="{Binding Project.Data.Tracks}" />
