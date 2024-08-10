@@ -29,7 +29,7 @@
                             Grid.Column="1"
                             Width="150"
                             ItemsSource="{Binding Pages}"
-                            SelectedItem="{Binding SelectedPage}" />
+                            SelectedItem="{Binding Settings.Current.StartPage}" />
                     </Grid>
 
                     <StackPanel.Styles>
@@ -45,7 +45,7 @@
                             Grid.Column="1"
                             Width="150"
                             ItemsSource="{Binding Themes}"
-                            SelectedItem="{Binding SelectedTheme}" />
+                            SelectedItem="{Binding Settings.Current.ThemeMode}" />
                     </Grid>
 
                     <Grid ColumnDefinitions="* auto">
@@ -53,9 +53,9 @@
                         <ComboBox
                             Grid.Column="1"
                             Width="150"
-                            DisplayMemberBinding="{ReflectionBinding Name}"
+                            DisplayMemberBinding="{Binding Name}"
                             ItemsSource="{Binding ColorOptions}"
-                            SelectedItem="{Binding SelectedColor}" />
+                            SelectedItem="{Binding Settings.Current.ThemeColor}" />
                     </Grid>
 
                     <Grid ColumnDefinitions="* auto">

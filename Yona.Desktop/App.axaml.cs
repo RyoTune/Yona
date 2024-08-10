@@ -2,12 +2,14 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media;
 using Avalonia.Styling;
 using Microsoft.Extensions.DependencyInjection;
+using ReactiveUI;
 using SukiUI;
-using SukiUI.Enums;
+using SukiUI.Models;
 using System;
-using System.ComponentModel;
+using System.Reactive.Linq;
 using Yona.Core.Settings;
 using Yona.Core.Settings.Models;
 using Yona.Core.ViewModels;
@@ -38,7 +40,31 @@ public partial class App : Application
     {
         AvaloniaXamlLoader.Load(this);
 
-        this.SetupTheming();
+        this.settings.WhenAnyValue(x => x.Current.ThemeColor)
+            .Subscribe(themeColor =>
+            {
+                var sukiTheme = SukiTheme.GetInstance();
+                var sukiColor = new SukiColorTheme(themeColor.Name, Color.Parse(themeColor.PrimaryColor), Color.Parse(themeColor.AccentColor));
+                sukiTheme?.ChangeColorTheme(sukiColor);
+            });
+
+        this.settings.WhenAnyValue(x => x.Current.ThemeMode)
+            .Subscribe(themeMode =>
+            {
+                var sukiTheme = SukiTheme.GetInstance();
+                if (themeMode == ThemeMode.Dark)
+                {
+                    sukiTheme.ChangeBaseTheme(ThemeVariant.Dark);
+                }
+                else if (themeMode == ThemeMode.Light)
+                {
+                    sukiTheme.ChangeBaseTheme(ThemeVariant.Light);
+                }
+                else
+                {
+                    sukiTheme.ChangeBaseTheme(ThemeVariant.Default);
+                }
+            });
     }
 
     public override void OnFrameworkInitializationCompleted()
@@ -61,60 +87,4 @@ public partial class App : Application
 
         base.OnFrameworkInitializationCompleted();
     }
-
-    private void SetupTheming()
-    {
-        var sukiTheme = SukiTheme.GetInstance();
-
-        this.SetThemeMode(sukiTheme);
-        this.SetThemeColor(sukiTheme);
-
-        settings.Current.PropertyChanged += Settings_PropertyChanged;
-    }
-
-    private void Settings_PropertyChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        var sukiTheme = SukiTheme.GetInstance();
-
-        if (e.PropertyName == nameof(this.settings.Current.ThemeMode))
-        {
-            this.SetThemeMode(sukiTheme);
-        }
-
-        if (e.PropertyName == nameof(this.settings.Current.ThemeColor))
-        {
-            this.SetThemeColor(sukiTheme);
-        }
-    }
-
-    private void SetThemeMode(SukiTheme sukiTheme)
-    {
-        if (this.settings.Current.ThemeMode == ThemeMode.Dark)
-        {
-            sukiTheme.ChangeBaseTheme(ThemeVariant.Dark);
-        }
-        else if (this.settings.Current.ThemeMode == ThemeMode.Light)
-        {
-            sukiTheme.ChangeBaseTheme(ThemeVariant.Light);
-        }
-        else
-        {
-            sukiTheme.ChangeBaseTheme(ThemeVariant.Default);
-        }
-    }
-
-    private void SetThemeColor(SukiTheme sukiTheme)
-    {
-        // Set color theme.
-        sukiTheme.ChangeColorTheme(GetSukiColor(this.settings.Current.ThemeColor));
-    }
-
-    private static SukiColor GetSukiColor(ThemeColor color) => color switch
-    {
-        ThemeColor.Blue => SukiColor.Blue,
-        ThemeColor.Orange => SukiColor.Orange,
-        ThemeColor.Green => SukiColor.Green,
-        ThemeColor.Red => SukiColor.Red,
-            _ => SukiColor.Blue,
-    };
 }

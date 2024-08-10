@@ -5,7 +5,7 @@ namespace Yona.Core.Settings.Models;
 public partial class AppSettings : ObservableObject
 {
     [ObservableProperty]
-    private ThemeColor themeColor = ThemeColor.Orange;
+    private ColorTheme themeColor = ColorTheme.AvailableOptions.First();
 
     [ObservableProperty]
     private ThemeMode themeMode = ThemeMode.Auto;

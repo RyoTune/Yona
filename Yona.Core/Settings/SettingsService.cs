@@ -1,16 +1,18 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Microsoft.Extensions.Logging;
-using System.ComponentModel;
+﻿using Microsoft.Extensions.Logging;
+using ReactiveUI;
 using Yona.Core.Common;
+using Yona.Core.Extensions;
 using Yona.Core.Settings.Models;
 using Yona.Core.Utils.Serializers;
 
 namespace Yona.Core.Settings;
 
-public class SettingsService : ObservableObject
+public class SettingsService : ReactiveObject
 {
     private readonly ILogger log;
     private readonly SavableFile<AppSettings> settings;
+
+    private IDisposable? disposable;
 
     public SettingsService(ILogger log)
     {
@@ -18,34 +20,31 @@ public class SettingsService : ObservableObject
 
         var appDir = AppDomain.CurrentDomain.BaseDirectory;
         var settingsFile = Path.Join(appDir, "settings.json");
-        settings = new SavableFile<AppSettings>(settingsFile, JsonFileSerializer.Instance);
 
-        Current.PropertyChanged += OnSettingsChanged;
+        this.settings = new SavableFile<AppSettings>(settingsFile, JsonFileSerializer.Instance);
+
+        this.WhenAnyValue(x => x.Current)
+            .Subscribe(_ =>
+            {
+                this.disposable?.Dispose();
+                this.disposable = this.settings.AutosaveWithChanges();
+            });
     }
 
-    public AppSettings Current => settings.Data;
+    public AppSettings Current
+    {
+        get => this.settings.Data;
+        set
+        {
+            this.RaisePropertyChanging(nameof(this.Current));
+            this.settings.Data = value;
+            this.RaisePropertyChanged(nameof(this.Current));
+        }
+    }
 
     public void Reset()
     {
-        Current.PropertyChanged -= OnSettingsChanged;
-
-        settings.Data = new();
-        settings.Save();
-        OnPropertyChanged(nameof(Current));
-
-        Current.PropertyChanged += OnSettingsChanged;
-    }
-
-    private void OnSettingsChanged(object? sender, PropertyChangedEventArgs e)
-    {
-        try
-        {
-            settings.Save();
-            this.log.LogDebug("Settings saved.");
-        }
-        catch (Exception ex)
-        {
-            this.log.LogError(ex, "Failed to auto-save settings.");
-        }
+        this.Current = new();
+        this.settings.Save();
     }
 }
