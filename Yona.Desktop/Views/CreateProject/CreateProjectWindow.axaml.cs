@@ -16,6 +16,7 @@ public partial class CreateProjectWindow : ReactiveSukiWindow<CreateProjectViewM
         {
             this.ViewModel!.SelectFile.RegisterHandler(this.HandleFileSelect).DisposeWith(disposables);
             this.ViewModel!.SelectFolder.RegisterHandler(this.HandleFolderSelect).DisposeWith(disposables);
+            this.ViewModel!.Close.RegisterHandler(this.HandleCloseInteraction).DisposeWith(disposables);
         });
     }
 }

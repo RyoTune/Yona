@@ -23,7 +23,7 @@
 
         <suki:GlassCard Grid.Row="1">
             <Grid ColumnDefinitions="128 12 *">
-                <Grid VerticalAlignment="Top" RowDefinitions="*">
+                <Grid VerticalAlignment="Top">
                     <Border
                         Width="128"
                         Height="128"
@@ -112,11 +112,34 @@
                 </TabControl>
             </Grid>
         </suki:GlassCard>
-        <Button
+
+        <StackPanel
             Grid.Row="2"
             Margin="0,12,0,0"
             HorizontalAlignment="Right"
-            Click="Button_Click"
-            Content="Close" />
+            Orientation="Horizontal"
+            Spacing="8">
+            <Button Command="{Binding CancelCommand}">
+                <Button.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="Content" Value="Cancel" />
+                    </Style>
+                    <Style Selector="Button.isEditing">
+                        <Setter Property="Content" Value="Delete" />
+                        <Setter Property="HorizontalAlignment" Value="Left" />
+                    </Style>
+                </Button.Styles>
+            </Button>
+            <Button Command="{Binding ConfirmCommand}">
+                <Button.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="Content" Value="Confirm" />
+                    </Style>
+                    <Style Selector="Button.isEditing">
+                        <Setter Property="Content" Value="Close" />
+                    </Style>
+                </Button.Styles>
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>

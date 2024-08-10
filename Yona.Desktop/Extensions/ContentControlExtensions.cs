@@ -5,6 +5,7 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive;
 using System.Threading.Tasks;
 using Yona.Core.Common.Dialog;
 
@@ -78,6 +79,19 @@ internal static class ContentControlExtensions
         catch (Exception ex)
         {
             Log.Error(ex, "Failed to handle save file dialog.");
+        }
+    }
+
+    public static void HandleCloseInteraction(this ContentControl control, IInteractionContext<Unit, Unit> interaction)
+    {
+        try
+        {
+            ((Window)TopLevel.GetTopLevel(control)!).Close();
+            interaction.SetOutput(new());
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Failed to handle close.");
         }
     }
 

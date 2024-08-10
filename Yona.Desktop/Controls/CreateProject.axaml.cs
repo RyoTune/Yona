@@ -12,10 +12,4 @@ public partial class CreateProject : UserControl
     {
         InitializeComponent();
     }
-
-    private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-    {
-        var window = (Window)TopLevel.GetTopLevel(this)!;
-        window.Close();
-    }
 }
