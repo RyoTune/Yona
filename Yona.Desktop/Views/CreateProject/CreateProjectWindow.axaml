@@ -6,15 +6,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:suki="using:SukiUI.Controls"
-    Title="{Binding Project.Data.Name}"
+    xmlns:vm="using:Yona.Core.ViewModels.CreateProject"
     Width="700"
     Height="400"
     MinWidth="700"
     MinHeight="400"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    xmlns:vm="using:Yona.Core.ViewModels.CreateProject"
-	x:DataType="vm:CreateProjectViewModel"
+    x:DataType="vm:CreateProjectViewModel"
+    Classes.isEditing="{Binding IsEditing}"
     mc:Ignorable="d">
+    <suki:SukiWindow.Styles>
+        <Style Selector="suki|SukiWindow">
+            <Setter Property="Title" Value="Create Project" />
+        </Style>
+        <Style Selector="suki|SukiWindow.isEditing">
+            <Setter Property="Title" Value="Edit Project" />
+        </Style>
+    </suki:SukiWindow.Styles>
     <cc:CreateProject />
 </suki:SukiWindow>
