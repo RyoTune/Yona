@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using ReactiveUI;
+using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Yona.Core.Audio;
@@ -38,6 +39,8 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
 
     public FolderSelectInteraction SelectFolder { get; } = new();
 
+    public Interaction<Unit, Unit> Close { get; } = new();
+
     [RelayCommand]
     private async Task SelectOutputFolder()
     {
@@ -72,12 +75,26 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
     }
 
     [RelayCommand]
-    private void DeleteProject()
+    private async Task Confirm()
+    {
+        await this.Close.Handle(new());
+    }
+
+    [RelayCommand]
+    private async Task Cancel()
     {
         try
         {
-            Directory.Delete(this.Project.ProjectDir, true);
-            // TODO: Remove project from repository (should probably handle deleting folder too).
+            if (this.IsEditing)
+            {
+                // Confirm delete.
+            }
+            else
+            {
+                Directory.Delete(this.Project.ProjectDir, true);
+                await this.Close.Handle(new());
+                // TODO: Remove project from repository (should probably handle deleting folder too).
+            }
         }
         catch (Exception)
         {
