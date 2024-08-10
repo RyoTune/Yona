@@ -6,6 +6,8 @@ namespace Yona.Core.Projects.Models;
 
 public partial class ProjectData : ObservableObject
 {
+    private string? _outputDir;
+
     public ProjectData()
     {
     }
@@ -21,8 +23,9 @@ public partial class ProjectData : ObservableObject
         this.DefaultEncoder = existingData.DefaultEncoder;
         this.DefaultLoopState = existingData.DefaultLoopState;
         this.DefaultOutputPath = existingData.DefaultOutputPath;
-        this.Version = existingData.Version;
         this.Tracks = existingData.Tracks;
+        this.PostBuild = existingData.postBuild;
+        this.UseFastBuild = existingData.UseFastBuild;
     }
 
     [ObservableProperty]
@@ -32,7 +35,29 @@ public partial class ProjectData : ObservableObject
     private string name = string.Empty;
 
     [ObservableProperty]
-    private int version = 1;
+    private string? template;
+
+    public string? OutputDir
+    {
+        get => this._outputDir;
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                this.SetProperty(ref this._outputDir, null);
+            }
+            else
+            {
+                this.SetProperty(ref this._outputDir, value);
+            }
+        }
+    }
+
+    [ObservableProperty]
+    private string? postBuild;
+
+    [ObservableProperty]
+    private bool useFastBuild = true;
 
     /// <summary>
     /// Default encoder for new tracks.
@@ -54,10 +79,4 @@ public partial class ProjectData : ObservableObject
 
     [ObservableProperty]
     private ObservableCollection<AudioTrack> tracks = [];
-
-    [ObservableProperty]
-    private string? outputDir;
-
-    [ObservableProperty]
-    private bool useFastBuild = true;
 }
