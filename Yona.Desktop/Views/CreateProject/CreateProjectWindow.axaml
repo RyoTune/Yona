@@ -1,0 +1,20 @@
+<suki:SukiWindow
+    x:Class="Yona.Desktop.Views.CreateProject.CreateProjectWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:suki="using:SukiUI.Controls"
+    Title="{Binding Project.Data.Name}"
+    Width="700"
+    Height="400"
+    MinWidth="700"
+    MinHeight="400"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    xmlns:vm="using:Yona.Core.ViewModels.CreateProject"
+	x:DataType="vm:CreateProjectViewModel"
+    mc:Ignorable="d">
+    <cc:CreateProject />
+</suki:SukiWindow>

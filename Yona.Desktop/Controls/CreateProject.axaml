@@ -1,0 +1,122 @@
+<UserControl
+    x:Class="Yona.Desktop.Controls.CreateProject"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:design="using:Yona.Desktop.DesignData"
+    xmlns:ma="using:Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Yona.Core.Projects.Models"
+    xmlns:suki="using:SukiUI.Controls"
+    xmlns:theme="using:SukiUI.Theme"
+    xmlns:vm="using:Yona.Core.ViewModels.CreateProject"
+    d:DesignHeight="400"
+    d:DesignWidth="800"
+    x:DataType="vm:CreateProjectViewModel"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <design:DesignProject />
+    </Design.DataContext>
+    <Grid Margin="12" RowDefinitions="auto * auto">
+        <TextBlock Classes="h3" Text="{Binding Project.Data.Name}" />
+
+        <suki:GlassCard Grid.Row="1">
+            <Grid ColumnDefinitions="128 12 *">
+                <Grid VerticalAlignment="Top" RowDefinitions="*">
+                    <Border
+                        Width="128"
+                        Height="128"
+                        Background="#1c1c1c"
+                        ClipToBounds="True"
+                        CornerRadius="{StaticResource SmallCornerRadius}">
+                        <cc:ProjectIcon DataContext="{Binding Project}" />
+                    </Border>
+                    <Button
+                        Margin="4"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Background="{DynamicResource SukiGlassCardOpaqueBackground}"
+                        Classes="icon-button"
+                        Command="{Binding SelectProjectIconCommand}">
+                        <ma:MaterialIcon Kind="ImageAdd" />
+                    </Button>
+                </Grid>
+
+                <TabControl Grid.Column="2" Padding="0,8,0,0">
+                    <TabItem Header="Project">
+                        <Grid ColumnDefinitions="* 12 *">
+                            <StackPanel Classes="options-container">
+                                <StackPanel>
+                                    <TextBlock Text="Name" />
+                                    <TextBox Text="{Binding Project.Data.Name}" />
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <TextBlock Text="Output Folder" />
+                                    <Grid ColumnDefinitions="* auto">
+                                        <TextBox
+                                            theme:TextBoxExtensions.AddDeleteButton="True"
+                                            IsReadOnly="True"
+                                            Text="{Binding Project.Data.OutputDir}"
+                                            Watermark="Project Build Folder" />
+                                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                            <Button Classes="icon-button" Command="{Binding SelectOutputFolderCommand}">
+                                                <ma:MaterialIcon Kind="FolderAdd" />
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+
+                                <Grid ColumnDefinitions="* auto" IsEnabled="False">
+                                    <TextBlock VerticalAlignment="Center" Text="Fast Build" />
+                                    <ToggleSwitch Grid.Column="1" IsChecked="{Binding Project.Data.UseFastBuild}" />
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2" Classes="options-container">
+
+                                <StackPanel>
+                                    <TextBlock Text="Base Template" />
+                                    <ComboBox ItemsSource="{Binding Templates}" SelectedItem="{Binding Project.Data.Template}" />
+                                </StackPanel>
+
+                                <StackPanel IsEnabled="False">
+                                    <TextBlock Text="Post Build" />
+                                    <ComboBox />
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <TabItem Header="Preferences">
+                        <Grid ColumnDefinitions="* 12 *">
+                            <StackPanel Classes="options-container">
+                                <TextBlock Text="Default Encoder" />
+                                <ComboBox ItemsSource="{Binding Encoders}" SelectedItem="{Binding Project.Data.DefaultEncoder}" />
+
+
+                                <TextBlock Text="Default Output Path" />
+                                <TextBox Text="{Binding Project.Data.DefaultOutputPath}" />
+                            </StackPanel>
+
+                            <Grid
+                                Grid.Column="2"
+                                VerticalAlignment="Top"
+                                ColumnDefinitions="* auto">
+                                <TextBlock Text="Enable Loop on File Selection" />
+                                <CheckBox Grid.Column="1" IsChecked="{Binding Project.Data.DefaultLoopState}" />
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </suki:GlassCard>
+        <Button
+            Grid.Row="2"
+            Margin="0,12,0,0"
+            HorizontalAlignment="Right"
+            Click="Button_Click"
+            Content="Close" />
+    </Grid>
+</UserControl>
