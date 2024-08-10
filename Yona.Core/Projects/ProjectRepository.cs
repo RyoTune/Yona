@@ -61,6 +61,8 @@ public class ProjectRepository
                 try
                 {
                     var project = new ProjectBundle(projectFile);
+                    project.Data.Tracks = new(project.Data.Tracks.OrderBy(x => x.Name));
+                    project.Save();
                     this._projects.Add(project);
                 }
                 catch (Exception ex)
