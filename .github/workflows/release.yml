@@ -25,8 +25,9 @@ jobs:
       run: dotnet publish Yona.Desktop -c Release -o build
     
     - name: Zip Build
-      run: cd build |
-           zip -r ../Release.zip ./*
+      run: |
+        cd build
+        zip -r ../Release.zip ./*
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
@@ -39,5 +40,5 @@ jobs:
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: ./Release.zip
+        files: Release.zip
         fail_on_unmatched_files: true
