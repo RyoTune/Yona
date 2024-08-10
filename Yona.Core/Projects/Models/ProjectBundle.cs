@@ -1,9 +1,11 @@
-﻿using Yona.Core.Common;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Yona.Core.Common;
 using Yona.Core.Utils.Serializers;
 
 namespace Yona.Core.Projects.Models;
 
-public class ProjectBundle : SavableFile<ProjectData>
+[INotifyPropertyChanged]
+public partial class ProjectBundle : SavableFile<ProjectData>
 {
     public ProjectBundle(string filePath) : base(filePath, YamlFileSerializer.Instance)
     {
@@ -22,4 +24,10 @@ public class ProjectBundle : SavableFile<ProjectData>
     public string IconFile { get; }
 
     public string BuildDir { get; }
+
+    public void UpdateIcon(string newIconFile)
+    {
+        File.Copy(newIconFile, this.IconFile, true);
+        this.OnPropertyChanged(nameof(this.IconFile));
+    }
 }
