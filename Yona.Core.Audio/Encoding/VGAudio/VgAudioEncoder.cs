@@ -33,7 +33,7 @@ public class VgAudioEncoder : IEncoder
 
     public string[] InputTypes { get; } = ContainerTypes.ExtensionList.Select(x => $".{x}").ToArray();
 
-    public Task Encode(string inputFile, string outputFile, Loop loop)
+    public Task Encode(string inputFile, string outputFile, Loop? loop)
     {
         return Task.Run(() =>
         {
@@ -46,15 +46,15 @@ public class VgAudioEncoder : IEncoder
             var reader = readerContainer.GetReader();
             var inputAudio = reader.Read(inputStream);
 
-            try
+            if (loop?.Enabled == true)
             {
-                if (loop.FullLoop)
+                try
                 {
-                    inputAudio.SetLoop(loop.Enabled);
-                }
-                else if (loop.Enabled)
-                {
-                    if (loop.StartSample > loop.EndSample)
+                    if (loop.FullLoop)
+                    {
+                        inputAudio.SetLoop(loop.Enabled);
+                    }
+                    else if (loop.StartSample > loop.EndSample)
                     {
                         throw new Exception("Loop start sample can't be past loop end sample.");
                     }
@@ -63,9 +63,9 @@ public class VgAudioEncoder : IEncoder
                         inputAudio.SetLoop(loop.Enabled, loop.StartSample, loop.EndSample);
                     }
                 }
-            }
-            catch (Exception)
-            {
+                catch (Exception)
+                {
+                }
             }
 
             writer.WriteToStream(inputAudio, outputStream, configuration);

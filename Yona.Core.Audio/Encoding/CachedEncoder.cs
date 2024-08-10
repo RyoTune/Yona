@@ -30,9 +30,9 @@ public class CachedEncoder : IEncoder
 
     public string EncodedExt => this.encoder.EncodedExt;
 
-    public string[] InputTypes => this.encoder.InputTypes;
+    public string[]? InputTypes => this.encoder.InputTypes;
 
-    public async Task Encode(string inputFile, string outputFile, Loop loop)
+    public async Task Encode(string inputFile, string outputFile, Loop? loop)
     {
         var inputChecksum = Checksum.Compute(inputFile);
 

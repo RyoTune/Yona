@@ -15,7 +15,7 @@ public class CopyEncoder : IEncoder
 
     public string[]? InputTypes { get; } = null;
 
-    public async Task Encode(string inputFile, string outputFile, Loop loop)
+    public async Task Encode(string inputFile, string outputFile, Loop? loop)
     {
         using var source = File.OpenRead(inputFile);
         using var output = File.Create(outputFile);
