@@ -25,7 +25,7 @@ public class EncoderRepository
         this.LoadEncoders();
     }
 
-    public ObservableCollection<CachedEncoder> Items { get; } = [];
+    public ObservableCollection<IEncoder> Items { get; } = [];
 
     public IEncoder? GetEncoder(string name) => this.Items.FirstOrDefault(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
@@ -37,6 +37,9 @@ public class EncoderRepository
 
     private void LoadDefaultEncoders()
     {
+        var copyEncoder = new CopyEncoder();
+        this.Items.Add(copyEncoder);
+
         foreach (var container in ContainerTypes.Containers)
         {
             try
