@@ -14,9 +14,19 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
+
     <Style Selector="Button.icon-button">
         <Setter Property="Padding" Value="0" />
         <Setter Property="Height" Value="32" />
         <Setter Property="Width" Value="32" />
+    </Style>
+
+    <Style Selector="StackPanel.options-container">
+        <Setter Property="Spacing" Value="8" />
+    </Style>
+
+    <Style Selector="ComboBox TextBlock">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
     </Style>
 </Styles>
