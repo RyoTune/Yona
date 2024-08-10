@@ -42,7 +42,11 @@ public class ProjectIcon : ReactiveUserControl<ProjectBundle>
             }
             catch (Exception) { }
         }
-        else if (IconUtils.GetDefaultIconFromName(project.Data.Name) is string knownName)
+
+        var knownName = IconUtils.GetDefaultIconFromName(project.Data.Name)
+            ?? IconUtils.GetDefaultIconFromName(project.Data.Template ?? string.Empty);
+
+        if (knownName != null)
         {
             var iconUri = new Uri($"avares://Yona.Desktop/Assets/Icons/{knownName}.webp");
 

@@ -2,6 +2,7 @@
     x:Class="Yona.Desktop.Controls.Project"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:design="using:Yona.Desktop.DesignData"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -19,10 +20,7 @@
             Background="#1c1c1c"
             ClipToBounds="True"
             CornerRadius="{StaticResource SmallCornerRadius}">
-            <Image
-                RenderOptions.BitmapInterpolationMode="MediumQuality"
-                Source="{Binding Converter={StaticResource ProjectIconConverter}}"
-                Stretch="UniformToFill" />
+            <cc:ProjectIcon />
         </Border>
         <TextBlock
             Grid.Column="1"
