@@ -1,24 +1,18 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using ReactiveUI;
+﻿using ReactiveUI;
+using Yona.Core.Audio;
 using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
-using Yona.Core.ViewModels.TrackPanel;
 
 namespace Yona.Core.ViewModels.Dashboard.Projects;
 
 public class ProjectsRouter : RoutingState
 {
+    private readonly ProjectTracksFactory projectTracks;
     private readonly ProjectsGalleryViewModel projectsGallery;
-    private readonly ProjectRepository projects;
-    private readonly TrackPanelFactory trackPanel;
-    private readonly ProjectBuilder builder;
 
-    public ProjectsRouter(IScreen host, ProjectRepository projects, TrackPanelFactory trackPanel, ProjectBuilder builder)
+    public ProjectsRouter(IScreen host, ProjectRepository projects, EncoderRepository encoders, ProjectTracksFactory projectTracks)
     {
-        this.projects = projects;
-        this.trackPanel = trackPanel;
-        this.builder = builder;
-
+        this.projectTracks = projectTracks;
         this.HostScreen = host;
         this.projectsGallery = new ProjectsGalleryViewModel(this, projects);
         this.Navigate.Execute(this.projectsGallery);
@@ -28,6 +22,6 @@ public class ProjectsRouter : RoutingState
 
     public void OpenProject(ProjectBundle project)
     {
-        this.Navigate.Execute(new ProjectTracksViewModel(this, project, this.builder, this.trackPanel));
+        this.Navigate.Execute(this.projectTracks.Create(this, project));
     }
 }

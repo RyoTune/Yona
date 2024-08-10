@@ -14,18 +14,19 @@ public partial class ProjectData : ObservableObject
 
     /// <summary>
     /// Create new project data that copies from an existing
-    /// project data.
+    /// project as the template.
     /// </summary>
-    /// <param name="existingData">Existing project data.</param>
-    public ProjectData(ProjectData existingData)
+    /// <param name="templateProject">Existing project data.</param>
+    public ProjectData(ProjectData templateProject)
     {
-        this.Name = existingData.Name;
-        this.DefaultEncoder = existingData.DefaultEncoder;
-        this.DefaultLoopState = existingData.DefaultLoopState;
-        this.DefaultOutputPath = existingData.DefaultOutputPath;
-        this.Tracks = existingData.Tracks;
-        this.PostBuild = existingData.postBuild;
-        this.UseFastBuild = existingData.UseFastBuild;
+        this.Name = templateProject.Name;
+        this.Template = templateProject.Name;
+        this.DefaultEncoder = templateProject.DefaultEncoder;
+        this.DefaultLoopState = templateProject.DefaultLoopState;
+        this.DefaultOutputPath = templateProject.DefaultOutputPath;
+        this.Tracks = templateProject.Tracks;
+        this.PostBuild = templateProject.postBuild;
+        this.UseFastBuild = templateProject.UseFastBuild;
     }
 
     [ObservableProperty]
