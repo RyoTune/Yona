@@ -33,7 +33,7 @@ public class ProjectRepository
         this._projects.Remove(entity);
     }
 
-    public void Create(ProjectData project)
+    public ProjectBundle Create(ProjectData project)
     {
         var newProjectFile = Path.Join(this.projectsDir, project.Id, "project.yaml");
         Directory.CreateDirectory(Path.GetDirectoryName(newProjectFile)!);
@@ -45,6 +45,8 @@ public class ProjectRepository
 
         newProject.Save();
         this._projects.Add(newProject);
+
+        return newProject;
     }
 
     public ProjectBundle Get(string id) => this._projects.First(x => x.Data.Id == id);
