@@ -9,7 +9,7 @@ public class TemplateRepository
 {
     private readonly ILogger? log;
     private readonly string templatesDir;
-    private readonly ObservableCollection<ProjectBundle> _templates = [];
+    private readonly ObservableCollection<ProjectBundle> templates = [];
 
     public TemplateRepository(AppService app, ILogger log)
     {
@@ -21,7 +21,9 @@ public class TemplateRepository
         LoadTemplates();
     }
 
-    public IReadOnlyList<ProjectBundle> Items => this._templates;
+    public IReadOnlyList<ProjectBundle> Items => this.templates;
+
+    public string[] AvailableTemplates => this.Items.Select(project => project.Data.Name).ToArray();
 
     private void LoadTemplates()
     {
@@ -33,7 +35,7 @@ public class TemplateRepository
                 try
                 {
                     var template = new ProjectBundle(templateFile);
-                    this._templates.Add(template);
+                    this.templates.Add(template);
                 }
                 catch (Exception ex)
                 {

@@ -27,6 +27,8 @@ public class EncoderRepository
 
     public ObservableCollection<IEncoder> Items { get; } = [];
 
+    public string[] AvailableEncoders => this.Items.Select(x => x.Name).ToArray();
+
     public IEncoder? GetEncoder(string name) => this.Items.FirstOrDefault(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
     private void LoadEncoders()
