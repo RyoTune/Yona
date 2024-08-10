@@ -43,6 +43,7 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<EncoderRepository>();
         service.AddSingleton<ProjectBuilder>();
         service.AddSingleton<ProjectsRouterFactory>();
+        service.AddSingleton<ProjectTracksFactory>();
 
         return service;
     }

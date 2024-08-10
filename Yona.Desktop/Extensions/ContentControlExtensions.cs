@@ -10,9 +10,9 @@ using Yona.Core.Common.Dialog;
 
 namespace Yona.Desktop.Extensions;
 
-internal static class UserControlExtensions
+internal static class ContentControlExtensions
 {
-    public static async Task HandleFileSelect(this UserControl control, IInteractionContext<FileSelectOptions, string[]> interaction)
+    public static async Task HandleFileSelect(this ContentControl control, IInteractionContext<FileSelectOptions, string[]> interaction)
     {
         try
         {
@@ -35,7 +35,7 @@ internal static class UserControlExtensions
         }
     }
 
-    public static async Task HandleFolderSelect(this UserControl control, IInteractionContext<FolderSelectOptions, string[]> interaction)
+    public static async Task HandleFolderSelect(this ContentControl control, IInteractionContext<FolderSelectOptions, string[]> interaction)
     {
         try
         {
@@ -58,7 +58,7 @@ internal static class UserControlExtensions
     }
 
 
-    public static async Task HandleSaveFile(this UserControl control, IInteractionContext<SaveFileOptions, string?> interaction)
+    public static async Task HandleSaveFile(this ContentControl control, IInteractionContext<SaveFileOptions, string?> interaction)
     {
         try
         {
