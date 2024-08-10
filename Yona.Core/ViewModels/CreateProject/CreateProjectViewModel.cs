@@ -26,6 +26,8 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
 
     public ProjectBundle Project { get; }
 
+    public bool IsEditing { get; init; }
+
     public string[] Encoders { get; }
 
     public string[] Templates { get; }
@@ -66,6 +68,20 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
             {
                 // TODO: Log error.
             }
+        }
+    }
+
+    [RelayCommand]
+    private void DeleteProject()
+    {
+        try
+        {
+            Directory.Delete(this.Project.ProjectDir, true);
+            // TODO: Remove project from repository (should probably handle deleting folder too).
+        }
+        catch (Exception)
+        {
+            // TODO: Log error.
         }
     }
 }

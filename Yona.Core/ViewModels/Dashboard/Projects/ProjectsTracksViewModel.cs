@@ -78,6 +78,6 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel
     [RelayCommand]
     private async Task OpenEditProject()
     {
-        await this.EditProject.Handle(new(this.Project, this.templates, this.encoders));
+        await this.EditProject.Handle(new(this.Project, this.templates, this.encoders) { IsEditing = true });
     }
 }
