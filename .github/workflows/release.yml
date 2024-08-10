@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: Build
+      run: dotnet publish Yona.Desktop -c Release -o build
+    
+    - name: Zip Build
+      run: cd build |
+           zip -r ../Release.zip ./*
+           
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: ./Release.zip
+        fail_on_unmatched_files: true
