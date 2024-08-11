@@ -123,7 +123,7 @@
                 </Style>
             </Grid.Styles>
             <StackPanel IsVisible="{Binding IsEditing}" Orientation="Horizontal">
-                <Button Command="{Binding CancelCommand}" ToolTip.Tip="Delete Project">
+                <Button Command="{Binding DeleteCommand}" ToolTip.Tip="Delete Project">
                     <ma:MaterialIcon Kind="Delete" />
                 </Button>
                 <Button
@@ -140,7 +140,7 @@
                 <Button Classes.isEditing="{Binding IsEditing}" Command="{Binding ConfirmCommand}">
                     <Button.Styles>
                         <Style Selector="Button">
-                            <Setter Property="Content" Value="Confirm" />
+                            <Setter Property="Content" Value="Create" />
                         </Style>
                         <Style Selector="Button.isEditing">
                             <Setter Property="Content" Value="Close" />
