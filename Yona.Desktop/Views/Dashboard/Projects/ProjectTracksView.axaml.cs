@@ -18,7 +18,7 @@ public partial class ProjectTracksView : ReactiveUserControl<ProjectTracksViewMo
 
         this.WhenActivated(disposables =>
         {
-            this.ViewModel!.EditProject.RegisterHandler(this.HandleEditProject).DisposeWith(disposables);
+            this.ViewModel?.EditProject.RegisterHandler(this.HandleEditProject).DisposeWith(disposables);
         });
     }
 
