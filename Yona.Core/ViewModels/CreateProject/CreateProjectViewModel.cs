@@ -1,10 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using ReactiveUI;
-using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
-using Yona.Core.Audio;
 using Yona.Core.Common.Dialog;
+using Yona.Core.Common.Interactions;
 using Yona.Core.Extensions;
 using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
@@ -13,11 +12,15 @@ namespace Yona.Core.ViewModels.CreateProject;
 
 public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewModel
 {
-    public CreateProjectViewModel(ProjectBundle project, TemplateRepository templates, EncoderRepository encoders)
+    private readonly ProjectServices services;
+
+    public CreateProjectViewModel(ProjectBundle project, ProjectServices services)
     {
         this.Project = project;
-        this.Templates = templates.AvailableTemplates;
-        this.Encoders = encoders.AvailableEncoders;
+        this.services = services;
+
+        this.Templates = services.Templates;
+        this.Encoders = services.Encoders;
 
         this.WhenActivated((CompositeDisposable disposables) =>
         {
@@ -39,7 +42,11 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
 
     public FolderSelectInteraction SelectFolder { get; } = new();
 
-    public Interaction<Unit, Unit> Close { get; } = new();
+    public CloseInteraction Close { get; } = new();
+
+    public CloseInteraction ConfirmCreate { get; } = new();
+
+    public ConfirmInteraction ConfirmDelete { get; } = new();
 
     [RelayCommand]
     private async Task SelectOutputFolder()
@@ -77,7 +84,14 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
     [RelayCommand]
     private async Task Confirm()
     {
-        await this.Close.Handle(new());
+        if (this.IsEditing == false)
+        {
+            await this.ConfirmCreate.Handle(new());
+        }
+        else
+        {
+            await this.Close.Handle(new());
+        }
     }
 
     [RelayCommand]
@@ -85,15 +99,30 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
     {
         try
         {
-            if (this.IsEditing)
+            this.services.DeleteProject(this.Project);
+            await this.Close.Handle(new());
+        }
+        catch (Exception)
+        {
+            // TODO: Log error.
+        }
+    }
+
+    [RelayCommand]
+    private async Task Delete()
+    {
+        try
+        {
+            var confirmed = await this.ConfirmDelete.Handle(new()
             {
-                // Confirm delete.
-            }
-            else
+                Title = $"Delete Project?",
+                Description = $"Are you sure you want to delete: {this.Project.Data.Name}",
+            });
+
+            if (confirmed)
             {
-                Directory.Delete(this.Project.ProjectDir, true);
+                this.services.DeleteProject(this.Project);
                 await this.Close.Handle(new());
-                // TODO: Remove project from repository (should probably handle deleting folder too).
             }
         }
         catch (Exception)
@@ -101,4 +130,7 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
             // TODO: Log error.
         }
     }
+
+    [RelayCommand]
+    private void Reset() => this.services.ResetProject(this.Project);
 }
