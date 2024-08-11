@@ -23,20 +23,23 @@ jobs:
         
     - name: Build
       run: dotnet publish Yona.Desktop -c Release -o build
-    
-    - name: Zip Build
-      run: Compress-Archive -Path build -DestinationPath Release.zip
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Build
+        name: build
         path: build
         retention-days: 0
+
+    - name: Download Build Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: build
+        path: yona-windows.zip
            
     - name: Release
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: Release.zip
+        files: yona-windows.zip
         fail_on_unmatched_files: true
