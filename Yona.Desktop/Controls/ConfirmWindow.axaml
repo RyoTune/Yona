@@ -8,13 +8,14 @@
     xmlns:models="using:Yona.Core.Common.Interactions"
     xmlns:suki="using:SukiUI.Controls"
     Title="{Binding Title}"
-	Width="450"
-	Height="250"
+    Width="450"
+    Height="250"
     MinWidth="450"
     MinHeight="250"
     d:DesignHeight="250"
     d:DesignWidth="450"
     x:DataType="models:ConfirmOptions"
+    WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
     <Design.DataContext>
         <design:DesignConfirmOptions />
