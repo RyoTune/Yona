@@ -1,0 +1,39 @@
+<suki:SukiWindow
+    x:Class="Yona.Desktop.Controls.ConfirmWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:design="using:Yona.Desktop.DesignData"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Yona.Core.Common.Interactions"
+    xmlns:suki="using:SukiUI.Controls"
+    Title="{Binding Title}"
+	Width="450"
+	Height="250"
+    MinWidth="450"
+    MinHeight="250"
+    d:DesignHeight="250"
+    d:DesignWidth="450"
+    x:DataType="models:ConfirmOptions"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <design:DesignConfirmOptions />
+    </Design.DataContext>
+    <Grid Margin="8" RowDefinitions="* auto">
+        <StackPanel>
+            <TextBlock
+                Classes="h3"
+                Text="{Binding Title}"
+                TextWrapping="Wrap" />
+            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal"
+            Spacing="8">
+            <Button Click="Button_Cancel" Content="Cancel" />
+            <Button Click="Button_Confirm" Content="Confirm" />
+        </StackPanel>
+    </Grid>
+</suki:SukiWindow>
