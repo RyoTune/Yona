@@ -113,33 +113,41 @@
             </Grid>
         </suki:GlassCard>
 
-        <StackPanel
+        <Grid
             Grid.Row="2"
             Margin="0,12,0,0"
-            HorizontalAlignment="Right"
-            Orientation="Horizontal"
-            Spacing="8">
-            <Button Command="{Binding CancelCommand}">
-                <Button.Styles>
-                    <Style Selector="Button">
-                        <Setter Property="Content" Value="Cancel" />
-                    </Style>
-                    <Style Selector="Button.isEditing">
-                        <Setter Property="Content" Value="Delete" />
-                        <Setter Property="HorizontalAlignment" Value="Left" />
-                    </Style>
-                </Button.Styles>
-            </Button>
-            <Button Command="{Binding ConfirmCommand}">
-                <Button.Styles>
-                    <Style Selector="Button">
-                        <Setter Property="Content" Value="Confirm" />
-                    </Style>
-                    <Style Selector="Button.isEditing">
-                        <Setter Property="Content" Value="Close" />
-                    </Style>
-                </Button.Styles>
-            </Button>
-        </StackPanel>
+            ColumnDefinitions="* auto">
+            <Grid.Styles>
+                <Style Selector="Grid > StackPanel">
+                    <Setter Property="Spacing" Value="8" />
+                </Style>
+            </Grid.Styles>
+            <StackPanel IsVisible="{Binding IsEditing}" Orientation="Horizontal">
+                <Button Command="{Binding CancelCommand}" ToolTip.Tip="Delete Project">
+                    <ma:MaterialIcon Kind="Delete" />
+                </Button>
+                <Button
+                    Command="{Binding ResetCommand}"
+                    Content="Reset"
+                    IsEnabled="{Binding Project.Data.Name, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button
+                    Command="{Binding CancelCommand}"
+                    Content="Cancel"
+                    IsVisible="{Binding !IsEditing}" />
+                <Button Classes.isEditing="{Binding IsEditing}" Command="{Binding ConfirmCommand}">
+                    <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Content" Value="Confirm" />
+                        </Style>
+                        <Style Selector="Button.isEditing">
+                            <Setter Property="Content" Value="Close" />
+                        </Style>
+                    </Button.Styles>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
