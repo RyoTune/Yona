@@ -3,20 +3,14 @@ using Yona.Core.Audio;
 using Yona.Core.Audio.Encoding;
 using Yona.Core.Projects.Models;
 
-namespace Yona.Core.Projects;
+namespace Yona.Core.Projects.Builders;
 
-public class ProjectBuilder
+public class StandardProjectBuilder(EncoderRepository encoders, ILogger log) : IProjectBuilder
 {
-    private readonly EncoderRepository encoders;
-    private readonly ILogger log;
+    private readonly EncoderRepository encoders = encoders;
+    private readonly ILogger log = log;
 
-    public ProjectBuilder(EncoderRepository encoders, ILogger log)
-    {
-        this.encoders = encoders;
-        this.log = log;
-    }
-
-    public async Task Build(ProjectBundle project)
+    public async Task Build(ProjectBundle project, IProgress<float>? progress)
     {
         var outputDir = project.Data.OutputDir ?? project.BuildDir;
 
