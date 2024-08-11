@@ -32,7 +32,8 @@
                     VerticalAlignment="Center"
                     FontSize="24"
                     FontWeight="SemiBold"
-                    Text="{Binding Project.Data.Name}" />
+                    Text="{Binding Project.Data.Name}"
+                    TextTrimming="CharacterEllipsis" />
                 <TextBox
                     Grid.Column="2"
                     theme:TextBoxExtensions.AddDeleteButton="True"

@@ -47,7 +47,8 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
         var searchObs = this.WhenAnyValue(x => x.SearchText)
                         .Throttle(TimeSpan.FromMilliseconds(200));
 
-        var tracksObs = this.WhenAnyValue(x => x.Project.Data.Tracks).Select(x => x.ToObservableChangeSet().SkipInitial().AutoRefresh());
+        var tracksObs = this.WhenAnyValue(x => x.Project.Data.Tracks)
+            .Select(x => x.ToObservableChangeSet().SkipInitial().AutoRefresh());
 
         this._filteredTracks = Observable.Merge<object?>(searchObs, tracksObs)
         .Select(_ =>
@@ -58,7 +59,7 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
             }
             else
             {
-                var sorted = this.Project.Data.Tracks.Where(x => Fuzz.Ratio(this.SearchText.ToLower(), x.Name.ToLower()) > Math.Min(this.SearchText.Length * 5, 90)).ToArray();
+                var sorted = this.Project.Data.Tracks.Where(x => Fuzz.PartialRatio(this.SearchText.ToLower(), x.Name.ToLower()) > Math.Min(this.SearchText.Length * 5, 90)).ToArray();
                 return (IEnumerable<AudioTrack>)sorted;
             }
         })
