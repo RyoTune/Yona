@@ -1,6 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using DynamicData;
+using DynamicData.Binding;
 using Microsoft.Extensions.Logging;
 using ReactiveUI;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
@@ -25,6 +28,12 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
         this.projects = projects;
         this.services = services;
         this.templates = templates;
+
+        var projectsObs = this.projects.Items.ToObservableChangeSet();
+        this.WhenActivated((CompositeDisposable disp) =>
+        {
+            projectsObs.AutoRefresh().Subscribe(_ => this.OnPropertyChanged(nameof(RecentProjects))).DisposeWith(disp);
+        });
     }
 
     public List<ProjectBundle> RecentProjects => this.projects.Items.Take(10).ToList();

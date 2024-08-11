@@ -1,6 +1,7 @@
 ﻿using DynamicData;
 using DynamicData.Binding;
 using ReactiveUI;
+using System.Reactive.Linq;
 using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
 
@@ -31,7 +32,14 @@ public class ProjectsRouter : RoutingState
             }
         }).Subscribe();
 
-        projectsObs.SkipInitial().OnItemAdded(this.OpenProject).Subscribe();
+        if (projects.Items.Count > 0)
+        {
+            projectsObs.SkipInitial().OnItemAdded(this.OpenProject).Subscribe();
+        }
+        else
+        {
+            projectsObs.OnItemAdded(this.OpenProject).Subscribe();
+        }
     }
 
     public IScreen HostScreen { get; }
