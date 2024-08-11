@@ -1,5 +1,5 @@
 name: Persona 5 Royal Project (PC)
-version: 1
+tags: ['Persona 5 Royal', 'PC']
 default_output_path: 
 default_encoder: ADX (Persona 5 Royal PC)
 tracks: []

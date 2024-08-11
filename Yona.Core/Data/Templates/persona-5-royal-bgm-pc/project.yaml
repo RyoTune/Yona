@@ -1,5 +1,5 @@
 name: Persona 5 Royal BGM (PC)
-version: 1
+tags: ['Persona 5 Royal', 'PC', 'BGM']
 default_output_path: FEmulator/AWB/BGM.AWB
 default_encoder: ADX (Persona 5 Royal PC)
 default_loop_state: true

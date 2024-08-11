@@ -1,5 +1,5 @@
 name: Persona 3 Portable BGM (PC)
-version: 1
+tags: ['Persona 3 Portable', 'PC', 'BGM']
 default_output_path: P5REssentials/CPK/Yona/data/sound/bgm
 default_encoder: ADX
 default_loop_state: true

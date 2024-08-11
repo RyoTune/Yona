@@ -21,6 +21,7 @@ public partial class ProjectData : ObservableObject
     {
         this.Name = templateProject.Name;
         this.Template = templateProject.Name;
+        this.Tags = new(templateProject.Tags);
         this.DefaultEncoder = templateProject.DefaultEncoder;
         this.DefaultLoopState = templateProject.DefaultLoopState;
         this.DefaultOutputPath = templateProject.DefaultOutputPath;
@@ -37,6 +38,9 @@ public partial class ProjectData : ObservableObject
 
     [ObservableProperty]
     private string? template;
+
+    [ObservableProperty]
+    private ObservableCollection<string> tags = [];
 
     public string? OutputDir
     {

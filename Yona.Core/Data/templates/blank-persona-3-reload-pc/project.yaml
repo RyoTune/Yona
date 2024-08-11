@@ -1,5 +1,5 @@
 name: Persona 3 Reload Project (PC)
-version: 1
+tags: ['Persona 3 Reload', 'PC']
 default_output_path: Ryo/P3R
 default_encoder: HCA (Persona 3 Reload)
 tracks: []

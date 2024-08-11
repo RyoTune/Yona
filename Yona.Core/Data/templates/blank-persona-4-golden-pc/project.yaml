@@ -1,5 +1,5 @@
 name: Persona 4 Golden Project (PC)
-version: 1
+tags: ['Persona 4 Golden', 'PC']
 default_output_path: 
 default_encoder: HCA
 tracks: []
