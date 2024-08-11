@@ -9,7 +9,7 @@ public class ProjectRepository
 {
     private readonly ILogger log;
     private readonly string projectsDir;
-    private readonly ObservableCollection<ProjectBundle> _projects = [];
+    private readonly ObservableCollection<ProjectBundle> projects = [];
 
     public ProjectRepository(AppService app, ILogger log)
     {
@@ -20,17 +20,17 @@ public class ProjectRepository
         this.LoadProjects();
     }
 
-    public IReadOnlyList<ProjectBundle> Items => this._projects;
+    public ReadOnlyObservableCollection<ProjectBundle> Items => new(this.projects);
 
-    public void Delete(ProjectBundle entity)
+    public void Delete(ProjectBundle project)
     {
-        var projectDir = Path.GetDirectoryName(entity.ProjectFile)!;
+        var projectDir = Path.GetDirectoryName(project.ProjectFile)!;
         if (Directory.Exists(projectDir))
         {
             Directory.Delete(projectDir, true);
         }
 
-        this._projects.Remove(entity);
+        this.projects.Remove(project);
     }
 
     public ProjectBundle Create(ProjectData project)
@@ -44,12 +44,12 @@ public class ProjectRepository
         };
 
         newProject.Save();
-        this._projects.Add(newProject);
-
         return newProject;
     }
 
-    public ProjectBundle Get(string id) => this._projects.First(x => x.Data.Id == id);
+    public void Add(ProjectBundle project) => this.projects.Add(project);
+
+    public ProjectBundle Get(string id) => this.projects.First(x => x.Data.Id == id);
 
     private void LoadProjects()
     {
@@ -61,7 +61,7 @@ public class ProjectRepository
                 try
                 {
                     var project = new ProjectBundle(projectFile);
-                    this._projects.Add(project);
+                    this.projects.Add(project);
                 }
                 catch (Exception ex)
                 {
