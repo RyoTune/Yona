@@ -26,10 +26,43 @@
                 Margin="0,0,16,0"
                 RowDefinitions="auto *">
                 <TextBlock Classes="h3" Text="Create Project" />
+
                 <controls:ProjectsGallery
                     Grid.Row="1"
                     Command="{Binding CreateProjectCommand}"
                     ProjectsSource="{Binding Templates}" />
+
+                <Expander
+                    Grid.RowSpan="2"
+                    Grid.ColumnSpan="2"
+                    Margin="0,12,0,0"
+                    HorizontalAlignment="Right"
+                    Header="Filter">
+                    <suki:GlassCard
+                        MaxHeight="200"
+                        Padding="8"
+                        CornerRadius="{StaticResource SmallCornerRadius}"
+                        IsOpaque="True">
+                        <ScrollViewer>
+                            <ItemsControl ItemsSource="{Binding Tags}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Spacing="8" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <CheckBox
+                                            Command="{Binding #Home((vm:HomeViewModel)DataContext).ToggleTagCommand}"
+                                            CommandParameter="{Binding $self.DataContext}"
+                                            Content="{Binding Name}"
+                                            IsChecked="{Binding Enabled}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </suki:GlassCard>
+                </Expander>
             </Grid>
 
             <Grid Grid.Column="1" RowDefinitions="auto *">

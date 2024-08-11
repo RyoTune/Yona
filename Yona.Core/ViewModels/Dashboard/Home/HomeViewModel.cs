@@ -3,6 +3,7 @@ using DynamicData;
 using DynamicData.Binding;
 using Microsoft.Extensions.Logging;
 using ReactiveUI;
+using System.Collections.ObjectModel;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Yona.Core.Projects;
@@ -20,6 +21,14 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
     private readonly TemplateRepository templates;
     private readonly ILogger log;
 
+    private readonly ObservableCollection<string> activeTags = [];
+    private readonly ObservableAsPropertyHelper<IEnumerable<Tag>> _tags;
+    private readonly ObservableAsPropertyHelper<IEnumerable<ProjectBundle>> _filteredTemplates;
+
+    public IEnumerable<Tag> Tags => _tags.Value;
+
+    public IEnumerable<ProjectBundle> Templates => _filteredTemplates.Value;
+
     public HomeViewModel(
         ProjectsViewModel projectsVm,
         ProjectRepository projects,
@@ -28,21 +37,52 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
         ILogger log)
     {
         this.log = log;
-        this.projectsRouter = (ProjectsRouter)projectsVm?.Router!; // Null checks for previewer to work.
+        this.projectsRouter = (ProjectsRouter)projectsVm.Router;
         this.projects = projects;
         this.services = services;
         this.templates = templates;
 
-        var projectsObs = this.projects.Items.ToObservableChangeSet();
+        var projectsObs = this.projects.Items.WhenAnyPropertyChanged();
+        var templatesObs = this.templates.Items.WhenAnyPropertyChanged();
+
+        _tags = templatesObs.Select(_ => templates.Items.SelectMany(x => x.Data.Tags).Distinct().Select(x => new Tag { Name = x })).ToProperty(this, x => x.Tags);
+
+        _filteredTemplates =
+            Observable.Merge<object?>(templatesObs, this.activeTags.WhenAnyPropertyChanged())
+            .Select(_ =>
+            {
+                if (this.activeTags.Count > 0)
+                {
+
+                    return this.templates.Items.Where(template => MatchesTags(template, this.activeTags.ToArray()));
+                }
+
+                return this.templates.Items;
+            })
+            .ToProperty(this, x => x.Templates);
+
         this.WhenActivated((CompositeDisposable disp) =>
         {
-            projectsObs.AutoRefresh().Subscribe(_ => this.OnPropertyChanged(nameof(RecentProjects))).DisposeWith(disp);
+            this.activeTags.Clear();
+            projectsObs.Subscribe(_ => this.OnPropertyChanged(nameof(RecentProjects))).DisposeWith(disp);
         });
     }
 
-    public List<ProjectBundle> RecentProjects => this.projects.Items.Take(10).ToList();
+    private static bool MatchesTags(ProjectBundle project, string[] reqTags)
+    {
+        var numMatches = 0;
+        foreach (var tag in project.Data.Tags)
+        {
+            if (reqTags.Contains(tag))
+            {
+                numMatches++;
+            }
+        }
 
-    public IReadOnlyList<ProjectBundle> Templates => this.templates.Items;
+        return numMatches == reqTags.Length;
+    }
+
+    public List<ProjectBundle> RecentProjects => this.projects.Items.Take(10).ToList();
 
     public Interaction<CreateProjectViewModel, bool> ShowCreateProject { get; } = new();
 
@@ -74,5 +114,25 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
     }
 
     [RelayCommand]
+    private void ToggleTag(Tag tag)
+    {
+        if (tag.Enabled)
+        {
+            this.activeTags.Add(tag.Name);
+        }
+        else
+        {
+            this.activeTags.Remove(tag.Name);
+        }
+    }
+
+    [RelayCommand]
     private void OpenProject(ProjectBundle project)  => this.projectsRouter.OpenProject(project);
+
+    public class Tag
+    {
+        public bool Enabled { get; set; }
+
+        public string Name { get; set; } = string.Empty;
+    }
 }

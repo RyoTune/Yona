@@ -21,7 +21,7 @@
     <Grid Margin="12" RowDefinitions="auto * auto">
         <TextBlock Classes="h3" Text="{Binding Project.Data.Name}" />
 
-        <suki:GlassCard Grid.Row="1">
+        <suki:GlassCard Grid.Row="1" IsAnimated="False">
             <Grid ColumnDefinitions="128 12 *">
                 <Grid VerticalAlignment="Top">
                     <Border

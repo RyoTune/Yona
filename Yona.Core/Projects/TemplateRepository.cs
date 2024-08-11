@@ -21,7 +21,7 @@ public class TemplateRepository
         LoadTemplates();
     }
 
-    public IReadOnlyList<ProjectBundle> Items => this.templates;
+    public ReadOnlyObservableCollection<ProjectBundle> Items => new(this.templates);
 
     public string[] AvailableTemplates => this.Items.Select(project => project.Data.Name).ToArray();
 
