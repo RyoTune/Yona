@@ -1,7 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.ReactiveUI;
 using ReactiveUI;
-using System.Reactive;
 using System.Reactive.Disposables;
 using System.Threading.Tasks;
 using Yona.Core.ViewModels.CreateProject;
@@ -22,10 +21,11 @@ public partial class HomeView : ReactiveUserControl<HomeViewModel>
         });
     }
 
-    private async Task HandleCreateProject(IInteractionContext<CreateProjectViewModel, Unit> context)
+    private async Task HandleCreateProject(IInteractionContext<CreateProjectViewModel, bool> context)
     {
         var createProjectWindow = new CreateProjectWindow() { DataContext = context.Input };
-        await createProjectWindow.ShowDialog((Window)TopLevel.GetTopLevel(this)!);
-        context.SetOutput(new());
+        var result = await createProjectWindow.ShowDialog<bool>((Window)TopLevel.GetTopLevel(this)!);
+
+        context.SetOutput(result);
     }
 }

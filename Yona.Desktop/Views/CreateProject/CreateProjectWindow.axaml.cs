@@ -1,4 +1,5 @@
 using ReactiveUI;
+using System.Reactive;
 using System.Reactive.Disposables;
 using Yona.Core.ViewModels.CreateProject;
 using Yona.Desktop.Controls;
@@ -17,6 +18,14 @@ public partial class CreateProjectWindow : ReactiveSukiWindow<CreateProjectViewM
             this.ViewModel!.SelectFile.RegisterHandler(this.HandleFileSelect).DisposeWith(disposables);
             this.ViewModel!.SelectFolder.RegisterHandler(this.HandleFolderSelect).DisposeWith(disposables);
             this.ViewModel!.Close.RegisterHandler(this.HandleCloseInteraction).DisposeWith(disposables);
+            this.ViewModel!.ConfirmCreate.RegisterHandler(this.HandleConfirmCreate).DisposeWith(disposables);
+            this.ViewModel!.ConfirmDelete.RegisterHandler(this.HandleConfirmInteraction).DisposeWith(disposables);
         });
+    }
+
+    private void HandleConfirmCreate(IInteractionContext<Unit, Unit> context)
+    {
+        context.SetOutput(new());
+        this.Close(true);
     }
 }
