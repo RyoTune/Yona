@@ -28,16 +28,20 @@ public class ProjectBuilder
                 throw new Exception($"Track output path is missing.\nTrack:{track.Name}");
             }
 
+            var outputFile = Path.Join(outputDir, track.OutputPath);
+            if (File.Exists(outputFile))
+            {
+                File.Delete(outputFile);
+            }
+
             if (string.IsNullOrEmpty(track.InputFile))
             {
                 continue;
             }
 
-            var outputFile = Path.Join(outputDir, track.OutputPath);
-            Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
-
             if (this.encoders.GetEncoder(track.Encoder) is IEncoder encoder)
             {
+                Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
                 await encoder.Encode(track.InputFile, outputFile, track.Loop.Model);
             }
             else
