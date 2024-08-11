@@ -2,4 +2,4 @@
 version: 1
 base_output_path:
 default_encoder: HCA
-tracks:
+tracks: []
