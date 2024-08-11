@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using ReactiveUI;
 using System.Reactive;
 using System.Reactive.Linq;
-using Yona.Core.Audio;
 using Yona.Core.Audio.Models;
 using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
@@ -15,24 +14,20 @@ namespace Yona.Core.ViewModels.Dashboard.Projects;
 public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel
 {
     private readonly ProjectsRouter router;
+    private readonly ProjectServices services;
     private readonly IRelayCommand closePanelCommand;
     private readonly RelayCommand saveProjectCommand;
-    private readonly ProjectBuilder builder;
     private readonly TrackPanelFactory trackPanel;
-    private readonly EncoderRepository encoders;
-    private readonly TemplateRepository templates;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(TrackPanel))]
     private AudioTrack? _selectedTrack;
 
-    public ProjectTracksViewModel(ProjectsRouter router, ProjectBundle project, TemplateRepository templates, EncoderRepository encoders, ProjectBuilder builder, TrackPanelFactory trackPanel)
+    public ProjectTracksViewModel(ProjectsRouter router, ProjectBundle project, ProjectServices services, TrackPanelFactory trackPanel)
     {
         this.router = router;
-        this.builder = builder;
-        this.encoders = encoders;
+        this.services = services;
         this.trackPanel = trackPanel;
-        this.templates = templates;
         this.UrlPathSegment = $"{project.Data.Id}/tracks";
 
         this.closePanelCommand = new RelayCommand(() => this.SelectedTrack = null);
@@ -68,7 +63,7 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel
     {
         try
         {
-            await this.builder.Build(this.Project);
+            await this.services.BuildProject(this.Project);
         }
         catch (Exception)
         {
@@ -78,6 +73,6 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel
     [RelayCommand]
     private async Task OpenEditProject()
     {
-        await this.EditProject.Handle(new(this.Project, this.templates, this.encoders) { IsEditing = true });
+        await this.EditProject.Handle(new(this.Project, this.services) { IsEditing = true });
     }
 }

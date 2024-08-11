@@ -1,9 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
 using ReactiveUI;
-using System.Reactive;
 using System.Reactive.Linq;
-using Yona.Core.Audio;
 using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
 using Yona.Core.ViewModels.CreateProject;
@@ -13,27 +11,27 @@ namespace Yona.Core.ViewModels.Dashboard.Home;
 public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
 {
     private readonly ProjectRepository projects;
+    private readonly ProjectServices services;
     private readonly TemplateRepository templates;
-    private readonly EncoderRepository encoders;
     private readonly ILogger log;
 
     public HomeViewModel(
         ProjectRepository projects,
+        ProjectServices services,
         TemplateRepository templates,
-        EncoderRepository encoders,
         ILogger log)
     {
         this.log = log;
         this.projects = projects;
+        this.services = services;
         this.templates = templates;
-        this.encoders = encoders;
     }
 
     public List<ProjectBundle> RecentProjects => this.projects.Items.Take(10).ToList();
 
     public IReadOnlyList<ProjectBundle> Templates => this.templates.Items;
 
-    public Interaction<CreateProjectViewModel, Unit> ShowCreateProject { get; } = new();
+    public Interaction<CreateProjectViewModel, bool> ShowCreateProject { get; } = new();
 
     public ViewModelActivator Activator { get; } = new();
 
@@ -48,7 +46,13 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
             var newProjectData = new ProjectData(template.Data);
             var newProject = this.projects.Create(newProjectData);
 
-            await this.ShowCreateProject.Handle(new(newProject, this.templates, this.encoders));
+            var createProjectVm = new CreateProjectViewModel(newProject, this.services);
+
+            var confirmed = await this.ShowCreateProject.Handle(createProjectVm);
+            if (confirmed)
+            {
+                this.projects.Add(newProject);
+            }
         }
         catch (Exception ex)
         {
