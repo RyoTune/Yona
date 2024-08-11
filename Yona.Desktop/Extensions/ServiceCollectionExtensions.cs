@@ -7,6 +7,7 @@ using System.Linq;
 using Yona.Core.App;
 using Yona.Core.Audio;
 using Yona.Core.Projects;
+using Yona.Core.Projects.Builders;
 using Yona.Core.Settings;
 using Yona.Core.ViewModels;
 using Yona.Core.ViewModels.Dashboard;
@@ -42,8 +43,11 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<TrackPanelFactory>();
         service.AddSingleton<EncoderRepository>();
         service.AddSingleton<ProjectBuilder>();
+        service.AddSingleton<StandardProjectBuilder>();
+        service.AddSingleton<FastProjectBuilder>();
         service.AddSingleton<ProjectsRouterFactory>();
         service.AddSingleton<ProjectTracksFactory>();
+        service.AddSingleton<ProjectServices>();
 
         return service;
     }

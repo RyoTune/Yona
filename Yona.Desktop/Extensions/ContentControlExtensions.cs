@@ -8,6 +8,8 @@ using System.Linq;
 using System.Reactive;
 using System.Threading.Tasks;
 using Yona.Core.Common.Dialog;
+using Yona.Core.Common.Interactions;
+using Yona.Desktop.Controls;
 
 namespace Yona.Desktop.Extensions;
 
@@ -93,6 +95,14 @@ internal static class ContentControlExtensions
         {
             Log.Error(ex, "Failed to handle close.");
         }
+    }
+
+    public static async Task HandleConfirmInteraction(this ContentControl control, IInteractionContext<ConfirmOptions, bool> interaction)
+    {
+        var window = (Window)TopLevel.GetTopLevel(control)!;
+        var confirmWindow = new ConfirmWindow() { DataContext = interaction.Input };
+        var result = await confirmWindow.ShowDialog<bool>(window);
+        interaction.SetOutput(result);
     }
 
     private static List<FilePickerFileType> CreateFilterList(string? filter)

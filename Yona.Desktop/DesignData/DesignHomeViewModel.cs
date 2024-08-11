@@ -5,7 +5,7 @@ namespace Yona.Desktop.DesignData;
 internal class DesignHomeViewModel : HomeViewModel
 {
     public DesignHomeViewModel()
-        : base(new(new(), null!), new(new(), null!), null!, null!)
+        : base(new(new(), null!), new(null!, null!, null!, null!), null!, null!)
     {
     }
 }
