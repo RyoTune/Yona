@@ -1,0 +1,5 @@
+name: Persona 3 Portable Project (PC)
+version: 1
+default_output_path: 
+default_encoder: ADX
+tracks: []

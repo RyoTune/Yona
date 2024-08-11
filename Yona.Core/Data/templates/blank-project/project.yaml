@@ -1,4 +1,5 @@
-﻿name: Blank Project
+﻿id: blank-project
+name: Blank Project
 version: 1
 base_output_path:
 default_encoder: HCA

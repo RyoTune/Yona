@@ -35,7 +35,14 @@ public class TemplateRepository
                 try
                 {
                     var template = new ProjectBundle(templateFile);
-                    this.templates.Add(template);
+                    if (template.Data.Id == "blank-project")
+                    {
+                        this.templates.Insert(0, template);
+                    }
+                    else
+                    {
+                        this.templates.Add(template);
+                    }
                 }
                 catch (Exception ex)
                 {
