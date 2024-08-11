@@ -93,7 +93,7 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
         {
             if (this.SelectedTrack != null)
             {
-                return this.trackPanel.Create(this.SelectedTrack, this.saveProjectCommand, this.closePanelCommand);
+                return this.trackPanel.Create(this.SelectedTrack, this.Project, this.closePanelCommand);
             }
 
             return null;

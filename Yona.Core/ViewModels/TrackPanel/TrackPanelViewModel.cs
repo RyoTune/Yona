@@ -10,6 +10,7 @@ using Yona.Core.Audio;
 using Yona.Core.Common.Dialog;
 using Yona.Core.Settings;
 using Yona.Core.Extensions;
+using Yona.Core.Projects.Models;
 
 namespace Yona.Core.ViewModels.TrackPanel;
 
@@ -21,21 +22,19 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
     private readonly EncoderRepository _encoders;
     private readonly ObservableAsPropertyHelper<bool> _isLoopInputEnabled;
     private readonly ObservableAsPropertyHelper<bool> _isDevMode;
-
-    private AudioTrack _track;
     private string _selectedInputFile;
 
     public TrackPanelViewModel(
         AudioTrack track,
+        ProjectBundle project,
         LoopService loops,
         EncoderRepository encoders,
         SettingsService settings,
-        ICommand saveProjectCommand,
         ICommand closeCommand)
     {
+        this.Track = track;
         this._loops = loops;
         this._encoders = encoders;
-        this._track = track;
 
         this.Encoders = encoders.AvailableEncoders;
         this.CloseCommand = closeCommand;
@@ -75,7 +74,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             // Save project on changes made.
             Observable.Merge<object?>(trackObs, loopObs)
             .Throttle(TimeSpan.FromMilliseconds(SavableFileExtensions.SAVE_BUFFER_MS))
-            .Subscribe(values => saveProjectCommand?.Execute(null))
+            .Subscribe(values => project.Save())
             .DisposeWith(disposables);
 
             // Set track properties on selection made.
@@ -92,11 +91,12 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
                 else
                 {
                     this.Track.InputFile = file;
+                    this.Track.Loop.Enabled = project.Data.DefaultLoopState;
 
                     var existingLoop = loops.GetLoop(file);
                     if (existingLoop != null)
                     {
-                        if (existingLoop.StartSample != 0 || existingLoop.EndSample != 0)
+                        if (existingLoop.StartSample != 0 && existingLoop.EndSample != 0)
                         {
                             this.Track.Loop.Enabled = true;
                         }
@@ -123,11 +123,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
         set => this.RaiseAndSetIfChanged(ref _selectedInputFile, value, nameof(SelectedInputFile));
     }
 
-    public AudioTrack Track
-    {
-        get => this._track;
-        init => this.RaiseAndSetIfChanged(ref this._track, value);
-    }
+    public AudioTrack Track { get; }
 
     public ICommand CloseCommand { get; }
 
