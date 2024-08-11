@@ -45,8 +45,6 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
         var projectsObs = this.projects.Items.WhenAnyPropertyChanged();
         var templatesObs = this.templates.Items.WhenAnyPropertyChanged();
 
-        _tags = templatesObs.Select(_ => templates.Items.SelectMany(x => x.Data.Tags).Distinct().Select(x => new Tag { Name = x })).ToProperty(this, x => x.Tags);
-
         _filteredTemplates =
             Observable.Merge<object?>(templatesObs, this.activeTags.WhenAnyPropertyChanged())
             .Select(_ =>
@@ -59,7 +57,11 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
 
                 return this.templates.Items;
             })
-            .ToProperty(this, x => x.Templates);
+            .ToProperty(this, x => x.Templates, initialValue: this.templates.Items);
+
+        _tags = templatesObs
+            .Select(_ => GetAllProjectTags(this.Templates))
+            .ToProperty(this, x => x.Tags, initialValue: GetAllProjectTags(this.Templates));
 
         this.WhenActivated((CompositeDisposable disp) =>
         {
@@ -67,6 +69,9 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
             projectsObs.Subscribe(_ => this.OnPropertyChanged(nameof(RecentProjects))).DisposeWith(disp);
         });
     }
+
+    private static IEnumerable<Tag> GetAllProjectTags(IEnumerable<ProjectBundle> projects)
+        => projects.SelectMany(x => x.Data.Tags).ToHashSet().Select(x => new Tag() { Name = x });
 
     private static bool MatchesTags(ProjectBundle project, string[] reqTags)
     {
