@@ -8,23 +8,27 @@ using System.Reactive.Linq;
 using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
 using Yona.Core.ViewModels.CreateProject;
+using Yona.Core.ViewModels.Dashboard.Projects;
 
 namespace Yona.Core.ViewModels.Dashboard.Home;
 
 public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
 {
+    private readonly ProjectsRouter projectsRouter;
     private readonly ProjectRepository projects;
     private readonly ProjectServices services;
     private readonly TemplateRepository templates;
     private readonly ILogger log;
 
     public HomeViewModel(
+        ProjectsViewModel projectsVm,
         ProjectRepository projects,
         ProjectServices services,
         TemplateRepository templates,
         ILogger log)
     {
         this.log = log;
+        this.projectsRouter = (ProjectsRouter)projectsVm?.Router!; // Null checks for previewer to work.
         this.projects = projects;
         this.services = services;
         this.templates = templates;
@@ -45,7 +49,7 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
     public ViewModelActivator Activator { get; } = new();
 
     [RelayCommand]
-    public async Task CreateProject(ProjectBundle template)
+    private async Task CreateProject(ProjectBundle template)
     {
         try
         {
@@ -68,4 +72,7 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
             this.log.LogError(ex, "Failed to create new project.");
         }
     }
+
+    [RelayCommand]
+    private void OpenProject(ProjectBundle project)  => this.projectsRouter.OpenProject(project);
 }

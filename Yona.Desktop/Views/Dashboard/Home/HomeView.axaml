@@ -11,6 +11,7 @@
     xmlns:models="using:Yona.Core.Projects.Models"
     xmlns:suki="using:SukiUI.Controls"
     xmlns:vm="using:Yona.Core.ViewModels.Dashboard.Home"
+    x:Name="Home"
     d:DesignHeight="540"
     d:DesignWidth="960"
     x:DataType="vm:HomeViewModel"
@@ -38,7 +39,18 @@
                         <ItemsControl ItemsSource="{Binding RecentProjects}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Data.Name}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                                    <Button
+                                        Padding="0"
+                                        HorizontalContentAlignment="Left"
+                                        BorderThickness="0"
+                                        Command="{Binding #Home((vm:HomeViewModel)DataContext).OpenProjectCommand}"
+                                        CommandParameter="{Binding}">
+                                        <TextBlock
+                                            FontWeight="Normal"
+                                            Text="{Binding Data.Name}"
+                                            TextTrimming="CharacterEllipsis"
+                                            TextWrapping="NoWrap" />
+                                    </Button>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
