@@ -5,32 +5,37 @@ namespace Yona.Core.Audio.Models;
 
 public partial class ObservableLoop : ObservableObject
 {
+    private readonly Loop loop = new();
+
     public ObservableLoop()
     {
     }
 
     public ObservableLoop(Loop loop)
     {
-        this.Model = loop;
+        this.loop = loop;
     }
-
-    public Loop Model { get; } = new();
 
     public bool Enabled
     {
-        get => this.Model.Enabled;
-        set => this.SetProperty(this.Enabled, value, this.Model, (m, n) => m.Enabled = n);
+        get => this.loop.Enabled;
+        set => this.SetProperty(this.Enabled, value, this.loop, (m, n) => m.Enabled = n);
     }
 
     public int StartSample
     {
-        get => this.Model.StartSample;
-        set => this.SetProperty(this.Model.StartSample, value, this.Model, (m, n) => m.StartSample = n);
+        get => this.loop.StartSample;
+        set => this.SetProperty(this.loop.StartSample, value, this.loop, (m, n) => m.StartSample = n);
     }
 
     public int EndSample
     {
-        get => this.Model.EndSample;
-        set => this.SetProperty(this.Model.EndSample, value, this.Model, (m, n) => m.EndSample = n);
+        get => this.loop.EndSample;
+        set => this.SetProperty(this.loop.EndSample, value, this.loop, (m, n) => m.EndSample = n);
     }
+}
+
+public static class LoopExtensions
+{
+    public static Loop ToModel(this ObservableLoop loop) => new() { Enabled = loop.Enabled, StartSample = loop.StartSample, EndSample = loop.EndSample };
 }
