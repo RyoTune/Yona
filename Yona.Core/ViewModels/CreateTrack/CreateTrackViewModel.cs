@@ -85,12 +85,13 @@ public partial class CreateTrackViewModel : ViewModelBase, IActivatableViewModel
     }
 
     [RelayCommand]
-    private void Delete()
+    private async Task Delete()
     {
         try
         {
             this.project.Data.Tracks.Remove(this.Track);
             this.project.Save();
+            await this.Close.Handle(new());
         }
         catch (Exception)
         {

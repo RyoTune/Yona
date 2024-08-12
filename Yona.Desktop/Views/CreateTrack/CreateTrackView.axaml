@@ -16,9 +16,6 @@
     Design.Width="400"
     mc:Ignorable="d">
     <Grid Margin="12" RowDefinitions="auto * auto">
-        <Grid.Styles>
-            <StyleInclude Source="/Styles/TrackPanelStyles.axaml" />
-        </Grid.Styles>
         <TextBlock Classes="h3" Classes.isEditing="{Binding IsEditing}">
             <TextBlock.Styles>
                 <Style Selector="TextBlock">
@@ -63,18 +60,19 @@
             Grid.Row="2"
             Margin="0,12,0,0"
             ColumnDefinitions="* auto">
-            <Grid.Styles>
-                <Style Selector="Grid > StackPanel">
-                    <Setter Property="Spacing" Value="8" />
-                </Style>
-            </Grid.Styles>
-            <StackPanel IsVisible="{Binding IsEditing}" Orientation="Horizontal">
-                <Button Command="{Binding DeleteCommand}" ToolTip.Tip="Delete Project">
-                    <ma:MaterialIcon Kind="Delete" />
-                </Button>
-            </StackPanel>
+            <Button
+                HorizontalAlignment="Left"
+                Classes="icon-button"
+                Command="{Binding DeleteCommand}"
+                IsVisible="{Binding IsEditing}"
+                ToolTip.Tip="Delete Track">
+                <ma:MaterialIcon Kind="Delete" />
+            </Button>
 
-            <StackPanel Grid.Column="1" Orientation="Horizontal">
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Horizontal"
+                Spacing="8">
                 <Button
                     Command="{Binding CancelCommand}"
                     Content="Cancel"

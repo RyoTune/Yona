@@ -11,6 +11,8 @@ using Yona.Core.Common.Dialog;
 using Yona.Core.Settings;
 using Yona.Core.Extensions;
 using Yona.Core.Projects.Models;
+using Yona.Core.ViewModels.CreateTrack;
+using System.Reactive;
 
 namespace Yona.Core.ViewModels.TrackPanel;
 
@@ -18,6 +20,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
 {
     private const string NoInputFile = "None";
 
+    private readonly ProjectBundle project;
     private readonly LoopService _loops;
     private readonly EncoderRepository _encoders;
     private readonly ObservableAsPropertyHelper<bool> _isLoopInputEnabled;
@@ -32,6 +35,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
         SettingsService settings,
         ICommand closeCommand)
     {
+        this.project = project;
         this.Track = track;
         this._loops = loops;
         this._encoders = encoders;
@@ -129,6 +133,8 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
 
     public FileSelectInteraction ShowSelectFile { get; } = new();
 
+    public Interaction<CreateTrackViewModel, Unit> EditTrack = new();
+
     public ObservableCollection<string> InputFileOptions { get; } = [NoInputFile];
 
     public string[] Encoders { get; }
@@ -167,22 +173,6 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
     [RelayCommand]
     private async Task Edit()
     {
-        //var editTrack = new AddTrackViewModel(this.Encoders, this.Track);
-        //var updatedTrack = await this.dialog.OpenDialog<AudioTrack>(editTrack);
-
-        //if (updatedTrack != null)
-        //{
-        //    this.Track.Name = updatedTrack.Name;
-        //    this.Track.Category = updatedTrack.Category;
-        //    this.Track.Tags = updatedTrack.Tags;
-        //    this.Track.OutputPath = updatedTrack.OutputPath;
-        //    this.Track.Encoder = updatedTrack.Encoder;
-        //}
-    }
-
-    [RelayCommand]
-    private void Delete()
-    {
-        //this.audioManager.RemoveTrack(this.Track);
+        await this.EditTrack.Handle(new(this.Track, this.project, this.Encoders));
     }
 }
