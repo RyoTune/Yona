@@ -1,0 +1,95 @@
+<UserControl
+    x:Class="Yona.Desktop.Views.CreateTrack.CreateTrackView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ma="using:Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:suki="using:SukiUI.Controls"
+    xmlns:theme="using:SukiUI.Theme"
+    xmlns:tracks="using:Yona.Desktop.Views.TrackPanel"
+    xmlns:vm="using:Yona.Core.ViewModels.CreateTrack"
+    x:DataType="vm:CreateTrackViewModel"
+    Classes.isEditing="{Binding IsEditing}"
+    Design.Height="800"
+    Design.Width="400"
+    mc:Ignorable="d">
+    <Grid Margin="12" RowDefinitions="auto * auto">
+        <Grid.Styles>
+            <StyleInclude Source="/Styles/TrackPanelStyles.axaml" />
+        </Grid.Styles>
+        <TextBlock Classes="h3" Classes.isEditing="{Binding IsEditing}">
+            <TextBlock.Styles>
+                <Style Selector="TextBlock">
+                    <Setter Property="Text" Value="Add Track" />
+                </Style>
+                <Style Selector="TextBlock.isEditing">
+                    <Setter Property="Text" Value="Edit Track" />
+                </Style>
+            </TextBlock.Styles>
+        </TextBlock>
+
+        <suki:GlassCard Grid.Row="1" IsAnimated="False">
+            <StackPanel Classes="options-container">
+                <StackPanel>
+                    <TextBlock Classes="section-header" Text="Name" />
+                    <TextBox Text="{Binding Track.Name}" />
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Classes="section-header" Text="Category" />
+                    <TextBox Text="{Binding Track.Category}" />
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Classes="section-header" Text="Tags" />
+                    <TextBox Watermark="Tag 1, Tag 2, Tag 3" />
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Classes="section-header" Text="Output Path" />
+                    <TextBox Text="{Binding OutputPath}" Watermark="Ryo/P3R/link_23.hca" />
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Classes="section-header" Text="Encoder" />
+                    <ComboBox ItemsSource="{Binding Encoders}" SelectedItem="{Binding Track.Encoder}" />
+                </StackPanel>
+            </StackPanel>
+        </suki:GlassCard>
+
+        <Grid
+            Grid.Row="2"
+            Margin="0,12,0,0"
+            ColumnDefinitions="* auto">
+            <Grid.Styles>
+                <Style Selector="Grid > StackPanel">
+                    <Setter Property="Spacing" Value="8" />
+                </Style>
+            </Grid.Styles>
+            <StackPanel IsVisible="{Binding IsEditing}" Orientation="Horizontal">
+                <Button Command="{Binding DeleteCommand}" ToolTip.Tip="Delete Project">
+                    <ma:MaterialIcon Kind="Delete" />
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button
+                    Command="{Binding CancelCommand}"
+                    Content="Cancel"
+                    IsVisible="{Binding !IsEditing}" />
+                <Button Classes.isEditing="{Binding IsEditing}" Command="{Binding ConfirmCommand}">
+                    <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Content" Value="Create" />
+                        </Style>
+                        <Style Selector="Button.isEditing">
+                            <Setter Property="Content" Value="Close" />
+                        </Style>
+                    </Button.Styles>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

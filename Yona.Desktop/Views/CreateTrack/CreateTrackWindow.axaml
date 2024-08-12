@@ -1,0 +1,23 @@
+<suki:SukiWindow
+    x:Class="Yona.Desktop.Views.CreateTrack.CreateTrackWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Yona.Desktop.Views.CreateTrack"
+    xmlns:ma="using:Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:suki="using:SukiUI.Controls"
+    xmlns:theme="using:SukiUI.Theme"
+    xmlns:tracks="using:Yona.Desktop.Views.TrackPanel"
+    xmlns:vm="using:Yona.Core.ViewModels.CreateTrack"
+    Width="400"
+    Height="600"
+    MinWidth="400"
+    MinHeight="600"
+    x:DataType="vm:CreateTrackViewModel"
+    Classes.isEditing="{Binding IsEditing}"
+    WindowStartupLocation="CenterOwner"
+    mc:Ignorable="d">
+    <local:CreateTrackView />
+</suki:SukiWindow>
