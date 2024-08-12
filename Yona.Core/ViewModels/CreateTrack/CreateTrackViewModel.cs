@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using ReactiveUI;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Yona.Core.Audio.Models;
 using Yona.Core.Common.Interactions;
@@ -10,6 +11,7 @@ namespace Yona.Core.ViewModels.CreateTrack;
 public partial class CreateTrackViewModel : ViewModelBase, IActivatableViewModel
 {
     private readonly ProjectBundle project;
+    private string _tags = string.Empty;
 
     public CreateTrackViewModel(ProjectBundle project, IEnumerable<string> encoders)
     {
@@ -20,6 +22,8 @@ public partial class CreateTrackViewModel : ViewModelBase, IActivatableViewModel
         this.Track.Loop.Enabled = project.Data.DefaultLoopState;
         this.Track.Encoder = project.Data.DefaultEncoder;
         this.Track.OutputPath = project.Data.DefaultOutputPath;
+
+        this.WhenActivated(this.Activated);
     }
 
     public CreateTrackViewModel(AudioTrack track, ProjectBundle project, IEnumerable<string> encoders)
@@ -28,6 +32,18 @@ public partial class CreateTrackViewModel : ViewModelBase, IActivatableViewModel
         this.Track = track;
         this.Encoders = encoders;
         this.IsEditing = true;
+
+        this.WhenActivated(this.Activated);
+    }
+
+    private void Activated(CompositeDisposable disp)
+    {
+        this.Tags = string.Join(", ", this.Track.Tags);
+        this.WhenAnyValue(x => x.Tags)
+            .Throttle(TimeSpan.FromMilliseconds(200))
+            .Select(x => x.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+            .Subscribe(x => this.Track.Tags = x)
+            .DisposeWith(disp);
     }
 
     public AudioTrack Track { get; }
@@ -60,6 +76,12 @@ public partial class CreateTrackViewModel : ViewModelBase, IActivatableViewModel
             this.SetProperty(this.Track.OutputPath, value, this.Track, (m, n) => this.Track.OutputPath = n);
             this.ConfirmCommand.NotifyCanExecuteChanged();
         }
+    }
+
+    public string Tags
+    {
+        get => _tags;
+        set => this.RaiseAndSetIfChanged(ref _tags, value);
     }
 
     [RelayCommand]
