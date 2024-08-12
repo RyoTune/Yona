@@ -15,7 +15,7 @@ namespace Yona.Desktop.Controls;
 
 public class ProjectIcon : ReactiveUserControl<ProjectBundle>
 {
-    private static readonly Uri appIconUri = new("avares://Yona.Desktop/Assets/Icons/logo-icon.webp");
+    private static readonly Uri appIconUri = new("avares://Yona/Assets/Icons/logo-icon.webp");
     private static readonly Bitmap appIconSource = new(AssetLoader.Open(appIconUri));
 
     public ProjectIcon()
@@ -48,7 +48,7 @@ public class ProjectIcon : ReactiveUserControl<ProjectBundle>
 
         if (knownName != null)
         {
-            var iconUri = new Uri($"avares://Yona.Desktop/Assets/Icons/{knownName}.webp");
+            var iconUri = new Uri($"avares://Yona/Assets/Icons/{knownName}.webp");
 
             try
             {
