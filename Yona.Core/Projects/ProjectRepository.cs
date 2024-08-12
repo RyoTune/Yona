@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using Yona.Core.App;
 using Yona.Core.Projects.Models;
+using Yona.Core.Projects.Models.Phos;
 
 namespace Yona.Core.Projects;
 
@@ -56,6 +57,8 @@ public class ProjectRepository
         foreach (var dir in Directory.EnumerateDirectories(this.projectsDir))
         {
             var projectFile = Path.Join(dir, "project.yaml");
+            var phosProjectFile = Path.Join(dir, "project.phos");
+
             if (File.Exists(projectFile))
             {
                 try
@@ -66,6 +69,18 @@ public class ProjectRepository
                 catch (Exception ex)
                 {
                     this.log.LogError(ex, "Failed to load project.\nFile: {file}", projectFile);
+                }
+            }
+            else if (File.Exists(phosProjectFile))
+            {
+                try
+                {
+                    var project = PhosProject.Convert(phosProjectFile);
+                    this.projects.Add(project);
+                }
+                catch (Exception ex)
+                {
+                    this.log.LogError(ex, "Failed to convert Phos project.\nFile: {file}", phosProjectFile);
                 }
             }
         }
