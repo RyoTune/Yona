@@ -32,6 +32,7 @@ internal static class PhosProject
             Tags = x.Tags,
         }));
 
+        newProject.Save();
         return newProject;
     }
 }
