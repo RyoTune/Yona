@@ -13,7 +13,7 @@ public class StandardProjectBuilder(EncoderRepository encoders, ILogger log) : I
 
     public async Task Build(ProjectBundle project, IProgress<float>? progress)
     {
-        var outputDir = project.Data.OutputDir ?? project.BuildDir;
+        var outputDir = project.BuildDir;
 
         var tracks = project.Data.Tracks;
         foreach (var track in tracks)

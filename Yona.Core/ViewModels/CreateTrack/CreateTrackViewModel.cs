@@ -91,6 +91,8 @@ public partial class CreateTrackViewModel : ViewModelBase, IActivatableViewModel
         {
             this.project.Data.Tracks.Remove(this.Track);
             this.project.Save();
+            // TODO: Delete any outputted file.
+            // Maybe project builder can handle it?
             await this.Close.Handle(new());
         }
         catch (Exception)

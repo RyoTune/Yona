@@ -68,7 +68,7 @@
                                     </Grid>
                                 </StackPanel>
 
-                                <Grid ColumnDefinitions="* auto" IsEnabled="False">
+                                <Grid ColumnDefinitions="* auto">
                                     <TextBlock VerticalAlignment="Center" Text="Fast Build" />
                                     <ToggleSwitch Grid.Column="1" IsChecked="{Binding Project.Data.UseFastBuild}" />
                                 </Grid>
