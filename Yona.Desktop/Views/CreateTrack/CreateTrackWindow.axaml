@@ -19,5 +19,13 @@
     Classes.isEditing="{Binding IsEditing}"
     WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
+    <suki:SukiWindow.Styles>
+        <Style Selector="suki|SukiWindow">
+            <Setter Property="Title" Value="Add Track" />
+        </Style>
+        <Style Selector="suki|SukiWindow.isEditing">
+            <Setter Property="Title" Value="Edit Track" />
+        </Style>
+    </suki:SukiWindow.Styles>
     <local:CreateTrackView />
 </suki:SukiWindow>
