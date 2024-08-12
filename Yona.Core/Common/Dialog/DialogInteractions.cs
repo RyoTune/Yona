@@ -2,6 +2,10 @@
 
 namespace Yona.Core.Common.Dialog;
 
+public class DialogInteraction<TViewModel> : Interaction<TViewModel, bool>
+{
+}
+
 public class FileSelectInteraction : Interaction<FileSelectOptions, string[]>
 {
 }

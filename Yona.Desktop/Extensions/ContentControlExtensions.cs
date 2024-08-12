@@ -2,6 +2,7 @@
 using Avalonia.Platform.Storage;
 using ReactiveUI;
 using Serilog;
+using SukiUI.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -102,6 +103,13 @@ internal static class ContentControlExtensions
         var window = (Window)TopLevel.GetTopLevel(control)!;
         var confirmWindow = new ConfirmWindow() { DataContext = interaction.Input };
         var result = await confirmWindow.ShowDialog<bool>(window);
+        interaction.SetOutput(result);
+    }
+    public static async Task HandleWindowInteraction<TViewModel>(this ContentControl control, IInteractionContext<TViewModel, bool> interaction)
+        where TViewModel : class
+    {
+        var window = new ShellWindow<TViewModel>() { Content = new ContentControl() { Content = interaction.Input, Name = "Root" } };
+        var result = await window.ShowDialog<bool>((Window)TopLevel.GetTopLevel(control)!);
         interaction.SetOutput(result);
     }
 

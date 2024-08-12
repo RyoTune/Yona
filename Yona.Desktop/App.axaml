@@ -24,6 +24,6 @@
         <converters:ToUpperConverter x:Key="ToUpper" />
         <converters:PathFileNameConverter x:Key="PathFileName" />
         <converters:IsNullConverter x:Key="IsNull" />
-		<local:ViewLocator x:Key="ViewLocator"/>
+        <local:ViewLocator x:Key="ViewLocator" />
     </Application.Resources>
 </Application>

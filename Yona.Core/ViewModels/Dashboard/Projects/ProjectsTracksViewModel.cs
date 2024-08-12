@@ -12,6 +12,7 @@ using Yona.Core.Projects.Models;
 using Yona.Core.ViewModels.CreateProject;
 using Yona.Core.ViewModels.TrackPanel;
 using FuzzySharp;
+using Yona.Core.ViewModels.CreateTrack;
 
 namespace Yona.Core.ViewModels.Dashboard.Projects;
 
@@ -87,6 +88,8 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
 
     public Interaction<CreateProjectViewModel, Unit> EditProject { get; } = new();
 
+    public Interaction<CreateTrackViewModel, Unit> AddTrack { get; } = new();
+
     public TrackPanelViewModel? TrackPanel
     {
         get
@@ -118,5 +121,11 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
     private async Task OpenEditProject()
     {
         await this.EditProject.Handle(new(this.Project, this.services) { IsEditing = true });
+    }
+
+    [RelayCommand]
+    private async Task OpenAddTrack()
+    {
+        await this.AddTrack.Handle(new(this.Project, this.services.Encoders));
     }
 }
