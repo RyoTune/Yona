@@ -40,10 +40,10 @@ public class LoopService
     /// <param name="outputLoopFile">Optional output loop file.</param>
     public void SaveLoop(string file, ObservableLoop loop, string? outputLoopFile = null)
     {
-        LoopSerializer.SerializeFile(this.GetLoopFileDat(file), loop.Model);
+        LoopSerializer.SerializeFile(this.GetLoopFileDat(file), loop.ToModel());
         if (outputLoopFile != null)
         {
-            LoopSerializer.SerializeFile(outputLoopFile, loop.Model);
+            LoopSerializer.SerializeFile(outputLoopFile, loop.ToModel());
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Yona.Core.Audio;
 using Yona.Core.Audio.Encoding;
+using Yona.Core.Audio.Models;
 using Yona.Core.Projects.Models;
 
 namespace Yona.Core.Projects.Builders;
@@ -36,7 +37,7 @@ public class StandardProjectBuilder(EncoderRepository encoders, ILogger log) : I
             if (this.encoders.GetEncoder(track.Encoder) is IEncoder encoder)
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
-                await encoder.Encode(track.InputFile, outputFile, track.Loop.Model);
+                await encoder.Encode(track.InputFile, outputFile, track.Loop.ToModel());
             }
             else
             {
