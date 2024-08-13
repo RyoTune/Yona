@@ -34,11 +34,11 @@ public class SavableFile<T>
 
     private T GetData()
     {
-        if (File.Exists(filePath))
+        if (File.Exists(this.filePath))
         {
             try
             {
-                this.serializer.DeserializeFile<T>(filePath);
+                return this.serializer.DeserializeFile<T>(this.filePath);
             }
             
             // Backup and reset if failed to load existing file.
