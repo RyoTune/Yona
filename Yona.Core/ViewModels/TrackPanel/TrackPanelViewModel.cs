@@ -83,33 +83,8 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
 
             // Set track properties on selection made.
             this.WhenAnyValue(x => x.SelectedInputFile)
-            .Subscribe(file =>
-            {
-                if (file == null || file == NoInputFile)
-                {
-                    this.Track.InputFile = null;
-                    this.Track.Loop.Enabled = false;
-                    this.Track.Loop.StartSample = 0;
-                    this.Track.Loop.EndSample = 0;
-                }
-                else
-                {
-                    this.Track.InputFile = file;
-                    this.Track.Loop.Enabled = project.Data.DefaultLoopState;
-
-                    var existingLoop = loops.GetLoop(file);
-                    if (existingLoop != null)
-                    {
-                        if (existingLoop.StartSample != 0 && existingLoop.EndSample != 0)
-                        {
-                            this.Track.Loop.Enabled = true;
-                        }
-
-                        this.Track.Loop.StartSample = existingLoop.StartSample;
-                        this.Track.Loop.EndSample = existingLoop.EndSample;
-                    }
-                }
-            })
+            .Skip(1) // Skip initial value.
+            .Subscribe(_ => this.UpdateTrackProperties())
             .DisposeWith(disposables);
 
             this._isLoopInputEnabled.DisposeWith(disposables);
@@ -174,5 +149,29 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
     private async Task Edit()
     {
         await this.EditTrack.Handle(new(this.Track, this.project, this.Encoders));
+    }
+
+    private void UpdateTrackProperties()
+    {
+        if (this.SelectedInputFile == null || this.SelectedInputFile == NoInputFile)
+        {
+            this.Track.InputFile = null;
+            this.Track.Loop.Enabled = false;
+            this.Track.Loop.StartSample = 0;
+            this.Track.Loop.EndSample = 0;
+        }
+        else
+        {
+            this.Track.InputFile = this.SelectedInputFile;
+            this.Track.Loop.Enabled = project.Data.DefaultLoopState;
+
+            var existingLoop = this._loops.GetLoop(this.SelectedInputFile);
+            if (existingLoop != null)
+            {
+                this.Track.Loop.Enabled = existingLoop.Enabled;
+                this.Track.Loop.StartSample = existingLoop.StartSample;
+                this.Track.Loop.EndSample = existingLoop.EndSample;
+            }
+        }
     }
 }

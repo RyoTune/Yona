@@ -20,12 +20,12 @@ public class LoopService
     /// </summary>
     /// <param name="file">File to get loop for.</param>
     /// <returns>Saved loop settings or new loop.</returns>
-    public ObservableLoop GetLoop(string file)
+    public ObservableLoop? GetLoop(string file)
     {
         var loopFile = this.GetLoopFile(file);
         if (loopFile == null)
         {
-            return new();
+            return null;
         }
 
         var loop = new ObservableLoop(LoopSerializer.DeserializeFile(loopFile));
