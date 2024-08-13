@@ -18,73 +18,76 @@
                 Content="Reset Defaults" />
         </cc:Page.MenuItems>
         <Grid ColumnDefinitions="* *">
-            <StackPanel>
-                <TextBlock Classes="h3" Text="Appearance" />
-
-                <StackPanel Spacing="16">
-
-                    <Grid ColumnDefinitions="* auto">
-                        <TextBlock Classes="setting-label" Text="Start Page" />
-                        <ComboBox
-                            Grid.Column="1"
-                            Width="150"
-                            ItemsSource="{Binding Pages}"
-                            SelectedItem="{Binding Settings.Current.StartPage}" />
-                    </Grid>
-
-                    <StackPanel.Styles>
-                        <Style Selector="TextBlock.setting-label">
-                            <Setter Property="VerticalAlignment" Value="Center" />
-                            <Setter Property="FontSize" Value="16" />
-                        </Style>
-                    </StackPanel.Styles>
-
-                    <Grid ColumnDefinitions="* auto">
-                        <TextBlock Classes="setting-label" Text="Theme" />
-                        <ComboBox
-                            Grid.Column="1"
-                            Width="150"
-                            ItemsSource="{Binding Themes}"
-                            SelectedItem="{Binding Settings.Current.ThemeMode}" />
-                    </Grid>
-
-                    <Grid ColumnDefinitions="* auto">
-                        <TextBlock Classes="setting-label" Text="Color" />
-                        <ComboBox
-                            Grid.Column="1"
-                            Width="150"
-                            DisplayMemberBinding="{Binding Name}"
-                            ItemsSource="{Binding ColorOptions}"
-                            SelectedItem="{Binding Settings.Current.ThemeColor}" />
-                    </Grid>
-
-                    <StackPanel IsVisible="{Binding Settings.Current.ThemeColor.Name, Converter={StaticResource IsStringEqual}, ConverterParameter='Custom'}">
+            <TabControl Padding="12">
+                <TabControl.Styles>
+                    <Style Selector="TabControl StackPanel">
+                        <Setter Property="Spacing" Value="16" />
+                    </Style>
+                </TabControl.Styles>
+                <TabItem Header="General">
+                    <StackPanel>
                         <Grid ColumnDefinitions="* auto">
-                            <TextBlock Classes="setting-label" Text="Primary Color" />
-                            <ColorPicker Color="{Binding Settings.Current.CustomPrimaryColor, Converter={StaticResource ColorString}}" />
+                            <TextBlock Classes="setting-label" Text="Start Page" />
+                            <ComboBox
+                                Grid.Column="1"
+                                Width="150"
+                                ItemsSource="{Binding Pages}"
+                                SelectedItem="{Binding Settings.Current.StartPage}" />
                         </Grid>
-
                         <Grid ColumnDefinitions="* auto">
-                            <TextBlock Classes="setting-label" Text="Accent Color" />
-                            <ColorPicker Color="{Binding Settings.Current.CustomAccentColor, Converter={StaticResource ColorString}}" />
+                            <TextBlock Classes="setting-label" Text="Developer Mode" />
+                            <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.IsDevMode}" />
                         </Grid>
                     </StackPanel>
+                </TabItem>
 
-                    <Grid ColumnDefinitions="* auto">
-                        <TextBlock Classes="setting-label" Text="Animated Background" />
-                        <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.UseAnimBackground}" />
-                    </Grid>
+                <TabItem Header="Display">
+                    <StackPanel>
+                        <StackPanel.Styles>
+                            <Style Selector="TextBlock.setting-label">
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="FontSize" Value="16" />
+                            </Style>
+                        </StackPanel.Styles>
 
-                </StackPanel>
-            </StackPanel>
+                        <Grid ColumnDefinitions="* auto">
+                            <TextBlock Classes="setting-label" Text="Theme" />
+                            <ComboBox
+                                Grid.Column="1"
+                                Width="150"
+                                ItemsSource="{Binding Themes}"
+                                SelectedItem="{Binding Settings.Current.ThemeMode}" />
+                        </Grid>
 
-            <Grid
-                Grid.Column="1"
-                VerticalAlignment="Top"
-                ColumnDefinitions="* auto">
-                <TextBlock Classes="setting-label" Text="Developer Mode" />
-                <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.IsDevMode}" />
-            </Grid>
+                        <Grid ColumnDefinitions="* auto">
+                            <TextBlock Classes="setting-label" Text="Color" />
+                            <ComboBox
+                                Grid.Column="1"
+                                Width="150"
+                                DisplayMemberBinding="{Binding Name}"
+                                ItemsSource="{Binding ColorOptions}"
+                                SelectedItem="{Binding Settings.Current.ThemeColor}" />
+                        </Grid>
+
+                        <StackPanel IsVisible="{Binding Settings.Current.ThemeColor.Name, Converter={StaticResource IsStringEqual}, ConverterParameter='Custom'}">
+                            <Grid ColumnDefinitions="* auto">
+                                <TextBlock Classes="setting-label" Text="Primary Color" />
+                                <ColorPicker Color="{Binding Settings.Current.CustomPrimaryColor, Converter={StaticResource ColorString}}" />
+                            </Grid>
+
+                            <Grid ColumnDefinitions="* auto">
+                                <TextBlock Classes="setting-label" Text="Accent Color" />
+                                <ColorPicker Color="{Binding Settings.Current.CustomAccentColor, Converter={StaticResource ColorString}}" />
+                            </Grid>
+                        </StackPanel>
+
+                        <Grid ColumnDefinitions="* auto">
+                            <TextBlock Classes="setting-label" Text="Animated Background" />
+                            <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.UseAnimBackground}" />
+                        </Grid>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
         </Grid>
     </cc:Page>
 </UserControl>
