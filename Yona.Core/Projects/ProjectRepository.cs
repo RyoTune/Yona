@@ -45,6 +45,8 @@ public class ProjectRepository
         };
 
         newProject.Save();
+        newProject.Reload();
+
         return newProject;
     }
 

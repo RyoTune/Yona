@@ -1,4 +1,5 @@
-﻿using Yona.Core.Utils.Serializers;
+﻿using Yona.Core.Extensions;
+using Yona.Core.Utils.Serializers;
 
 namespace Yona.Core.Common;
 
@@ -13,22 +14,55 @@ public class SavableFile<T>
         this.filePath = filePath;
         this.serializer = serializer;
 
-        this.Data = GetValue();
+        this.Data = this.GetData();
     }
 
     public T Data { get; set; }
 
+    /// <summary>
+    /// Save current data to file.
+    /// </summary>
     public void Save() => serializer.SerializeFile(filePath, this.Data);
 
-    private T GetValue()
+    /// <summary>
+    /// Reload data from file.
+    /// </summary>
+    public void Reload()
+    {
+        this.Data = this.GetData();
+    }
+
+    private T GetData()
     {
         if (File.Exists(filePath))
         {
-            return serializer.DeserializeFile<T>(filePath);
+            try
+            {
+                this.serializer.DeserializeFile<T>(filePath);
+            }
+            
+            // Backup and reset if failed to load existing file.
+            catch (Exception)
+            {
+                // TODO: Log error.
+                return this.BackupAndReset(filePath);
+            }
         }
 
         var defaultValue = new T();
-        serializer.SerializeFile(this.filePath, defaultValue);
+        this.serializer.SerializeFile(this.filePath, defaultValue);
+        return defaultValue;
+    }
+
+    private T BackupAndReset(string filePath)
+    {
+        // Back up original file.
+        var backupFile = $"{filePath}_{DateTime.Now.ToPathSafe()}.backup";
+        File.Copy(filePath, backupFile, true);
+
+        // Write new default.
+        var defaultValue = new T();
+        this.serializer.SerializeFile(filePath, defaultValue);
         return defaultValue;
     }
 }
