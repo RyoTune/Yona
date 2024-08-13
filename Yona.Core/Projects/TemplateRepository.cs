@@ -11,7 +11,7 @@ public class TemplateRepository
     private readonly string templatesDir;
     private readonly ObservableCollection<ProjectBundle> templates = [];
 
-    public TemplateRepository(AppService app, ILogger log)
+    public TemplateRepository(AppService app, ILogger<TemplateRepository> log)
     {
         this.log = log;
 

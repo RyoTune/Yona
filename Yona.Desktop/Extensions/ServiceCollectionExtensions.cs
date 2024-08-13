@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Extensions.Logging;
 using System;
@@ -67,13 +68,21 @@ internal static class ServiceCollectionExtensions
 
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
-            .WriteTo.File(logFile, outputTemplate: "{Timestamp:HH:mm:ss} [{Level}] {Message:lj}{NewLine}{Exception}")
+            .WriteTo.File(logFile, outputTemplate: "{Timestamp:HH:mm:ss} [{Level}] [{SourceContext}] {Message:lj}{NewLine}{Exception}")
             .CreateLogger();
 
-        var settingsLog = new SerilogLoggerFactory(Log.Logger).CreateLogger("logger");
-        service.AddSingleton(settingsLog);
-        Log.Information("Ready.");
+        var generalLog = new SerilogLoggerFactory(Log.Logger).CreateLogger("General");
+        var loggerFactory = LoggerFactory.Create(logging => logging.AddSerilog());
 
+        service.AddSingleton(generalLog);
+        service.AddSingleton(s => loggerFactory.CreateLogger<FastProjectBuilder>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<StandardProjectBuilder>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<ProjectRepository>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<TemplateRepository>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<EncoderRepository>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<HomeViewModel>());
+
+        Log.Information("Ready.");
         return service;
     }
 }

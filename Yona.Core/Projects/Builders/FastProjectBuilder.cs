@@ -12,7 +12,7 @@ public class FastProjectBuilder : IProjectBuilder
     private readonly EncoderRepository encoders;
     private readonly ILogger log;
 
-    public FastProjectBuilder(EncoderRepository encoders, ILogger log)
+    public FastProjectBuilder(EncoderRepository encoders, ILogger<FastProjectBuilder> log)
     {
         this.encoders = encoders;
         this.log = log;

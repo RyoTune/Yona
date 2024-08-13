@@ -12,7 +12,7 @@ public class ProjectRepository
     private readonly string projectsDir;
     private readonly ObservableCollection<ProjectBundle> projects = [];
 
-    public ProjectRepository(AppService app, ILogger log)
+    public ProjectRepository(AppService app, ILogger<ProjectRepository> log)
     {
         this.log = log;
         this.projectsDir = Path.Join(app.BaseDir, "projects");

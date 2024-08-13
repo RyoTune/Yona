@@ -6,7 +6,7 @@ using Yona.Core.Projects.Models;
 
 namespace Yona.Core.Projects.Builders;
 
-public class StandardProjectBuilder(EncoderRepository encoders, ILogger log) : IProjectBuilder
+public class StandardProjectBuilder(EncoderRepository encoders, ILogger<StandardProjectBuilder> log) : IProjectBuilder
 {
     private readonly EncoderRepository encoders = encoders;
     private readonly ILogger log = log;

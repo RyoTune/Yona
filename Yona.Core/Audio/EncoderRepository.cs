@@ -12,7 +12,7 @@ public class EncoderRepository
     private readonly string cachedDir;
     private readonly ILogger log;
 
-    public EncoderRepository(AppService app, ILogger log)
+    public EncoderRepository(AppService app, ILogger<EncoderRepository> log)
     {
         this.log = log;
 

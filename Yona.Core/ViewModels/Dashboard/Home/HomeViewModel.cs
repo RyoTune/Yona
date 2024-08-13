@@ -34,7 +34,7 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
         ProjectRepository projects,
         ProjectServices services,
         TemplateRepository templates,
-        ILogger log)
+        ILogger<HomeViewModel> log)
     {
         this.log = log;
         this.projectsRouter = (ProjectsRouter)projectsVm.Router;
