@@ -48,7 +48,9 @@ jobs:
       run: dotnet publish Yona.Desktop -c Release -o build
 
     - name: Zip Build
-      run: tar -czvf yona-linux.tar.gz /build/*
+      run: |
+        cd build
+        tar -czvf ../yona-linux.tar.gz .
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
