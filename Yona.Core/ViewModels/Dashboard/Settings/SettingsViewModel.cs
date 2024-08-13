@@ -16,7 +16,8 @@ public partial class SettingsViewModel : ViewModelBase
 
     public ThemeMode[] Themes { get; } = Enum.GetValues<ThemeMode>();
 
-    public List<ColorTheme> ColorOptions { get; } = new(ColorTheme.AvailableOptions);
+    public IEnumerable<ColorTheme> ColorOptions { get; }
+        = [ ColorTheme.Yona, ColorTheme.Orange, ColorTheme.Red, ColorTheme.Green, ColorTheme.Blue ];
 
     public Page[] Pages { get; } = Enum.GetValues<Page>();
 
