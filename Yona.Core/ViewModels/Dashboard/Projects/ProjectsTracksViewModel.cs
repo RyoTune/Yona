@@ -21,7 +21,6 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
     private readonly ProjectsRouter router;
     private readonly ProjectServices services;
     private readonly IRelayCommand closePanelCommand;
-    private readonly RelayCommand saveProjectCommand;
     private readonly TrackPanelFactory trackPanel;
 
     [ObservableProperty]
@@ -42,7 +41,6 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
         this.UrlPathSegment = $"{project.Data.Id}/tracks";
 
         this.closePanelCommand = new RelayCommand(() => this.SelectedTrack = null);
-        this.saveProjectCommand = new RelayCommand(project.Save);
         this.Project = project;
 
         var searchObs = this.WhenAnyValue(x => x.SearchText)
@@ -52,19 +50,27 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
             .Select(x => x.ToObservableChangeSet().SkipInitial().AutoRefresh());
 
         this._filteredTracks = Observable.Merge<object?>(searchObs, tracksObs)
-        .Select(_ =>
-        {
-            if (string.IsNullOrEmpty(this.SearchText))
+            .Select(_ =>
             {
-                return this.Project.Data.Tracks;
-            }
-            else
-            {
-                var sorted = this.Project.Data.Tracks.Where(x => Fuzz.PartialRatio(this.SearchText.ToLower(), x.Name.ToLower()) > Math.Min(this.SearchText.Length * 5, 90)).ToArray();
-                return (IEnumerable<AudioTrack>)sorted;
-            }
-        })
-        .ToProperty(this, x => x.FilteredTracks);
+                if (string.IsNullOrEmpty(this.SearchText))
+                {
+                    return this.Project.Data.Tracks;
+                }
+                else
+                {
+                    try
+                    {
+                        var sorted = this.Project.Data.Tracks.Where(x => Fuzz.PartialRatio(this.SearchText.ToLower(), x.Name.ToLower()) > Math.Min(this.SearchText.Length * 5, 90)).ToArray();
+                        return (IEnumerable<AudioTrack>)sorted;
+                    }
+                    catch (Exception)
+                    {
+                        // TODO: Log error.
+                        return Enumerable.Empty<AudioTrack>();
+                    }
+                }
+            })
+            .ToProperty(this, x => x.FilteredTracks);
 
         this.WhenActivated((CompositeDisposable disp) =>
         {
