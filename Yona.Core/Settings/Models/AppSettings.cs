@@ -8,6 +8,12 @@ public partial class AppSettings : ObservableObject
     private ColorTheme themeColor = ColorTheme.Yona;
 
     [ObservableProperty]
+    private string customPrimaryColor = ColorTheme.Custom.PrimaryColor;
+
+    [ObservableProperty]
+    private string customAccentColor = ColorTheme.Custom.AccentColor;
+
+    [ObservableProperty]
     private ThemeMode themeMode = ThemeMode.Auto;
 
     [ObservableProperty]

@@ -9,6 +9,8 @@ public static class SavableFileExtensions
 {
     public const int SAVE_BUFFER_MS = 250;
 
+    public static readonly TimeSpan SAVE_BUFFER_TIME = TimeSpan.FromMilliseconds(SAVE_BUFFER_MS);
+
     public static IDisposable AutosaveWithChanges<T>(this SavableFile<T> savable)
         where T : INotifyPropertyChanged, new() =>
         savable.Data.WhenAnyPropertyChanged()

@@ -3,6 +3,7 @@
 public record ColorTheme(string Name, string PrimaryColor, string AccentColor)
 {
     public static readonly ColorTheme Yona = new("Yona", "#89d378", "#9900ff");
+    public static readonly ColorTheme Custom = new("Custom", "#FFFFFF", "#000000");
 
     // SukiUI defaults.
     public static readonly ColorTheme Orange = new("Orange", "#d48806", "#176CE8");

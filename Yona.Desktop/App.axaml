@@ -17,6 +17,7 @@
         <suki:SukiTheme ThemeColor="Blue" />
         <ma:MaterialIconStyles />
         <StyleInclude Source="/Styles/Global.axaml" />
+        <StyleInclude Source="avares://Avalonia.Controls.ColorPicker/Themes/Simple/Simple.xaml" />
     </Application.Styles>
 
     <Application.Resources>
@@ -24,6 +25,8 @@
         <converters:ToUpperConverter x:Key="ToUpper" />
         <converters:PathFileNameConverter x:Key="PathFileName" />
         <converters:IsNullConverter x:Key="IsNull" />
+        <converters:StringEqualsConverter x:Key="IsStringEqual" />
+        <converters:ColorStringConverter x:Key="ColorString" />
         <local:ViewLocator x:Key="ViewLocator" />
     </Application.Resources>
 </Application>

@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using ReactiveUI;
 using Yona.Core.Settings;
 using Yona.Core.Settings.Models;
 
@@ -16,8 +15,15 @@ public partial class SettingsViewModel : ViewModelBase
 
     public ThemeMode[] Themes { get; } = Enum.GetValues<ThemeMode>();
 
-    public IEnumerable<ColorTheme> ColorOptions { get; }
-        = [ ColorTheme.Yona, ColorTheme.Orange, ColorTheme.Red, ColorTheme.Green, ColorTheme.Blue ];
+    public IEnumerable<ColorTheme> ColorOptions { get; } =
+    [
+        ColorTheme.Yona,
+        ColorTheme.Orange,
+        ColorTheme.Red,
+        ColorTheme.Green,
+        ColorTheme.Blue,
+        ColorTheme.Custom
+    ];
 
     public Page[] Pages { get; } = Enum.GetValues<Page>();
 
@@ -25,6 +31,18 @@ public partial class SettingsViewModel : ViewModelBase
     {
         get => this.Settings.Current.StartPage;
         set => this.SetProperty(this.Settings.Current.StartPage, value, this.Settings.Current, (s, n) => s.StartPage = n);
+    }
+
+    public string CustomPrimaryColor
+    {
+        get => this.Settings.Current.CustomPrimaryColor;
+        set => this.SetProperty(this.Settings.Current.CustomPrimaryColor, value, this.Settings.Current, (m, n) => m.CustomPrimaryColor = n);
+    }
+
+    public string CustomAccentColor
+    {
+        get => this.Settings.Current.CustomAccentColor;
+        set => this.SetProperty(this.Settings.Current.CustomAccentColor, value, this.Settings.Current, (m, n) => m.CustomAccentColor = n);
     }
 
     [RelayCommand]

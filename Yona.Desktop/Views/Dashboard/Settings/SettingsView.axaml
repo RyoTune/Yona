@@ -58,18 +58,33 @@
                             SelectedItem="{Binding Settings.Current.ThemeColor}" />
                     </Grid>
 
+                    <StackPanel IsVisible="{Binding Settings.Current.ThemeColor.Name, Converter={StaticResource IsStringEqual}, ConverterParameter='Custom'}">
+                        <Grid ColumnDefinitions="* auto">
+                            <TextBlock Classes="setting-label" Text="Primary Color" />
+                            <ColorPicker Color="{Binding Settings.Current.CustomPrimaryColor, Converter={StaticResource ColorString}}" />
+                        </Grid>
+
+                        <Grid ColumnDefinitions="* auto">
+                            <TextBlock Classes="setting-label" Text="Accent Color" />
+                            <ColorPicker Color="{Binding Settings.Current.CustomAccentColor, Converter={StaticResource ColorString}}" />
+                        </Grid>
+                    </StackPanel>
+
                     <Grid ColumnDefinitions="* auto">
                         <TextBlock Classes="setting-label" Text="Animated Background" />
                         <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.UseAnimBackground}" />
                     </Grid>
 
-                    <Grid ColumnDefinitions="* auto">
-                        <TextBlock Classes="setting-label" Text="Developer Mode" />
-                        <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.IsDevMode}" />
-                    </Grid>
-
                 </StackPanel>
             </StackPanel>
+
+            <Grid
+                Grid.Column="1"
+                VerticalAlignment="Top"
+                ColumnDefinitions="* auto">
+                <TextBlock Classes="setting-label" Text="Developer Mode" />
+                <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.IsDevMode}" />
+            </Grid>
         </Grid>
     </cc:Page>
 </UserControl>

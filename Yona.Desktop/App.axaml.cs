@@ -6,10 +6,12 @@ using Avalonia.Media;
 using Avalonia.Styling;
 using Microsoft.Extensions.DependencyInjection;
 using ReactiveUI;
+using Serilog;
 using SukiUI;
 using SukiUI.Models;
 using System;
 using System.Reactive.Linq;
+using Yona.Core.Extensions;
 using Yona.Core.Settings;
 using Yona.Core.Settings.Models;
 using Yona.Core.ViewModels;
@@ -40,12 +42,29 @@ public partial class App : Application
     {
         AvaloniaXamlLoader.Load(this);
 
-        this.settings.WhenAnyValue(x => x.Current.ThemeColor)
-            .Subscribe(themeColor =>
+        this.settings.WhenAnyValue(x => x.Current.ThemeColor, x => x.Current.CustomPrimaryColor, x => x.Current.CustomAccentColor)
+            .Throttle(SavableFileExtensions.SAVE_BUFFER_TIME)
+            .Select(x => (Theme: x.Item1, CustomPrimary: x.Item2, CustomAccent: x.Item3))
+            .Subscribe(settings =>
             {
                 var sukiTheme = SukiTheme.GetInstance();
-                var sukiColor = new SukiColorTheme(themeColor.Name, Color.Parse(themeColor.PrimaryColor), Color.Parse(themeColor.AccentColor));
-                sukiTheme?.ChangeColorTheme(sukiColor);
+                if (settings.Theme.Name != ColorTheme.Custom.Name)
+                {
+                    var sukiColor = new SukiColorTheme(settings.Theme.Name, Color.Parse(settings.Theme.PrimaryColor), Color.Parse(settings.Theme.AccentColor));
+                    sukiTheme?.ChangeColorTheme(sukiColor);
+                }
+                else
+                {
+                    try
+                    {
+                        var sukiColor = new SukiColorTheme(settings.Theme.Name, Color.Parse(settings.CustomPrimary), Color.Parse(settings.CustomAccent));
+                        sukiTheme?.ChangeColorTheme(sukiColor);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error(ex, "Failed to set custom theme colors.");
+                    }
+                }
             });
 
         this.settings.WhenAnyValue(x => x.Current.ThemeMode)
