@@ -6,6 +6,7 @@ on:
     tags:
       - '*.*.*'
 env:
+  IS_RELEASE: ${{ startsWith(github.ref, 'refs/tags/') }}
   RELEASE_TAG: ${{ github.ref_name }}
 
 jobs:
@@ -27,11 +28,22 @@ jobs:
     - name: Zip Build
       run: Compress-Archive -Path build/* -DestinationPath yona-windows.zip
 
+    - name: Create Changelog
+      run: |
+        if ($env:IS_RELEASE -eq 'true') {
+            auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --starting-version "$env:RELEASE_TAG"
+        }
+        else {
+            auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --unreleased
+        }
+
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
         name: win-build
-        path: yona-windows.zip
+        path: |
+          yona-windows.zip
+          CHANGELOG.md
         retention-days: 0
 
   linux-build:
@@ -67,17 +79,6 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: latest
-      
-      - name: AutoChangelog
-        run: npm install -g auto-changelog
-
-      - name: Create Changelog
-        run: auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --starting-version "$RELEASE_TAG"
-
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
@@ -86,8 +87,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          body_path: CHANGELOG.md
+          body_path: artifacts/CHANGELOG.md
           files: |
             artifacts/**
-            CHANGELOG.md
           fail_on_unmatched_files: true

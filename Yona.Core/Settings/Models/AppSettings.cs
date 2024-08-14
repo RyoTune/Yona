@@ -4,6 +4,8 @@ namespace Yona.Core.Settings.Models;
 
 public partial class AppSettings : ObservableObject
 {
+    private BackgroundStyle backgroundStyle = BackgroundStyle.BubbleStrong;
+
     [ObservableProperty]
     private ColorTheme themeColor = ColorTheme.Yona;
 
@@ -16,8 +18,20 @@ public partial class AppSettings : ObservableObject
     [ObservableProperty]
     private ThemeMode themeMode = ThemeMode.Auto;
 
-    [ObservableProperty]
-    private BackgroundStyle backgroundStyle = BackgroundStyle.BubbleStrong;
+    public BackgroundStyle BackgroundStyle
+    {
+        get
+        {
+            if (Environment.OSVersion.Platform != PlatformID.Win32NT)
+            {
+                return BackgroundStyle.Flat;
+            }
+
+            return this.backgroundStyle;
+        }
+
+        set => this.SetProperty(ref this.backgroundStyle, value);
+    }
 
     [ObservableProperty]
     private bool useAnimBackground = true;
