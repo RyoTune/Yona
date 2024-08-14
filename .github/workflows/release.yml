@@ -30,6 +30,9 @@ jobs:
 
     - name: Zip Build
       run: Compress-Archive -Path build/* -DestinationPath yona-windows.zip
+      
+    - name: Setup AutoChangelog
+      run: npm install -g auto-changelog
 
     - name: Create Changelog
       run: |
