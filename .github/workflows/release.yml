@@ -86,6 +86,6 @@ jobs:
         with:
           body_path: CHANGELOG.md
           files: |
-            artifacts/*
+            artifacts/**
             CHANGELOG.md
           fail_on_unmatched_files: true
