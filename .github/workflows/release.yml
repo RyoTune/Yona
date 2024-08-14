@@ -74,7 +74,7 @@ jobs:
         run: npm install -g auto-changelog
 
       - name: Create Changelog
-        run: auto-changelog -u --sort-commits date --hide-credit --template keepachangelog --commit-limit false"
+        run: auto-changelog -u --sort-commits date --hide-credit --template keepachangelog --commit-limit false
 
       - name: Download Artifacts
         uses: actions/download-artifact@v4
