@@ -28,5 +28,6 @@
         <converters:StringEqualsConverter x:Key="IsStringEqual" />
         <converters:ColorStringConverter x:Key="ColorString" />
         <local:ViewLocator x:Key="ViewLocator" />
+        <converters:BackgroundStyleConverter x:Key="BackgroundStyleConverter" />
     </Application.Resources>
 </Application>

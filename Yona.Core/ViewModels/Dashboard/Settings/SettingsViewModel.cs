@@ -25,6 +25,14 @@ public partial class SettingsViewModel : ViewModelBase
         ColorTheme.Custom
     ];
 
+    public IEnumerable<BackgroundStyle> BackgroundOptions { get; } =
+    [
+        BackgroundStyle.Flat,
+        BackgroundStyle.Gradient,
+        BackgroundStyle.Bubble,
+        BackgroundStyle.BubbleStrong,
+    ];
+
     public Page[] Pages { get; } = Enum.GetValues<Page>();
 
     public Page SelectedPage

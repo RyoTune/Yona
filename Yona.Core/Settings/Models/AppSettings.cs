@@ -17,6 +17,9 @@ public partial class AppSettings : ObservableObject
     private ThemeMode themeMode = ThemeMode.Auto;
 
     [ObservableProperty]
+    private BackgroundStyle backgroundStyle = BackgroundStyle.BubbleStrong;
+
+    [ObservableProperty]
     private bool useAnimBackground = true;
 
     [ObservableProperty]

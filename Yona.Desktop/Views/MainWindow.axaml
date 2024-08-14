@@ -13,6 +13,7 @@
     MinHeight="540"
     x:DataType="vm:MainWindowViewModel"
     BackgroundAnimationEnabled="{Binding Settings.Current.UseAnimBackground}"
+    BackgroundStyle="{Binding Settings.Current.BackgroundStyle, Converter={StaticResource BackgroundStyleConverter}}"
     Icon="/Assets/icon.ico"
     WindowStartupLocation="CenterOwner"
     mc:Ignorable="d">
