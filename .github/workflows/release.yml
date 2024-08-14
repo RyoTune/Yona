@@ -12,6 +12,9 @@ env:
 jobs:
   win-build:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
 
     steps:
     - name: Checkout
