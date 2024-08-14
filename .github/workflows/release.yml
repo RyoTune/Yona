@@ -61,9 +61,21 @@ jobs:
    
   release:
     if: startsWith(github.ref, 'refs/tags/')
+    needs: [ win-build, linux-build  ]
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+      
+      - name: AutoChangelog
+        run: npm install -g auto-changelog
+
+      - name: Create Changelog
+        run: auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --starting-version "${{ github.ref_name }}"
+
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
@@ -72,5 +84,8 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          files: artifacts/*
+          body_path: CHANGELOG.md
+          files: |
+            artifacts/*
+            CHANGELOG.md
           fail_on_unmatched_files: true
