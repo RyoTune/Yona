@@ -46,7 +46,8 @@ public class FastProjectBuilder : IProjectBuilder
                     if (x.InputFile == prevTrack.InputFile
                         && x.Loop.Enabled == prevTrack.Loop.Enabled
                         && x.Loop.StartSample == prevTrack.Loop.StartSample
-                        && x.Loop.EndSample == prevTrack.Loop.EndSample)
+                        && x.Loop.EndSample == prevTrack.Loop.EndSample
+                        && x.Encoder == prevTrack.Encoder)
                     {
                         return false;
                     }
