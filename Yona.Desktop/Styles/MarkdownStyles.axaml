@@ -10,9 +10,19 @@
 
     <!--  Add Styles Here  -->
 
-    <Style Selector="ctxt|CTextBlock ctxt|CHyperlink">
+    <Style Selector=".Markdown_Avalonia_MarkdownViewer ctxt|CHyperlink">
         <Setter Property="Foreground" Value="{DynamicResource SukiPrimaryColor}" />
+        <Setter Property="HoverForeground" Value="{DynamicResource SukiPrimaryColor50}" />
     </Style>
+
+    <Style Selector=".Markdown_Avalonia_MarkdownViewer ctxt|CHyperlink:pressed">
+        <Setter Property="Foreground" Value="{DynamicResource SukiPrimaryColor75}" />
+    </Style>
+
+    <Style Selector=".Markdown_Avalonia_MarkdownViewer ctxt|CHyperlink:disabled">
+        <Setter Property="Foreground" Value="{DynamicResource SukiDisabledText}" />
+    </Style>
+
     <Style Selector="ctxt|CTextBlock.Heading1, ctxt|CTextBlock.Heading2, ctxt|CTextBlock.Heading3, ctxt|CTextBlock.Heading4, ctxt|CTextBlock.Heading5, ctxt|CTextBlock.Heading6">
         <Setter Property="Foreground" Value="{DynamicResource SukiText}" />
     </Style>
