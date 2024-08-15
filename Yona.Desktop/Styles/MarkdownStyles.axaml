@@ -11,8 +11,7 @@
     <!--  Add Styles Here  -->
 
     <Style Selector="ctxt|CTextBlock ctxt|CHyperlink">
-        <Setter Property="Foreground" Value="{DynamicResource SukiPrimarColor}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource SukiPrimarColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource SukiPrimaryColor}" />
     </Style>
     <Style Selector="ctxt|CTextBlock.Heading1, ctxt|CTextBlock.Heading2, ctxt|CTextBlock.Heading3, ctxt|CTextBlock.Heading4, ctxt|CTextBlock.Heading5, ctxt|CTextBlock.Heading6">
         <Setter Property="Foreground" Value="{DynamicResource SukiText}" />

@@ -54,8 +54,12 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<UpdateService>(s =>
         {
             var assembly = Assembly.GetExecutingAssembly();
-            var fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-            return new(s.GetRequiredService<AppService>(), new(fileVersionInfo.ProductVersion ?? "0.0.1"));
+#if DEBUG
+            var fileVersionInfo = "0.0.1";
+#else
+            var fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location).ProductVersion;
+#endif
+            return new(s.GetRequiredService<AppService>(), new(fileVersionInfo ?? "0.0.1"));
         });
 
         return service;
