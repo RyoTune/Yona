@@ -60,7 +60,7 @@ public class EncoderRepository
 
     private void LoadVgaudioEncoders()
     {
-        var vgAudioDir = Path.Join(this.encodersDir, "vgaudio");
+        var vgAudioDir = Path.Join(this.encodersDir, "VGAudio");
         if (!Directory.Exists(vgAudioDir))
         {
             return;
