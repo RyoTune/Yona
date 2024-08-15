@@ -43,9 +43,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: win-build
-        path: |
-          yona-windows.zip
-          CHANGELOG.md
+        path: yona-windows.zip
         retention-days: 0
 
   linux-build:
@@ -89,7 +87,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: linux-build
-        path: yona-linux.tar.gz
+        path: |
+          yona-linux.tar.gz
+          CHANGELOG.md
         retention-days: 0
    
   release:
@@ -106,7 +106,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          body_path: artifacts/win-build/CHANGELOG.md
+          body_path: artifacts/linux-build/CHANGELOG.md
           files: |
             artifacts/**
           fail_on_unmatched_files: true
