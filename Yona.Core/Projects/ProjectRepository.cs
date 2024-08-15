@@ -25,7 +25,7 @@ public class ProjectRepository
 
     public void Delete(ProjectBundle project)
     {
-        var projectDir = Path.GetDirectoryName(project.ProjectFile)!;
+        var projectDir = Path.GetDirectoryName(project.FilePath)!;
         if (Directory.Exists(projectDir))
         {
             Directory.Delete(projectDir, true);

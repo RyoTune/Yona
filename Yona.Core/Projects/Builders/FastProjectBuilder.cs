@@ -91,7 +91,7 @@ public class FastProjectBuilder : IProjectBuilder
 
     private static AudioTrack[] GetPrevBuild(ProjectBundle project)
     {
-        var buildFile = Path.ChangeExtension(project.ProjectFile, ".zm");
+        var buildFile = Path.ChangeExtension(project.FilePath, ".zm");
         if (!File.Exists(buildFile))
         {
             return [];
@@ -102,7 +102,7 @@ public class FastProjectBuilder : IProjectBuilder
 
     private static void SaveCurrBuild(ProjectBundle project, AudioTrack[] build)
     {
-        var buildFile = Path.ChangeExtension(project.ProjectFile, ".zm");
+        var buildFile = Path.ChangeExtension(project.FilePath, ".zm");
         JsonFileSerializer.Instance.SerializeFile(buildFile, build);
     }
 
