@@ -11,7 +11,6 @@ public partial class ProjectBundle : SavableFile<ProjectData>
 
     public ProjectBundle(string filePath) : base(filePath, YamlFileSerializer.Instance)
     {
-        this.ProjectFile = filePath;
         this.ProjectDir = Path.GetDirectoryName(filePath)!;
         this.IconFile = Path.ChangeExtension(filePath, ".png");
         this.projectBuildDir = Path.Join(this.ProjectDir, "build");
@@ -20,8 +19,6 @@ public partial class ProjectBundle : SavableFile<ProjectData>
         this.Data.Tracks = new(this.Data.Tracks.OrderBy(x => x.Name));
         this.Save();
     }
-
-    public string ProjectFile { get; }
 
     public string ProjectDir { get; }
 
