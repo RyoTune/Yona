@@ -12,6 +12,8 @@
     Title="Update Available"
     Width="500"
     Height="700"
+    MinWidth="500"
+    MinHeight="700"
     x:DataType="models:Update"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -19,7 +21,7 @@
         <StackPanel HorizontalAlignment="Center">
             <TextBlock
                 HorizontalAlignment="Center"
-                FontSize="36"
+                FontSize="40"
                 FontWeight="SemiBold"
                 Text="{Binding Version}" />
 
