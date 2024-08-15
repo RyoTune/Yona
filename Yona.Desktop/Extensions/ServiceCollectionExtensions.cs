@@ -5,6 +5,7 @@ using Serilog.Extensions.Logging;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Yona.Core.App;
 using Yona.Core.Audio;
 using Yona.Core.Projects;
@@ -49,6 +50,11 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<ProjectsRouterFactory>();
         service.AddSingleton<ProjectTracksFactory>();
         service.AddSingleton<ProjectServices>();
+        service.AddSingleton<UpdateService>(s =>
+        {
+            var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version ?? new(0, 0, 0);
+            return new(s.GetRequiredService<AppService>(), assemblyVersion);
+        });
 
         return service;
     }

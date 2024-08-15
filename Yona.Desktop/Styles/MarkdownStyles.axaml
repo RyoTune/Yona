@@ -1,0 +1,20 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctxt="using:ColorTextBlock.Avalonia">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!--  Add Controls for Previewer Here  -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!--  Add Styles Here  -->
+
+    <Style Selector="ctxt|CTextBlock ctxt|CHyperlink">
+        <Setter Property="Foreground" Value="{DynamicResource SukiPrimarColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SukiPrimarColor}" />
+    </Style>
+    <Style Selector="ctxt|CTextBlock.Heading1, ctxt|CTextBlock.Heading2, ctxt|CTextBlock.Heading3, ctxt|CTextBlock.Heading4, ctxt|CTextBlock.Heading5, ctxt|CTextBlock.Heading6">
+        <Setter Property="Foreground" Value="{DynamicResource SukiText}" />
+    </Style>
+</Styles>

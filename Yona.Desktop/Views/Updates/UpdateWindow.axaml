@@ -1,0 +1,48 @@
+<suki:SukiWindow
+    x:Class="Yona.Desktop.Views.Updates.UpdateWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctxt="using:ColorTextBlock.Avalonia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ma="using:Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="using:Markdown.Avalonia"
+    xmlns:models="using:Yona.Core.Settings"
+    xmlns:suki="using:SukiUI.Controls"
+    Title="Update Available"
+    Width="400"
+    Height="600"
+    x:DataType="models:Update"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid
+        Margin="12"
+        ColumnDefinitions="* auto"
+        RowDefinitions="auto *">
+        <TextBlock
+            VerticalAlignment="Center"
+            FontSize="48"
+            FontWeight="SemiBold"
+            Text="{Binding Version}" />
+        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+            <HyperlinkButton NavigateUri="{Binding Url}" ToolTip.Tip="{Binding Url}">
+                <StackPanel Orientation="Horizontal" Spacing="4">
+                    <ma:MaterialIcon
+                        Width="32"
+                        Height="32"
+                        Kind="Github" />
+                    <TextBlock Classes="h4" Text="Download on Github" />
+                </StackPanel>
+            </HyperlinkButton>
+            <TextBlock Classes="Caption" Text="{Binding Date}" />
+        </StackPanel>
+
+        <suki:GlassCard Grid.Row="1" Grid.ColumnSpan="2">
+            <md:MarkdownScrollViewer Markdown="{Binding Body}">
+                <md:MarkdownScrollViewer.Styles>
+                    <StyleInclude Source="/Styles/MarkdownStyles.axaml" />
+                </md:MarkdownScrollViewer.Styles>
+            </md:MarkdownScrollViewer>
+        </suki:GlassCard>
+    </Grid>
+</suki:SukiWindow>

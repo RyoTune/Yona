@@ -20,7 +20,11 @@
         <Grid ColumnDefinitions="* *">
             <TabControl Padding="12">
                 <TabControl.Styles>
-                    <Style Selector="TabControl StackPanel">
+                    <Style Selector="TextBlock.setting-label">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="FontSize" Value="16" />
+                    </Style>
+                    <Style Selector="TabControl > TabItem > StackPanel">
                         <Setter Property="Spacing" Value="16" />
                     </Style>
                 </TabControl.Styles>
@@ -38,18 +42,25 @@
                             <TextBlock Classes="setting-label" Text="Developer Mode" />
                             <ToggleSwitch Grid.Column="1" IsChecked="{Binding Settings.Current.IsDevMode}" />
                         </Grid>
+                        <Grid ColumnDefinitions="* auto">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <TextBlock Classes="setting-label" Text="Version:" />
+                                <TextBlock
+                                    Classes="setting-label"
+                                    FontWeight="SemiBold"
+                                    Text="{Binding CurrentVersion}" />
+                            </StackPanel>
+                            <Button
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Command="{Binding CheckUpdatesCommand}"
+                                Content="Check for Updates" />
+                        </Grid>
                     </StackPanel>
                 </TabItem>
 
                 <TabItem Header="Display">
                     <StackPanel>
-                        <StackPanel.Styles>
-                            <Style Selector="TextBlock.setting-label">
-                                <Setter Property="VerticalAlignment" Value="Center" />
-                                <Setter Property="FontSize" Value="16" />
-                            </Style>
-                        </StackPanel.Styles>
-
                         <Grid ColumnDefinitions="* auto">
                             <TextBlock Classes="setting-label" Text="Theme" />
                             <ComboBox
