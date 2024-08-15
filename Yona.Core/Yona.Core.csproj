@@ -10,6 +10,7 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="FuzzySharp" Version="2.0.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+    <PackageReference Include="Octokit.Reactive" Version="13.0.1" />
     <PackageReference Include="ReactiveUI" Version="20.1.1" />
   </ItemGroup>
 	

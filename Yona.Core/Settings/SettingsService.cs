@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
-using ReactiveUI;
+﻿using ReactiveUI;
+using Yona.Core.App;
 using Yona.Core.Common;
 using Yona.Core.Extensions;
 using Yona.Core.Settings.Models;
@@ -9,19 +9,13 @@ namespace Yona.Core.Settings;
 
 public class SettingsService : ReactiveObject
 {
-    private readonly ILogger log;
     private readonly SavableFile<AppSettings> settings;
 
     private IDisposable? disposable;
 
-    public SettingsService(ILogger log)
+    public SettingsService(AppService app)
     {
-        this.log = log;
-
-        var appDir = AppDomain.CurrentDomain.BaseDirectory;
-        var settingsFile = Path.Join(appDir, "settings.json");
-
-        this.settings = new SavableFile<AppSettings>(settingsFile, JsonFileSerializer.Instance);
+        this.settings = new SavableFile<AppSettings>(Path.Join(app.AppDataDir, "settings.json"), JsonFileSerializer.Instance);
 
         this.WhenAnyValue(x => x.Current)
             .Subscribe(_ =>

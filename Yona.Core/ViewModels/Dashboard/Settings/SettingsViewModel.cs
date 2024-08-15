@@ -6,12 +6,18 @@ namespace Yona.Core.ViewModels.Dashboard.Settings;
 
 public partial class SettingsViewModel : ViewModelBase
 {
-    public SettingsViewModel(SettingsService settings)
+    private readonly UpdateService updates;
+
+    public SettingsViewModel(SettingsService settings, UpdateService updates)
     {
         this.Settings = settings;
+        this.updates = updates;
+        this.CurrentVersion = this.updates.CurrentVersion.ToString(3);
     }
 
     public SettingsService Settings { get; }
+
+    public string CurrentVersion { get; }
 
     public ThemeMode[] Themes { get; } = Enum.GetValues<ThemeMode>();
 
@@ -52,6 +58,9 @@ public partial class SettingsViewModel : ViewModelBase
         get => this.Settings.Current.CustomAccentColor;
         set => this.SetProperty(this.Settings.Current.CustomAccentColor, value, this.Settings.Current, (m, n) => m.CustomAccentColor = n);
     }
+
+    [RelayCommand]
+    private async Task CheckUpdates() => await this.updates.CheckUpdates(true);
 
     [RelayCommand]
     private void Reset() => this.Settings.Reset();
