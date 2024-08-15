@@ -43,7 +43,7 @@ jobs:
     - name: Create Changelog
       run: |
         if ($env:IS_RELEASE -eq 'true') {
-            $PrevTag = git describe --tags --abbrev=0 (git rev-parse HEAD^)
+            $PrevTag = git describe --tags --abbrev=0 $env:RELEASE_TAG^
             auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false -v "$env:RELEASE_TAG" --starting-version $PrevTag
         }
         else {
@@ -78,6 +78,8 @@ jobs:
         else
           dotnet publish Yona.Desktop -c Release -o build
         fi
+    - name: Move Data Files
+      run: mv /Yona.Core/Data/* /build
 
     - name: Zip Build
       run: |
