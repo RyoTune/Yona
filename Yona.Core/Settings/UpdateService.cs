@@ -57,7 +57,7 @@ public partial class UpdateService : ObservableObject
         var cachedFileInfo = new FileInfo(this.latestRelease.FilePath);
         var currentTime = DateTime.Now;
         var diff = currentTime - cachedFileInfo.LastWriteTime;
-        if (diff.TotalHours >= 6)
+        if (diff.TotalHours >= 1)
         {
             return true;
         }
