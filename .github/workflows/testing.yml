@@ -35,7 +35,7 @@ jobs:
         ls -d */
 
     - name: Move Data Files
-      run: mv /Yona.Core/Data/* /build
+      run: mv Yona.Core/Data/* /build
 
     - name: Zip Build
       run: |
