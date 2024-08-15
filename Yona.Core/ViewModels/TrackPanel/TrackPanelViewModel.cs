@@ -13,6 +13,7 @@ using Yona.Core.Extensions;
 using Yona.Core.Projects.Models;
 using Yona.Core.ViewModels.CreateTrack;
 using System.Reactive;
+using Microsoft.Extensions.Logging;
 
 namespace Yona.Core.ViewModels.TrackPanel;
 
@@ -20,6 +21,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
 {
     private const string NoInputFile = "None";
 
+    private readonly ILogger<TrackPanelViewModel> log;
     private readonly ProjectBundle project;
     private readonly LoopService _loops;
     private readonly EncoderRepository _encoders;
@@ -33,8 +35,10 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
         LoopService loops,
         EncoderRepository encoders,
         SettingsService settings,
-        ICommand closeCommand)
+        ICommand closeCommand,
+        ILogger<TrackPanelViewModel> log)
     {
+        this.log = log;
         this.project = project;
         this.Track = track;
         this._loops = loops;
@@ -121,12 +125,14 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
     {
         if (this.Track.Encoder == null)
         {
+            this.log.LogError("Track is missing encoder.");
             return;
         }
 
         var encoder = this._encoders.GetEncoder(this.Track.Encoder);
         if (encoder == null)
         {
+            this.log.LogError("Track encoder {encoder} was not found.", this.Track.Encoder);
             return;
         }
 

@@ -93,6 +93,7 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton(s => loggerFactory.CreateLogger<TemplateRepository>());
         service.AddSingleton(s => loggerFactory.CreateLogger<EncoderRepository>());
         service.AddSingleton(s => loggerFactory.CreateLogger<HomeViewModel>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<TrackPanelViewModel>());
 
         Log.Information("Ready.");
         return service;
