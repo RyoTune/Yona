@@ -31,4 +31,6 @@ jobs:
         fi
 
     - name: Folders
-      run: find build -type f
+      run: |
+        find build -type f
+        find Yona.Desktop -type f
