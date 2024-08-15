@@ -26,7 +26,13 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Build
-      run: dotnet publish Yona.Desktop -c Release -o build
+      run: |
+        if ($env:IS_RELEASE -eq 'true') {
+            dotnet publish Yona.Desktop -c Release -o build /p:Version=$env:RELEASE_TAG
+        }
+        else {
+            dotnet publish Yona.Desktop -c Release -o build /p:Version=1.0.0
+        }
 
     - name: Zip Build
       run: Compress-Archive -Path build/* -DestinationPath yona-windows.zip
@@ -37,7 +43,8 @@ jobs:
     - name: Create Changelog
       run: |
         if ($env:IS_RELEASE -eq 'true') {
-            auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --latest-version "$env:RELEASE_TAG"
+            $PrevTag = git describe --tags --abbrev=0 (git rev-parse HEAD^)
+            auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false -v "$env:RELEASE_TAG" --starting-version $PrevTag
         }
         else {
             auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --unreleased
@@ -65,7 +72,12 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Build
-      run: dotnet publish Yona.Desktop -c Release -o build
+      run: |
+        if [ $IS_RELEASE ]; then
+          dotnet publish Yona.Desktop -c Release -o build /p:Version=$RELEASE_TAG
+        else
+          dotnet publish Yona.Desktop -c Release -o build
+        fi
 
     - name: Zip Build
       run: |
