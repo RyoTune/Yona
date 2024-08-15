@@ -55,7 +55,7 @@ internal static class ServiceCollectionExtensions
         {
             var assembly = Assembly.GetExecutingAssembly();
 #if DEBUG
-            var fileVersionInfo = "0.0.1";
+            var fileVersionInfo = "1.0.0";
 #else
             var fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location).ProductVersion;
 #endif

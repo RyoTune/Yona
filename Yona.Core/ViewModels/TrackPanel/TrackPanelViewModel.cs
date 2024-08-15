@@ -24,7 +24,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
     private readonly ILogger<TrackPanelViewModel> log;
     private readonly ProjectBundle project;
     private readonly LoopService _loops;
-    private readonly EncoderRepository _encoders;
+    private readonly EncoderRepository encodersRepo;
     private readonly ObservableAsPropertyHelper<bool> _isLoopInputEnabled;
     private readonly ObservableAsPropertyHelper<bool> _isDevMode;
     private string _selectedInputFile;
@@ -42,7 +42,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
         this.project = project;
         this.Track = track;
         this._loops = loops;
-        this._encoders = encoders;
+        this.encodersRepo = encoders;
 
         this.Encoders = encoders.AvailableEncoders;
         this.CloseCommand = closeCommand;
@@ -51,17 +51,17 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
         if (track.InputFile != null)
         {
             this.InputFileOptions.Add(track.InputFile);
-            this._selectedInputFile = track.InputFile;
+            _selectedInputFile = track.InputFile;
         }
         else
         {
-            this._selectedInputFile = NoInputFile;
+            _selectedInputFile = NoInputFile;
         }
 
-        this._isLoopInputEnabled = this.WhenAnyValue(x => x.Track.InputFile, x => x.Track.Loop.Enabled, (file, loopEnabled) => file != null && loopEnabled)
+        _isLoopInputEnabled = this.WhenAnyValue(x => x.Track.InputFile, x => x.Track.Loop.Enabled, (file, loopEnabled) => file != null && loopEnabled)
             .ToProperty(this, x => x.IsLoopInputEnabled);
 
-        this._isDevMode = settings.WhenAnyValue(x => x.Current.IsDevMode).ToProperty(this, x => x.IsDevMode);
+        _isDevMode = settings.WhenAnyValue(x => x.Current.IsDevMode).ToProperty(this, x => x.IsDevMode);
 
         this.WhenActivated((CompositeDisposable disposables) =>
         {
@@ -91,18 +91,18 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             .Subscribe(_ => this.UpdateTrackProperties())
             .DisposeWith(disposables);
 
-            this._isLoopInputEnabled.DisposeWith(disposables);
-            this._isDevMode.DisposeWith(disposables);
+            _isLoopInputEnabled.DisposeWith(disposables);
+            _isDevMode.DisposeWith(disposables);
         });
     }
 
-    public bool IsLoopInputEnabled => this._isLoopInputEnabled.Value;
+    public bool IsLoopInputEnabled => _isLoopInputEnabled.Value;
 
-    public bool IsDevMode => this._isDevMode.Value;
+    public bool IsDevMode => _isDevMode.Value;
 
     public string SelectedInputFile
     {
-        get => this._selectedInputFile;
+        get => _selectedInputFile;
         set => this.RaiseAndSetIfChanged(ref _selectedInputFile, value, nameof(SelectedInputFile));
     }
 
@@ -129,7 +129,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
             return;
         }
 
-        var encoder = this._encoders.GetEncoder(this.Track.Encoder);
+        var encoder = this.encodersRepo.GetEncoder(this.Track.Encoder);
         if (encoder == null)
         {
             this.log.LogError("Track encoder {encoder} was not found.", this.Track.Encoder);
@@ -152,10 +152,7 @@ public partial class TrackPanelViewModel : ViewModelBase, IActivatableViewModel
     }
 
     [RelayCommand]
-    private async Task Edit()
-    {
-        await this.EditTrack.Handle(new(this.Track, this.project, this.Encoders));
-    }
+    private async Task Edit() => await this.EditTrack.Handle(new(this.Track, this.project, this.Encoders));
 
     private void UpdateTrackProperties()
     {

@@ -13,6 +13,7 @@ using Yona.Core.ViewModels.CreateProject;
 using Yona.Core.ViewModels.TrackPanel;
 using FuzzySharp;
 using Yona.Core.ViewModels.CreateTrack;
+using FuzzySharp.SimilarityRatio.Scorer.StrategySensitive;
 
 namespace Yona.Core.ViewModels.Dashboard.Projects;
 
@@ -22,6 +23,7 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
     private readonly ProjectServices services;
     private readonly IRelayCommand closePanelCommand;
     private readonly TrackPanelFactory trackPanel;
+    private readonly PartialRatioScorer scorer = new();
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(TrackPanel))]
@@ -60,8 +62,8 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
                 {
                     try
                     {
-                        var sorted = this.Project.Data.Tracks.Where(x => Fuzz.PartialRatio(this.SearchText.ToLower(), x.Name.ToLower()) > Math.Min(this.SearchText.Length * 5, 90)).ToArray();
-                        return (IEnumerable<AudioTrack>)sorted;
+                        var processed = Process.ExtractTop(new AudioTrack() { Name = this.SearchText }, this.Project.Data.Tracks, x => x.Name.ToLower(), scorer, cutoff: Math.Min(this.SearchText.Length * 5, 90));
+                        return processed.Select(x => x.Value);
                     }
                     catch (Exception)
                     {
@@ -70,6 +72,7 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
                     }
                 }
             })
+            .ObserveOn(RxApp.MainThreadScheduler)
             .ToProperty(this, x => x.FilteredTracks);
 
         this.WhenActivated((CompositeDisposable disp) =>
