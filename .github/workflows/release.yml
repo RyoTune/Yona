@@ -63,12 +63,11 @@ jobs:
 
     - name: Create Changelog
       run: |
-        if [ $IS_RELEASE = 'true' ] {
+        if [ $IS_RELEASE = 'true' ]; then
             auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --starting-version $RELEASE_TAG
-        }
-        else {
+        else
             auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --unreleased
-        }
+        fi
         
     - name: Build
       run: |
