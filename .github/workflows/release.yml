@@ -73,7 +73,7 @@ jobs:
     - name: Build
       run: |
         if [ $IS_RELEASE ]; then
-          dotnet publish Yona.Desktop -c Release -o build /p:Version=$env:RELEASE_TAG
+          dotnet publish Yona.Desktop -c Release -o build /p:Version=$RELEASE_TAG
         else
           dotnet publish Yona.Desktop -c Release -o build
         fi
