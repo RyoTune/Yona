@@ -26,13 +26,7 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Build
-      run: |
-        if ($env:IS_RELEASE -eq 'true') {
-            dotnet publish Yona.Desktop -c Release -o build
-        }
-        else {
-            dotnet publish Yona.Desktop -c Release -o build
-        }
+      run: dotnet publish Yona.Desktop -c Release -o build
 
     - name: Zip Build
       run: Compress-Archive -Path build/* -DestinationPath yona-windows.zip
@@ -71,12 +65,7 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Build
-      run: |
-        if [ $IS_RELEASE ]; then
-          dotnet publish Yona.Desktop -c Release -o build
-        else
-          dotnet publish Yona.Desktop -c Release -o build
-        fi
+      run: dotnet publish Yona.Desktop -c Release -o build
 
     - name: Zip Build
       run: |
