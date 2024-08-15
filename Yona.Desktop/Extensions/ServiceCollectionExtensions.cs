@@ -55,7 +55,7 @@ internal static class ServiceCollectionExtensions
         {
             var assembly = Assembly.GetExecutingAssembly();
             var fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-            return new(s.GetRequiredService<AppService>(), new(fileVersionInfo.ProductVersion));
+            return new(s.GetRequiredService<AppService>(), new(fileVersionInfo.ProductVersion ?? "0.0.1"));
         });
 
         return service;
