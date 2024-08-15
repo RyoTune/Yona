@@ -31,18 +31,4 @@ jobs:
         fi
 
     - name: Folders
-      run: |
-        git describe --tags --abbrev=0 0.2.0^
-        ls -d */
-
-    - name: Zip Build
-      run: |
-        cd build
-        tar -czvf ../yona-linux.tar.gz .
-
-    - name: Upload Build Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: linux-build
-        path: yona-linux.tar.gz
-        retention-days: 0
+      run: find build -type f
