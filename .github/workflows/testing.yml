@@ -1,0 +1,48 @@
+name: Testing
+
+on:
+  workflow_dispatch:
+
+env:
+  IS_RELEASE: ${{ startsWith(github.ref, 'refs/tags/') }}
+  RELEASE_TAG: ${{ github.ref_name }}
+
+jobs:
+  linux-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: Build
+      run: |
+        if [ $IS_RELEASE ]; then
+          dotnet publish Yona.Desktop -c Release -o build /p:Version=$RELEASE_TAG
+        else
+          dotnet publish Yona.Desktop -c Release -o build
+        fi
+    - name: Folders
+      run: |
+        git describe --tags --abbrev=0 $env:RELEASE_TAG^
+        ls -d */
+
+    - name: Move Data Files
+      run: mv /Yona.Core/Data/* /build
+
+    - name: Zip Build
+      run: |
+        cd build
+        tar -czvf ../yona-linux.tar.gz .
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: linux-build
+        path: yona-linux.tar.gz
+        retention-days: 0
