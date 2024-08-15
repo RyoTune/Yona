@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Yona.Core.ViewModels.Dashboard.Settings"
+	xmlns:theme="using:SukiUI.Theme"
     d:DesignHeight="450"
     d:DesignWidth="800"
     x:DataType="vm:SettingsViewModel"
@@ -54,7 +55,9 @@
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
                                 Command="{Binding CheckUpdatesCommand}"
-                                Content="Check for Updates" />
+                                Content="Check for Updates"
+								theme:ButtonExtensions.ShowProgress="{Binding AwaitingUpdate}"
+								/>
                         </Grid>
                     </StackPanel>
                 </TabItem>

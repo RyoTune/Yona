@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Yona.Core.Settings;
 using Yona.Core.Settings.Models;
 
@@ -7,6 +8,9 @@ namespace Yona.Core.ViewModels.Dashboard.Settings;
 public partial class SettingsViewModel : ViewModelBase
 {
     private readonly UpdateService updates;
+
+    [ObservableProperty]
+    private bool _awaitingUpdate;
 
     public SettingsViewModel(SettingsService settings, UpdateService updates)
     {
@@ -60,7 +64,13 @@ public partial class SettingsViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private async Task CheckUpdates() => await this.updates.CheckUpdates(true);
+    private async Task CheckUpdates()
+    {
+        this.AwaitingUpdate = true;
+        await Task.Delay(5000);
+        await this.updates.CheckUpdates(true);
+        this.AwaitingUpdate = false;
+    }
 
     [RelayCommand]
     private void Reset() => this.Settings.Reset();
