@@ -29,13 +29,11 @@ jobs:
         else
           dotnet publish Yona.Desktop -c Release -o build
         fi
+
     - name: Folders
       run: |
         git describe --tags --abbrev=0 0.2.0^
         ls -d */
-
-    - name: Move Data Files
-      run: mv Yona.Core/Data/* build
 
     - name: Zip Build
       run: |
