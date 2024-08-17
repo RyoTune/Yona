@@ -8,6 +8,7 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
+using Yona.Core.ViewModels.Convert;
 using Yona.Core.ViewModels.CreateProject;
 using Yona.Core.ViewModels.Dashboard.Projects;
 
@@ -19,6 +20,7 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
     private readonly ProjectRepository projects;
     private readonly ProjectServices services;
     private readonly TemplateRepository templates;
+    private readonly ConvertFactory convert;
     private readonly ILogger log;
 
     private readonly ObservableCollection<string> activeTags = [];
@@ -34,6 +36,7 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
         ProjectRepository projects,
         ProjectServices services,
         TemplateRepository templates,
+        ConvertFactory convert,
         ILogger<HomeViewModel> log)
     {
         this.log = log;
@@ -41,6 +44,7 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
         this.projects = projects;
         this.services = services;
         this.templates = templates;
+        this.convert = convert;
 
         var projectsObs = this.projects.Items.WhenAnyPropertyChanged();
         var templatesObs = this.templates.Items.WhenAnyPropertyChanged();
@@ -67,7 +71,16 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
         {
             this.activeTags.Clear();
             projectsObs.Subscribe(_ => this.OnPropertyChanged(nameof(RecentProjects))).DisposeWith(disp);
+            this.ConvertDrop.RegisterHandler(this.HandleConvertDrop).DisposeWith(disp);
         });
+    }
+
+    private void HandleConvertDrop(IInteractionContext<string[], ConvertViewModel> context)
+    {
+        if (context.Input.Length > 0)
+        {
+            context.SetOutput(this.convert.Create(context.Input));
+        }
     }
 
     private static IEnumerable<Tag> GetAllProjectTags(IEnumerable<ProjectBundle> projects)
@@ -90,6 +103,8 @@ public partial class HomeViewModel : ViewModelBase, IActivatableViewModel
     public List<ProjectBundle> RecentProjects => this.projects.Items.Take(10).ToList();
 
     public Interaction<CreateProjectViewModel, bool> ShowCreateProject { get; } = new();
+
+    public Interaction<string[], ConvertViewModel> ConvertDrop { get; } = new();
 
     public ViewModelActivator Activator { get; } = new();
 
