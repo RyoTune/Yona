@@ -1,0 +1,45 @@
+<UserControl
+    x:Class="Yona.Desktop.Views.Dashboard.Convert.DashboardConvertView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
+    xmlns:convert="using:Yona.Desktop.Views.Convert"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ma="using:Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:suki="using:SukiUI.Controls"
+    xmlns:vm="using:Yona.Core.ViewModels.Dashboard.Convert"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    x:DataType="vm:DashboardConvertViewModel"
+    mc:Ignorable="d">
+    <Grid RowDefinitions="auto *">
+        <ContentControl Grid.RowSpan="2" Content="{Binding CurrentConvert}" />
+        <Border
+            Padding="8"
+            HorizontalAlignment="Center"
+            Background="{DynamicResource SukiGlassCardOpaqueBackground}"
+            CornerRadius="0 8">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock
+                    VerticalAlignment="Center"
+                    FontWeight="SemiBold"
+                    Text="Files to Convert" />
+                <Button
+                    VerticalAlignment="Center"
+                    Classes="icon-button"
+                    Command="{Binding SelectFileCommand}"
+                    ToolTip.Tip="Select File(s)...">
+                    <ma:MaterialIcon Kind="FileDocumentAdd" />
+                </Button>
+                <Button
+                    VerticalAlignment="Center"
+                    Classes="icon-button"
+                    Command="{Binding SelectFolderCommand}"
+                    ToolTip.Tip="Select Folder(s)...">
+                    <ma:MaterialIcon Kind="FolderAdd" />
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

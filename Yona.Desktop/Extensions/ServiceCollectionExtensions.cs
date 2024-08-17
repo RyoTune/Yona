@@ -32,7 +32,7 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<HomeViewModel>();
         service.AddSingleton<ProjectsViewModel>();
         service.AddSingleton<SettingsViewModel>();
-        service.AddSingleton<Core.ViewModels.Dashboard.Convert.ConvertViewModel>();
+        service.AddSingleton<DashboardConvertViewModel>();
 
         return service;
     }
