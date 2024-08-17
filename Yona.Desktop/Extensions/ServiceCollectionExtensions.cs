@@ -20,6 +20,7 @@ using Yona.Core.ViewModels.Dashboard.Home;
 using Yona.Core.ViewModels.Dashboard.Projects;
 using Yona.Core.ViewModels.Dashboard.Settings;
 using Yona.Core.ViewModels.TrackPanel;
+using Yona.Desktop.Common;
 
 namespace Yona.Desktop.Extensions;
 
@@ -83,6 +84,7 @@ internal static class ServiceCollectionExtensions
 
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
+            .WriteTo.Sink(new ToastSink())
             .WriteTo.File(logFile, outputTemplate: "{Timestamp:HH:mm:ss} [{Level}] [{SourceContext}] {Message:lj}{NewLine}{Exception}")
             .CreateLogger();
 
@@ -98,7 +100,8 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton(s => loggerFactory.CreateLogger<HomeViewModel>());
         service.AddSingleton(s => loggerFactory.CreateLogger<TrackPanelViewModel>());
         service.AddSingleton(s => loggerFactory.CreateLogger<ConvertProjectBuilder>());
-        service.AddSingleton(s => loggerFactory.CreateLogger<Core.ViewModels.Convert.ConvertViewModel>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<ConvertViewModel>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<ProjectTracksViewModel>());
 
         Log.Information("Ready.");
         return service;

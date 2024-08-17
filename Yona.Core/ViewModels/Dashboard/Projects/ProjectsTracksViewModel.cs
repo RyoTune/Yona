@@ -14,11 +14,13 @@ using Yona.Core.ViewModels.TrackPanel;
 using FuzzySharp;
 using Yona.Core.ViewModels.CreateTrack;
 using FuzzySharp.SimilarityRatio.Scorer.StrategySensitive;
+using Microsoft.Extensions.Logging;
 
 namespace Yona.Core.ViewModels.Dashboard.Projects;
 
 public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel, IActivatableViewModel
 {
+    private readonly ILogger<ProjectTracksViewModel> log;
     private readonly ProjectsRouter router;
     private readonly ProjectServices services;
     private readonly IRelayCommand closePanelCommand;
@@ -35,8 +37,14 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
 
     public IEnumerable<AudioTrack> FilteredTracks => this._filteredTracks.Value;
 
-    public ProjectTracksViewModel(ProjectsRouter router, ProjectBundle project, ProjectServices services, TrackPanelFactory trackPanel)
+    public ProjectTracksViewModel(
+        ProjectsRouter router,
+        ProjectBundle project,
+        ProjectServices services,
+        TrackPanelFactory trackPanel,
+        ILogger<ProjectTracksViewModel> log)
     {
+        this.log = log;
         this.router = router;
         this.services = services;
         this.trackPanel = trackPanel;
@@ -65,10 +73,10 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
                         var processed = Process.ExtractTop(new AudioTrack() { Name = this.SearchText }, this.Project.Data.Tracks, x => x.Name.ToLower(), scorer, cutoff: Math.Min(this.SearchText.Length * 5, 90));
                         return processed.Select(x => x.Value);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        // TODO: Log error.
-                        return Enumerable.Empty<AudioTrack>();
+                        log.LogError(ex, "Failed to filter audio tracks.");
+                        return [];
                     }
                 }
             })
@@ -120,9 +128,11 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
         try
         {
             await this.services.BuildProject(this.Project);
+            this.log.LogInformation("Project built successfully!");
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            this.log.LogError(ex, "Failed to build project.");
         }
     }
 
