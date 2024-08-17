@@ -13,6 +13,7 @@ using Yona.Core.Projects;
 using Yona.Core.Projects.Builders;
 using Yona.Core.Settings;
 using Yona.Core.ViewModels;
+using Yona.Core.ViewModels.Convert;
 using Yona.Core.ViewModels.Dashboard;
 using Yona.Core.ViewModels.Dashboard.Convert;
 using Yona.Core.ViewModels.Dashboard.Home;
@@ -30,8 +31,8 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<DashboardViewModel>();
         service.AddSingleton<HomeViewModel>();
         service.AddSingleton<ProjectsViewModel>();
-        service.AddSingleton<ConvertViewModel>();
         service.AddSingleton<SettingsViewModel>();
+        service.AddSingleton<Core.ViewModels.Dashboard.Convert.ConvertViewModel>();
 
         return service;
     }
@@ -51,6 +52,8 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton<ProjectsRouterFactory>();
         service.AddSingleton<ProjectTracksFactory>();
         service.AddSingleton<ProjectServices>();
+        service.AddSingleton<ConvertProjectBuilder>();
+        service.AddSingleton<ConvertFactory>();
         service.AddSingleton<UpdateService>(s =>
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -94,6 +97,8 @@ internal static class ServiceCollectionExtensions
         service.AddSingleton(s => loggerFactory.CreateLogger<EncoderRepository>());
         service.AddSingleton(s => loggerFactory.CreateLogger<HomeViewModel>());
         service.AddSingleton(s => loggerFactory.CreateLogger<TrackPanelViewModel>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<ConvertProjectBuilder>());
+        service.AddSingleton(s => loggerFactory.CreateLogger<Core.ViewModels.Convert.ConvertViewModel>());
 
         Log.Information("Ready.");
         return service;

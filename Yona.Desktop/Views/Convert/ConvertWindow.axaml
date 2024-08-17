@@ -1,0 +1,96 @@
+<suki:SukiWindow
+    x:Class="Yona.Desktop.Views.Convert.ConvertWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
+    xmlns:converters="using:Yona.Desktop.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ma="using:Material.Icons.Avalonia"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:suki="using:SukiUI.Controls"
+    xmlns:vm="using:Yona.Core.ViewModels.Convert"
+    Title="Convert"
+    Width="500"
+    Height="700"
+    MinWidth="500"
+    MinHeight="700"
+    x:DataType="vm:ConvertViewModel"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <suki:SukiWindow.Resources>
+        <converters:ZeroAsNullConverter x:Key="ZeroAsNull" />
+    </suki:SukiWindow.Resources>
+    <cc:Page Title="Convert">
+        <cc:Page.MenuItems>
+            <Button
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Command="{Binding BuildCommand}"
+                Content="Build" />
+        </cc:Page.MenuItems>
+        <suki:GlassCard>
+            <Grid RowDefinitions="auto 16 *">
+                <Grid ColumnDefinitions="* 16 *">
+                    <StackPanel>
+                        <TextBlock FontSize="16" Text="Output Folder (Optional)" />
+                        <Grid ColumnDefinitions="* auto">
+                            <TextBox
+                                IsReadOnly="True"
+                                Text="{Binding Project.Data.OutputDir}"
+                                Watermark="Output Folder" />
+                            <Button
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                Classes="icon-button"
+                                Command="{Binding SelectOutputFolderCommand}"
+                                ToolTip.Tip="Select Folder...">
+                                <ma:MaterialIcon Kind="FileDocumentAdd" />
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock FontSize="16" Text="Encoder" />
+                        <ComboBox
+                            ItemsSource="{Binding Encoders}"
+                            MaxDropDownHeight="200"
+                            SelectedItem="{Binding SelectedEncoder}" />
+                    </StackPanel>
+                </Grid>
+
+                <ScrollViewer Grid.Row="2">
+                    <ItemsControl ItemsSource="{Binding FilteredTracks}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Spacing="8" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <suki:GlassCard>
+                                    <StackPanel Spacing="4">
+                                        <TextBlock
+                                            FontSize="16"
+                                            FontWeight="SemiBold"
+                                            Text="{Binding Name}"
+                                            TextTrimming="CharacterEllipsis"
+                                            TextWrapping="NoWrap" />
+                                        <TextBlock
+                                            Margin="0,0,8,0"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            FlowDirection="RightToLeft"
+                                            Foreground="{DynamicResource ThemeAccentBrush}"
+                                            Text="{Binding InputFile, TargetNullValue=''}"
+                                            TextTrimming="CharacterEllipsis"
+                                            ToolTip.Tip="{Binding InputFile}" />
+                                        <cc:LoopInput InputEnabled="{Binding Loop.Enabled}" Loop="{Binding Loop}" />
+                                    </StackPanel>
+                                </suki:GlassCard>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </suki:GlassCard>
+    </cc:Page>
+</suki:SukiWindow>
