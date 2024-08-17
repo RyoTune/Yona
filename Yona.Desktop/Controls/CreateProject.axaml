@@ -109,6 +109,13 @@
                             </Grid>
                         </Grid>
                     </TabItem>
+
+                    <TabItem Header="Folders">
+                        <StackPanel HorizontalAlignment="Left" Spacing="8">
+                            <Button Command="{Binding OpenProjectDirCommand}" Content="Open Project Folder" />
+                            <Button Command="{Binding OpenBuildDirCommand}" Content="Open Build Folder" />
+                        </StackPanel>
+                    </TabItem>
                 </TabControl>
             </Grid>
         </suki:GlassCard>

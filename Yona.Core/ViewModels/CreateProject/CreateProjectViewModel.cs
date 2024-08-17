@@ -2,6 +2,7 @@
 using ReactiveUI;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using Yona.Core.Common;
 using Yona.Core.Common.Dialog;
 using Yona.Core.Common.Interactions;
 using Yona.Core.Extensions;
@@ -133,4 +134,16 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
 
     [RelayCommand]
     private void Reset() => this.services.ResetProject(this.Project);
+
+    [RelayCommand]
+    private void OpenProjectDir()
+    {
+        Explorer.OpenDirectory(this.Project.ProjectDir);
+    }
+
+    [RelayCommand]
+    private void OpenBuildDir()
+    {
+        Explorer.OpenDirectory(this.Project.BuildDir);
+    }
 }

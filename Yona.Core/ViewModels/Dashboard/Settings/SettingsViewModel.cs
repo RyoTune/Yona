@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using System.Diagnostics;
 using Yona.Core.Audio;
+using Yona.Core.Common;
 using Yona.Core.Settings;
 using Yona.Core.Settings.Models;
 
@@ -89,14 +90,7 @@ public partial class SettingsViewModel : ViewModelBase
     [RelayCommand]
     private void OpenLogs()
     {
-        try
-        {
-            if (Directory.Exists(this.Settings.LogsDir))
-            {
-                Process.Start(new ProcessStartInfo() { UseShellExecute = true, FileName = this.Settings.LogsDir });
-            }
-        }
-        catch (Exception) { }
+        Explorer.OpenDirectory(this.Settings.LogsDir);
     }
 
     [RelayCommand]
