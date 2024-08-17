@@ -2,17 +2,11 @@
 
 namespace Yona.Core.ViewModels;
 
-public partial class MainWindowViewModel : ViewModelBase
+public partial class MainWindowViewModel(SettingsService settings, UpdateService updates) : ViewModelBase
 {
-    public MainWindowViewModel(SettingsService settings, UpdateService updates)
-    {
-        Settings = settings;
-        Updates = updates;
-    }
-
     public ViewModelBase? RootViewModel { get; set; }
 
-    public SettingsService Settings { get; }
+    public SettingsService Settings { get; } = settings;
 
-    public UpdateService Updates { get; }
+    public UpdateService Updates { get; } = updates;
 }

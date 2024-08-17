@@ -1,4 +1,4 @@
-﻿# Yona
+﻿# [Yona](https://github.com/MirrorTuneZM/Yona)
 Created by [zutomayofan50](https://github.com/MirrorTuneZM)
 
 ## Software
@@ -22,5 +22,5 @@ Source for game cover art.
 
 ## Special Thanks
 
-### ZUTOMAYO
+### [ZUTOMAYO](https://www.youtube.com/watch?v=BVvvUGP0MFw)
 I just really like the band... and it *may* have inspired some things here and there...

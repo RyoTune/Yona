@@ -26,4 +26,27 @@
     <Style Selector="ctxt|CTextBlock.Heading1, ctxt|CTextBlock.Heading2, ctxt|CTextBlock.Heading3, ctxt|CTextBlock.Heading4, ctxt|CTextBlock.Heading5, ctxt|CTextBlock.Heading6">
         <Setter Property="Foreground" Value="{DynamicResource SukiText}" />
     </Style>
+
+    <Style Selector="ctxt|CTextBlock.Heading1">
+        <Setter Property="Margin" Value="0 10 0 15" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="FontSize" Value="30" />
+    </Style>
+
+    <Style Selector="ctxt|CTextBlock.Heading2">
+        <Setter Property="Margin" Value="0 6 0 10" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+
+    <Style Selector="ctxt|CTextBlock.Heading3">
+        <Setter Property="Margin" Value="0 4 0 7" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style Selector="ctxt|CTextBlock.Heading4">
+        <Setter Property="Margin" Value="0 3 0 5" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
 </Styles>

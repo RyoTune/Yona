@@ -2,6 +2,7 @@
     x:Class="Yona.Desktop.Views.Dashboard.DashboardView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ma="using:Material.Icons.Avalonia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -59,6 +60,15 @@
                 </suki:SukiSideMenuItem.Icon>
                 <suki:SukiSideMenuItem.PageContent>
                     <ContentControl Content="{Binding Settings}" />
+                </suki:SukiSideMenuItem.PageContent>
+            </suki:SukiSideMenuItem>
+
+            <suki:SukiSideMenuItem Header="About">
+                <suki:SukiSideMenuItem.Icon>
+                    <ma:MaterialIcon Kind="About" />
+                </suki:SukiSideMenuItem.Icon>
+                <suki:SukiSideMenuItem.PageContent>
+                    <cc:Credits />
                 </suki:SukiSideMenuItem.PageContent>
             </suki:SukiSideMenuItem>
 
