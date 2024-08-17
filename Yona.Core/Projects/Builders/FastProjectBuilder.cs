@@ -76,6 +76,15 @@ public class FastProjectBuilder : IProjectBuilder
         SaveCurrBuild(project, currentBuild);
     }
 
+    public static void ResetBuildFile(ProjectBundle project)
+    {
+        var buildFile = Path.ChangeExtension(project.FilePath, ".zm");
+        if (File.Exists(buildFile))
+        {
+            File.Delete(buildFile);
+        }
+    }
+
     private void LogBuild(AudioTrack[] buildTracks, AudioTrack[] removedTracks)
     {
         this.log.LogDebug("Tracks Built: {count}", buildTracks.Length);

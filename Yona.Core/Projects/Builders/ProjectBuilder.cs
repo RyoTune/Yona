@@ -8,5 +8,15 @@ public class ProjectBuilder(StandardProjectBuilder standard, FastProjectBuilder 
     private readonly FastProjectBuilder fast = fast;
 
     public Task Build(ProjectBundle project, IProgress<float>? progress)
-        => project.Data.UseFastBuild ? this.fast.Build(project, progress) : this.standard.Build(project, progress);
+    {
+        if (project.Data.UseFastBuild)
+        {
+            return this.fast.Build(project, progress);
+        }
+        else
+        {
+            FastProjectBuilder.ResetBuildFile(project);
+            return this.standard.Build(project, progress);
+        }
+    }
 }
