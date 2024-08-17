@@ -17,7 +17,8 @@ public class YamlFileSerializer : IFileSerializer
         .WithNamingConvention(UnderscoredNamingConvention.Instance)
         .Build();
 
-    public T DeserializeFile<T>(string filePath) => Deserializer.Deserialize<T>(File.ReadAllText(filePath));
+    public T DeserializeFile<T>(string filePath) => Deserializer.Deserialize<T>(File.ReadAllText(filePath))
+        ?? throw new Exception($"Failed to deserialize file.\nFile: {filePath}");
 
     public void SerializeFile<T>(string filePath, T obj) => File.WriteAllText(filePath, Serializer.Serialize(obj));
 }
