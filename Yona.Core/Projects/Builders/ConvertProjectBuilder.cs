@@ -23,7 +23,7 @@ public class ConvertProjectBuilder(EncoderRepository encoders, ILogger<ConvertPr
             ?? throw new Exception($"Failed to get encoder from first track.\nEncoder: {project.Data.Tracks.First().Encoder}");
 
         // Delete output files of tracks without an output file or no longer exist in current build.
-        var removedTracks = prevBuild.ExceptBy(currentBuild.Select(x => x.OutputPath), x => x.OutputPath).ToArray();
+        var removedTracks = prevBuild.ExceptBy(currentBuild.Select(x => x.InputFile), x => x.InputFile).ToArray();
 
         foreach (var track in removedTracks)
         {
@@ -40,7 +40,7 @@ public class ConvertProjectBuilder(EncoderRepository encoders, ILogger<ConvertPr
 
         var buildTracks = currentBuild.Where(x =>
         {
-            if (Path.GetExtension(x.InputFile)!.Equals(encoder.EncodedExt, StringComparison.OrdinalIgnoreCase))
+            if (x.Enabled == false)
             {
                 return false;
             }
