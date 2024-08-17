@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
 using ReactiveUI;
+using System.Diagnostics;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Yona.Core.Audio;
@@ -8,6 +9,7 @@ using Yona.Core.Audio.Models;
 using Yona.Core.Common.Dialog;
 using Yona.Core.Projects.Builders;
 using Yona.Core.Projects.Models;
+using Yona.Core.ViewModels.Dashboard.Projects;
 
 namespace Yona.Core.ViewModels.Convert;
 
@@ -113,7 +115,20 @@ public partial class ConvertViewModel : ViewModelBase, IActivatableViewModel
                 track.Enabled = this.FilteredTracks.Contains(track);
             }
 
+            var stopwatch = new Stopwatch();
+
+            stopwatch.Start();
             await this.builder.Build(this.Project, null);
+            stopwatch.Stop();
+
+#if RELEASE
+            if (stopwatch.ElapsedMilliseconds < ProjectTracksViewModel.MIN_BUILD_TIME_MS)
+            {
+                await Task.Delay((int)(ProjectTracksViewModel.MIN_BUILD_TIME_MS - stopwatch.ElapsedMilliseconds));
+            }
+#endif
+
+            this.log.LogInformation("{NumFiles} files converted successfully in {Time}ms!", this.FilteredTracks.Count(), stopwatch.ElapsedMilliseconds);
         }
         catch (Exception ex)
         {

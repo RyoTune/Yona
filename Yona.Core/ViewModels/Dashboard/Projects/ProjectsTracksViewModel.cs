@@ -11,15 +11,17 @@ using Yona.Core.Projects;
 using Yona.Core.Projects.Models;
 using Yona.Core.ViewModels.CreateProject;
 using Yona.Core.ViewModels.TrackPanel;
-using FuzzySharp;
 using Yona.Core.ViewModels.CreateTrack;
 using FuzzySharp.SimilarityRatio.Scorer.StrategySensitive;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace Yona.Core.ViewModels.Dashboard.Projects;
 
 public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel, IActivatableViewModel
 {
+    public const int MIN_BUILD_TIME_MS = 1500;
+
     private readonly ILogger<ProjectTracksViewModel> log;
     private readonly ProjectsRouter router;
     private readonly ProjectServices services;
@@ -70,7 +72,7 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
                 {
                     try
                     {
-                        var processed = Process.ExtractTop(new AudioTrack() { Name = this.SearchText }, this.Project.Data.Tracks, x => x.Name.ToLower(), scorer, cutoff: Math.Min(this.SearchText.Length * 5, 90));
+                        var processed = FuzzySharp.Process.ExtractTop(new AudioTrack() { Name = this.SearchText }, this.Project.Data.Tracks, x => x.Name.ToLower(), scorer, cutoff: Math.Min(this.SearchText.Length * 5, 90));
                         return processed.Select(x => x.Value);
                     }
                     catch (Exception ex)
@@ -127,8 +129,20 @@ public partial class ProjectTracksViewModel : ViewModelBase, IRoutableViewModel,
     {
         try
         {
+            var stopwatch = new Stopwatch();
+
+            stopwatch.Start();
             await this.services.BuildProject(this.Project);
-            this.log.LogInformation("Project built successfully!");
+            stopwatch.Stop();
+
+#if RELEASE
+            if (stopwatch.ElapsedMilliseconds < MIN_BUILD_TIME_MS)
+            {
+                await Task.Delay((int)(MIN_BUILD_TIME_MS - stopwatch.ElapsedMilliseconds));
+            }
+#endif
+
+            this.log.LogInformation("Project built successfully in {time}ms!", stopwatch.ElapsedMilliseconds);
         }
         catch (Exception ex)
         {
