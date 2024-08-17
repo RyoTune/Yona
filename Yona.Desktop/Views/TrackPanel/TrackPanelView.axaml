@@ -2,6 +2,7 @@
     x:Class="Yona.Desktop.Views.TrackPanel.TrackPanelView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="using:Yona.Desktop.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:design="using:Yona.Desktop.DesignData"
     xmlns:local="using:Yona.Desktop.Views.TrackPanel"
@@ -47,7 +48,10 @@
             <ScrollViewer Grid.Row="1">
                 <StackPanel Spacing="12">
                     <local:TrackInputFile />
-                    <local:TrackLoop />
+                    <cc:LoopInput
+                        InputEnabled="{Binding IsLoopInputEnabled}"
+                        IsEnabled="{Binding Track.InputFile, Converter={x:Static StringConverters.IsNotNullOrEmpty}}}"
+                        Loop="{Binding Track.Loop}" />
                     <local:TrackEncoder IsVisible="{Binding IsDevMode}" />
                     <local:TrackOutput IsVisible="{Binding IsDevMode}" />
                 </StackPanel>
