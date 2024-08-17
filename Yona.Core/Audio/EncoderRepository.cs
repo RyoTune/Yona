@@ -31,6 +31,14 @@ public class EncoderRepository
 
     public IEncoder? GetEncoder(string name) => this.Items.FirstOrDefault(x => x.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
 
+    public void ClearCache()
+    {
+        if (Directory.Exists(this.cachedDir))
+        {
+            Directory.Delete(this.cachedDir, true);
+        }
+    }
+
     private void LoadEncoders()
     {
         this.LoadVgaudioEncoders();

@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Diagnostics;
+using Yona.Core.Audio;
 using Yona.Core.Settings;
 using Yona.Core.Settings.Models;
 
@@ -8,14 +10,16 @@ namespace Yona.Core.ViewModels.Dashboard.Settings;
 public partial class SettingsViewModel : ViewModelBase
 {
     private readonly UpdateService updates;
+    private readonly EncoderRepository encoders;
 
     [ObservableProperty]
     private bool _awaitingUpdate;
 
-    public SettingsViewModel(SettingsService settings, UpdateService updates)
+    public SettingsViewModel(SettingsService settings, UpdateService updates, EncoderRepository encoders)
     {
         this.Settings = settings;
         this.updates = updates;
+        this.encoders = encoders;
         this.CurrentVersion = this.updates.CurrentVersion.ToString(3);
     }
 
@@ -70,6 +74,29 @@ public partial class SettingsViewModel : ViewModelBase
         await Task.Delay(5000);
         await this.updates.CheckUpdates(true);
         this.AwaitingUpdate = false;
+    }
+
+    [RelayCommand]
+    private void ClearCache()
+    {
+        try
+        {
+            this.encoders.ClearCache();
+        }
+        catch (Exception) { }
+    }
+
+    [RelayCommand]
+    private void OpenLogs()
+    {
+        try
+        {
+            if (Directory.Exists(this.Settings.LogsDir))
+            {
+                Process.Start(new ProcessStartInfo() { UseShellExecute = true, FileName = this.Settings.LogsDir });
+            }
+        }
+        catch (Exception) { }
     }
 
     [RelayCommand]

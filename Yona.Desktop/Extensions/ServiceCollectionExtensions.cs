@@ -72,7 +72,8 @@ internal static class ServiceCollectionExtensions
     public static IServiceCollection AddLogger(this IServiceCollection service)
     {
         var appDir = AppDomain.CurrentDomain.BaseDirectory;
-        var logsDir = Directory.CreateDirectory(Path.Join(appDir, "logs"));
+        var appData = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Yona");
+        var logsDir = Directory.CreateDirectory(Path.Join(appData, "logs"));
 
         var logFiles = logsDir.GetFiles().OrderBy(x => x.LastWriteTime).ToArray();
         if (logFiles.Length > 4)

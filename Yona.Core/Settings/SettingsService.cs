@@ -16,6 +16,8 @@ public class SettingsService : ReactiveObject
     public SettingsService(AppService app)
     {
         this.settings = new SavableFile<AppSettings>(Path.Join(app.AppDataDir, "settings.json"), JsonFileSerializer.Instance);
+        this.LogsDir = Path.Join(app.AppDataDir, "logs");
+        Directory.CreateDirectory(this.LogsDir);
 
         this.WhenAnyValue(x => x.Current)
             .Subscribe(_ =>
@@ -24,6 +26,8 @@ public class SettingsService : ReactiveObject
                 this.disposable = this.settings.AutosaveWithChanges();
             });
     }
+
+    public string LogsDir { get; }
 
     public AppSettings Current
     {
