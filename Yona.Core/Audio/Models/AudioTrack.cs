@@ -8,6 +8,9 @@ public partial class AudioTrack : ObservableObject
     private string name = string.Empty;
 
     [ObservableProperty]
+    private bool enabled = true;
+
+    [ObservableProperty]
     private string? category;
 
     [ObservableProperty]
