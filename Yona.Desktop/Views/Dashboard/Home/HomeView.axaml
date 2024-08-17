@@ -92,9 +92,11 @@
             </Grid>
 
             <suki:GlassCard
+                x:Name="ConvertDrop"
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="0,16,0,0"
+                DragDrop.AllowDrop="True"
                 IsInteractive="True">
                 <suki:GroupBox>
                     <suki:GroupBox.Header>
