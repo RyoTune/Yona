@@ -14,7 +14,6 @@ public partial class ProjectBundle : SavableFile<ProjectData>
         this.ProjectDir = Path.GetDirectoryName(filePath)!;
         this.IconFile = Path.ChangeExtension(filePath, ".png");
         this.projectBuildDir = Path.Join(this.ProjectDir, "build");
-        Directory.CreateDirectory(this.projectBuildDir);
 
         this.Data.Tracks = new(this.Data.Tracks.OrderBy(x => x.Name));
         this.Save();
