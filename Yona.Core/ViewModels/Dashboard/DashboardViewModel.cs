@@ -14,7 +14,7 @@ public partial class DashboardViewModel : ViewModelBase
     public DashboardViewModel(
         HomeViewModel home,
         ProjectsViewModel projects,
-        ConvertViewModel convert,
+        DashboardConvertViewModel convert,
         SettingsViewModel settings,
         SettingsService settingsService)
     {
@@ -31,7 +31,7 @@ public partial class DashboardViewModel : ViewModelBase
 
     public ProjectsViewModel Projects { get; }
 
-    public ConvertViewModel Convert { get; }
+    public DashboardConvertViewModel Convert { get; }
 
     public SettingsViewModel Settings { get; }
 
