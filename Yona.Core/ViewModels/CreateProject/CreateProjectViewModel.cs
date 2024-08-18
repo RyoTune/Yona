@@ -49,6 +49,14 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
 
     public ConfirmInteraction ConfirmDelete { get; } = new();
 
+    public void CancelProject()
+    {
+        if (this.IsEditing == false)
+        {
+            this.services.DeleteProject(this.Project);
+        }
+    }
+
     [RelayCommand]
     private async Task SelectOutputFolder()
     {
@@ -100,7 +108,7 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
     {
         try
         {
-            this.services.DeleteProject(this.Project);
+            this.CancelProject();
             await this.Close.Handle(new());
         }
         catch (Exception)
@@ -122,7 +130,7 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
 
             if (confirmed)
             {
-                this.services.DeleteProject(this.Project);
+                this.CancelProject();
                 await this.Close.Handle(new());
             }
         }

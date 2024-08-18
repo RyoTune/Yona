@@ -1,4 +1,5 @@
 using ReactiveUI;
+using System;
 using System.Reactive;
 using System.Reactive.Disposables;
 using Yona.Core.ViewModels.CreateProject;
@@ -9,6 +10,8 @@ namespace Yona.Desktop.Views.CreateProject;
 
 public partial class CreateProjectWindow : ReactiveSukiWindow<CreateProjectViewModel>
 {
+    private bool createConfirmed;
+
     public CreateProjectWindow()
     {
         InitializeComponent();
@@ -23,8 +26,18 @@ public partial class CreateProjectWindow : ReactiveSukiWindow<CreateProjectViewM
         });
     }
 
+    protected override void OnClosed(EventArgs e)
+    {
+        base.OnClosed(e);
+        if (this.createConfirmed == false)
+        {
+            this.ViewModel?.CancelProject();
+        }
+    }
+
     private void HandleConfirmCreate(IInteractionContext<Unit, Unit> context)
     {
+        this.createConfirmed = true;
         context.SetOutput(new());
         this.Close(true);
     }
