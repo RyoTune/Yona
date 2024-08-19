@@ -130,7 +130,7 @@ public partial class CreateProjectViewModel : ViewModelBase, IActivatableViewMod
 
             if (confirmed)
             {
-                this.CancelProject();
+                this.services.DeleteProject(this.Project);
                 await this.Close.Handle(new());
             }
         }
