@@ -108,8 +108,10 @@ public class ConvertProjectBuilder(EncoderRepository encoders, ILogger<ConvertPr
     {
         if (project.Data.OutputDir != null)
         {
-            var fileName = Path.GetFileName(track.InputFile);
-            return Path.Join(project.Data.OutputDir, Path.ChangeExtension(fileName, encoder.EncodedExt));
+            var relativePath = Path.GetRelativePath(project.Data.OutputDir, track.InputFile!);
+            relativePath = Path.ChangeExtension(relativePath, encoder.EncodedExt);
+
+            return Path.Join(project.Data.OutputDir, relativePath);
         }
 
         return Path.ChangeExtension(track.InputFile, encoder.EncodedExt) ?? throw new Exception();
