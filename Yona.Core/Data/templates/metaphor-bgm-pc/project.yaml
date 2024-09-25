@@ -7,7 +7,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/pv_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/pv_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -19,7 +19,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/battle_bgm.hca
+  output_path: Ryo/Metaphor/bgm.acb/battle_bgm.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -31,7 +31,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/12_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/12_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -43,7 +43,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/23_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/23_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -55,7 +55,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/24_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/24_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -67,7 +67,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/26_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/26_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -79,7 +79,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/27_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/27_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -91,7 +91,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/28_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/28_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -103,7 +103,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/29_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/29_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -115,7 +115,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/32_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/32_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -127,7 +127,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/35_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/35_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -139,7 +139,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/36_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/36_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -151,7 +151,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/37_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/37_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -163,7 +163,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/38_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/38_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -175,7 +175,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/39_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/39_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -187,7 +187,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/40_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/40_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -199,7 +199,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/41_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/41_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -211,7 +211,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/43_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/43_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -223,7 +223,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/44_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/44_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -235,7 +235,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/45_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/45_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -247,7 +247,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/46_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/46_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -259,7 +259,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/47_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/47_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -271,7 +271,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/48_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/48_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -283,7 +283,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/49_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/49_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -295,7 +295,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/50_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/50_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -307,7 +307,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/51_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/51_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -319,7 +319,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/53_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/53_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -331,7 +331,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/57_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/57_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -343,7 +343,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/58_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/58_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -355,7 +355,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/59_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/59_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -367,7 +367,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/60_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/60_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -379,7 +379,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/63_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/63_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -391,7 +391,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/65_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/65_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -403,7 +403,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/66_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/66_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -415,7 +415,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/67_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/67_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -427,7 +427,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/68_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/68_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -439,7 +439,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/69_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/69_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -451,7 +451,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/70_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/70_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -463,7 +463,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/71_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/71_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -475,7 +475,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/72_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/72_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -487,7 +487,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/73_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/73_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -499,7 +499,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/74_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/74_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -511,7 +511,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/75_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/75_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -523,7 +523,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/76_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/76_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -535,7 +535,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/77_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/77_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -547,7 +547,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/78_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/78_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -559,7 +559,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/79_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/79_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -571,7 +571,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/80_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/80_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -583,7 +583,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/81_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/81_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -595,7 +595,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/82_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/82_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -607,7 +607,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/83_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/83_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -619,7 +619,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/84_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/84_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -631,7 +631,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/85_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/85_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -643,7 +643,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/86_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/86_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -655,7 +655,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/87_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/87_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -667,7 +667,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/88_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/88_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -679,7 +679,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/89_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/89_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -691,7 +691,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/90_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/90_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -703,7 +703,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/94_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/94_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -715,7 +715,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/95_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/95_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -727,7 +727,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/98_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/98_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -739,7 +739,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/100_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/100_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -751,7 +751,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/end_credits.hca
+  output_path: Ryo/Metaphor/bgm.acb/end_credits.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -763,7 +763,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/test_selector.hca
+  output_path: Ryo/Metaphor/bgm.acb/test_selector.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -775,7 +775,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/change_date.hca
+  output_path: Ryo/Metaphor/bgm.acb/change_date.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -787,7 +787,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/follower_rank_up.hca
+  output_path: Ryo/Metaphor/bgm.acb/follower_rank_up.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -799,7 +799,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/magra_hole.hca
+  output_path: Ryo/Metaphor/bgm.acb/magra_hole.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -811,7 +811,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/gameover_jingle.hca
+  output_path: Ryo/Metaphor/bgm.acb/gameover_jingle.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -823,7 +823,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/rendition_01.hca
+  output_path: Ryo/Metaphor/bgm.acb/rendition_01.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -835,7 +835,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/rendition_02.hca
+  output_path: Ryo/Metaphor/bgm.acb/rendition_02.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -847,7 +847,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/rendition_03.hca
+  output_path: Ryo/Metaphor/bgm.acb/rendition_03.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -859,7 +859,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/rendition_04.hca
+  output_path: Ryo/Metaphor/bgm.acb/rendition_04.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -871,7 +871,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/rendition_05.hca
+  output_path: Ryo/Metaphor/bgm.acb/rendition_05.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -883,7 +883,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_silence.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_silence.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -895,7 +895,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/00_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/00_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -907,7 +907,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/01_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/01_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -919,7 +919,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/02_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/02_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -931,7 +931,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/03_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/03_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -943,7 +943,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/04_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/04_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -955,7 +955,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/05_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/05_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -967,7 +967,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/06_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/06_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -979,7 +979,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/07_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/07_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -991,7 +991,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/08_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/08_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1003,7 +1003,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/09_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/09_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1015,7 +1015,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/10_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/10_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1027,7 +1027,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/11_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/11_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1039,7 +1039,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/12_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/12_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1051,7 +1051,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/13_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/13_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1063,7 +1063,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/14_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/14_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1075,7 +1075,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/15_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/15_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1087,7 +1087,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/16_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/16_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1099,7 +1099,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/17_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/17_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1111,7 +1111,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/18_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/18_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1123,7 +1123,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/19_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/19_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1135,7 +1135,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/20_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/20_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1147,7 +1147,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/21_atlus_demo.hca
+  output_path: Ryo/Metaphor/bgm.acb/21_atlus_demo.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1159,7 +1159,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e04_012_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e04_012_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1171,7 +1171,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e04_013_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e04_013_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1183,7 +1183,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e04_015_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e04_015_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1195,7 +1195,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e06_015_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e06_015_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1207,7 +1207,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e08_067_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e08_067_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1219,7 +1219,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e08_103_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e08_103_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1231,7 +1231,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e08_105_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e08_105_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1243,7 +1243,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e14_024_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e14_024_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1255,7 +1255,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e14_027_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e14_027_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1267,7 +1267,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/bgm_e14_028_001.hca
+  output_path: Ryo/Metaphor/bgm.acb/bgm_e14_028_001.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1279,7 +1279,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p1_battle.hca
+  output_path: Ryo/Metaphor/bgm.acb/p1_battle.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1291,7 +1291,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p2_battle.hca
+  output_path: Ryo/Metaphor/bgm.acb/p2_battle.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1303,7 +1303,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p3_battle.hca
+  output_path: Ryo/Metaphor/bgm.acb/p3_battle.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1315,7 +1315,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p4_battle.hca
+  output_path: Ryo/Metaphor/bgm.acb/p4_battle.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1327,7 +1327,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p5_battle.hca
+  output_path: Ryo/Metaphor/bgm.acb/p5_battle.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1339,7 +1339,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/sdds4_battle.hca
+  output_path: Ryo/Metaphor/bgm.acb/sdds4_battle.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1351,7 +1351,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/sdds5_battle.hca
+  output_path: Ryo/Metaphor/bgm.acb/sdds5_battle.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1363,7 +1363,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/sq_battle.hca
+  output_path: Ryo/Metaphor/bgm.acb/sq_battle.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1375,7 +1375,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p1_result.hca
+  output_path: Ryo/Metaphor/bgm.acb/p1_result.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1387,7 +1387,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p2_result.hca
+  output_path: Ryo/Metaphor/bgm.acb/p2_result.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1399,7 +1399,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p3_result.hca
+  output_path: Ryo/Metaphor/bgm.acb/p3_result.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1411,7 +1411,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p4_result.hca
+  output_path: Ryo/Metaphor/bgm.acb/p4_result.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1423,7 +1423,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/p5_result.hca
+  output_path: Ryo/Metaphor/bgm.acb/p5_result.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1435,7 +1435,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/sdds4_result.hca
+  output_path: Ryo/Metaphor/bgm.acb/sdds4_result.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1447,7 +1447,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/sdds5_result.hca
+  output_path: Ryo/Metaphor/bgm.acb/sdds5_result.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
@@ -1459,7 +1459,7 @@ tracks:
   enabled: true
   category: 
   tags: []
-  output_path: Ryo/Metaphor/sq_result.hca
+  output_path: Ryo/Metaphor/bgm.acb/sq_result.hca
   input_file: 
   encoder: HCA (Metaphor ReFantazio)
   loop:
