@@ -1,5 +1,5 @@
 name: 'Metaphor: ReFantazio Project (PC)'
 tags: ['Metaphor: ReFantazio', 'PC']
-default_output_path: 
+default_output_path: Ryo/Metaphor
 default_encoder: HCA (Metaphor ReFantazio)
 tracks: []

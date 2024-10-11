@@ -37,6 +37,11 @@ internal static class IconUtils
             return GameName.P3P;
         }
 
+        if (name.Contains(GameName.METAPHOR, System.StringComparison.OrdinalIgnoreCase))
+        {
+            return "metaphor";
+        }
+
         return null;
     }
 }
