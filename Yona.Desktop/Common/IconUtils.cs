@@ -42,6 +42,11 @@ internal static class IconUtils
             return "metaphor";
         }
 
+        if (name.Contains(GameName.DB_SPARKING, System.StringComparison.OrdinalIgnoreCase))
+        {
+            return "db-sparking-zero";
+        }
+
         return null;
     }
 }

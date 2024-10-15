@@ -1,0 +1,5 @@
+name: 'DRAGON BALL: Sparking! ZERO (PC)'
+tags: ['DRAGON BALL: Sparking! ZERO', 'PC']
+default_output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING
+default_encoder: HCA
+tracks: []

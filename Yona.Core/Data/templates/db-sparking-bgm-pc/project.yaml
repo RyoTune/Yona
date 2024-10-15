@@ -1,0 +1,2346 @@
+name: 'DRAGON BALL: Sparking! ZERO BGM (PC)'
+tags: ['DRAGON BALL: Sparking! ZERO', 'PC', 'BGM']
+default_output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb
+default_encoder: HCA
+default_loop_state: true
+tracks:
+- name: BGM_TOBASHI
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_TOBASHI.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_TOBASHI_STOP
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_TOBASHI_STOP.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_Vol_0
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_Vol_0.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_Vol_33
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_Vol_33.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_Vol_50
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_Vol_50.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_Vol_67
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_Vol_67.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_Vol_80
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_Vol_80.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_Vol_100
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_Vol_100.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: OP_MOVIE2
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/OP_MOVIE2.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0003_TUTOEND
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0003_TUTOEND.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_Selecter_0
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_Selecter_0.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterChange_0_MMU002_Cpsl
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterChange_0_MMU002_Cpsl.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterChange_1_MMU005_Tenk
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterChange_1_MMU005_Tenk.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterChange_2_MMU006_Zeno
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterChange_2_MMU006_Zeno.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterChange_3_MMU007_Shop
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterChange_3_MMU007_Shop.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterChange_4_MMU008_Sata
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterChange_4_MMU008_Sata.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterChange_5_MMU009_Shen
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterChange_5_MMU009_Shen.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterDefaultChange_0_MMU002_Cpsl
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterDefaultChange_0_MMU002_Cpsl.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterDefaultChange_1_MMU005_Tenk
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterDefaultChange_1_MMU005_Tenk.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterDefaultChange_2_MMU006_Zeno
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterDefaultChange_2_MMU006_Zeno.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterDefaultChange_3_MMU007_Shop
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterDefaultChange_3_MMU007_Shop.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterDefaultChange_4_MMU008_Sata
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterDefaultChange_4_MMU008_Sata.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: MainMenuBGM_SelecterDefaultChange_9_Silent
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/MainMenuBGM_SelecterDefaultChange_9_Silent.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_Pause
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_Pause.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_Resume
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_Resume.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0001
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0001.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0002
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0002.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0003
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0003.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0004
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0004.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0005
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0005.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0006
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0006.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0007
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0007.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0008
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0008.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0009
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0009.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0010
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0010.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0011
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0011.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0012
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0012.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0013
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0013.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0014
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0014.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0015
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0015.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0016
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0016.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0017
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0017.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0018
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0018.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0019
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0019.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0020
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0020.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0021
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0021.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0022
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0022.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0023
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0023.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0024
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0024.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0025
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0025.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0026
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0026.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0027
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0027.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0028
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0028.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0029
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0029.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0030
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0030.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0031
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0031.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0032
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0032.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0033
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0033.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0034
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0034.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0100
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0100.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0101
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0101.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0102
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0102.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0103
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0103.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0104
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0104.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0105
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0105.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0106
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0106.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0107
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0107.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0108
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0108.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0109
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0109.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0110
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0110.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0111
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0111.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0112
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0112.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0113
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0113.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0114
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0114.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0115
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0115.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0116
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0116.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0117
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0117.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0118
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0118.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0119
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0119.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0120
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0120.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0121
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0121.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0122
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0122.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0200
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0200.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0201
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0201.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0202
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0202.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0203
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0203.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0204
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0204.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0205
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0205.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0206
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0206.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0207
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0207.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_0208
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_0208.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1000
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1000.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1001
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1001.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1002
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1002.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1003
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1003.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1004
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1004.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1005
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1005.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1006
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1006.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1007
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1007.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1008
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1008.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1009
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1009.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1010
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1010.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1011
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1011.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1012
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1012.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1013
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1013.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1014
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1014.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1015
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1015.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1016
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1016.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1017
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1017.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1018
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1018.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1019
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1019.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1020
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1020.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1021
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1021.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1022
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1022.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1023
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1023.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1024
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1024.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1025
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1025.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1026
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1026.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1027
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1027.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1028
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1028.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1029
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1029.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1030
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1030.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1031
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1031.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1032
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1032.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1033
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1033.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1034
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1034.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1035
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1035.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1036
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1036.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1037
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1037.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1038
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1038.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1039
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1039.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1040
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1040.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1041
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1041.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1042
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1042.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1043
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1043.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1044
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1044.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_DUCKING_1s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_DUCKING_1s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_DUCKING_2s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_DUCKING_2s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_DUCKING_3s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_DUCKING_3s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_DUCKING_4s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_DUCKING_4s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_DUCKING_5s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_DUCKING_5s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_STOP
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_STOP.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_STAFF_ROLL
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_STAFF_ROLL.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1000_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1000_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1001_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1001_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1002_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1002_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1003_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1003_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1004_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1004_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1005_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1005_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1006_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1006_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1007_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1007_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1008_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1008_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1009_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1009_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1010_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1010_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1011_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1011_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1012_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1012_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1013_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1013_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1014_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1014_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1015_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1015_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1016_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1016_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1017_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1017_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1018_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1018_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1019_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1019_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1020_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1020_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1021_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1021_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1022_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1022_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1023_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1023_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1024_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1024_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1025_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1025_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1026_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1026_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1027_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1027_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1028_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1028_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1029_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1029_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1030_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1030_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1031_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1031_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1032_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1032_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1033_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1033_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1034_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1034_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1035_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1035_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1036_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1036_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1037_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1037_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1038_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1038_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1039_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1039_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1040_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1040_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1041_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1041_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1042_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1042_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1043_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1043_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1044_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1044_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_FADE_IN_1s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_FADE_IN_1s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_FADE_IN_2s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_FADE_IN_2s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_FADE_IN_3s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_FADE_IN_3s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_FADE_IN_4s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_FADE_IN_4s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: BGM_FADE_IN_5s
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/BGM_FADE_IN_5s.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1100
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1100.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
+- name: M_1100_SPK
+  enabled: true
+  category: 
+  tags: []
+  output_path: Ryo/SPARKINGZERO-WIN64-SHIPPING/bgm_main.acb/M_1100_SPK.hca
+  input_file: 
+  encoder: HCA
+  loop:
+    enabled: false
+    start_sample: 0
+    end_sample: 0
+    full_loop: false
