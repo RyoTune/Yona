@@ -37,7 +37,16 @@ public class StandardProjectBuilder(EncoderRepository encoders, ILogger<Standard
             if (this.encoders.GetEncoder(track.Encoder) is IEncoder encoder)
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
-                await encoder.Encode(track.InputFile, outputFile, track.Loop.ToModel());
+
+                try
+                {
+                    await encoder.Encode(track.InputFile!, outputFile, track.Loop.ToModel());
+                }
+                catch (Exception ex)
+                {
+                    this.log.LogError(ex, "Failed to encode file: {file}", track.InputFile!);
+                    throw;
+                }
             }
             else
             {

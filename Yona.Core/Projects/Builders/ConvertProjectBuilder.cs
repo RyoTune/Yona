@@ -65,7 +65,16 @@ public class ConvertProjectBuilder(EncoderRepository encoders, ILogger<ConvertPr
         {
             var outputFile = GetOutputFile(track, project, encoder);
             Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
-            await encoder.Encode(track.InputFile!, outputFile, track.Loop.ToModel());
+
+            try
+            {
+                await encoder.Encode(track.InputFile!, outputFile, track.Loop.ToModel());
+            }
+            catch (Exception ex)
+            {
+                log.LogError(ex, "Failed to encode file: {file}", track.InputFile!);
+                throw;
+            }
         }
 
         LogBuild(buildTracks, removedTracks);
