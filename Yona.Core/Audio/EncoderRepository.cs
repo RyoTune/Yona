@@ -56,7 +56,7 @@ public class EncoderRepository
             {
                 var type = container.Value;
                 var name = type.Names.First();
-                var encoder = new VgAudioEncoder(new VgAudioConfig() { Name = name.ToUpper(), OutContainerFormat = name });
+                var encoder = new VgAudioEncoder(this.log, new VgAudioConfig() { Name = name.ToUpper(), OutContainerFormat = name });
                 this.Items.Add(this.CreateCachedEncoder(encoder));
             }
             catch (Exception ex)
@@ -78,7 +78,7 @@ public class EncoderRepository
         {
             try
             {
-                var encoder = new VgAudioEncoder(configFile);
+                var encoder = new VgAudioEncoder(this.log, configFile);
                 this.Items.Add(this.CreateCachedEncoder(encoder));
             }
             catch (Exception ex)

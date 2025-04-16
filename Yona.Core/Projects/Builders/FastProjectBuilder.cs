@@ -63,7 +63,6 @@ public class FastProjectBuilder : IProjectBuilder
             if (this.encoders.GetEncoder(track.Encoder) is IEncoder encoder)
             {
                 var outputFile = GetOutputFile(track, project);
-                Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
 
                 try
                 {

@@ -1,4 +1,5 @@
-﻿using VGAudio.Containers;
+﻿using Microsoft.Extensions.Logging;
+using VGAudio.Containers;
 using Yona.Core.Audio.Loops;
 
 namespace Yona.Core.Audio.Encoding.VGAudio;
@@ -8,13 +9,16 @@ public class VgAudioEncoder : IEncoder
     private readonly ContainerType outputContainer;
     private readonly IAudioWriter writer;
     private readonly Configuration? configuration;
+    private readonly ILogger? log;
 
-    public VgAudioEncoder(string configFile) : this(ConfigParser.Parse(configFile))
+    public VgAudioEncoder(ILogger? log, string configFile)
+        : this(log, ConfigParser.Parse(configFile))
     {
     }
 
-    public VgAudioEncoder(VgAudioConfig config)
+    public VgAudioEncoder(ILogger? log, VgAudioConfig config)
     {
+        this.log = log;
         if (config.OutContainerFormat == null)
         {
             throw new ArgumentException("Config missing output container format.");
@@ -35,6 +39,7 @@ public class VgAudioEncoder : IEncoder
 
     public Task Encode(string inputFile, string outputFile, Loop? loop)
     {
+        Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
         return Task.Run(() =>
         {
             var inputFileExt = Path.GetExtension(inputFile).Trim('.');
@@ -63,8 +68,9 @@ public class VgAudioEncoder : IEncoder
                         inputAudio.SetLoop(loop.Enabled, loop.StartSample, loop.EndSample);
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    log?.LogWarning(ex, "Possible error while looping file, ignore if file works as expected.\nFile: {file}", inputFile);
                 }
             }
 

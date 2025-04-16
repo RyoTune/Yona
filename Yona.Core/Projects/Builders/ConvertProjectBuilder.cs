@@ -64,7 +64,6 @@ public class ConvertProjectBuilder(EncoderRepository encoders, ILogger<ConvertPr
         foreach (var track in buildTracks)
         {
             var outputFile = GetOutputFile(track, project, encoder);
-            Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
 
             try
             {

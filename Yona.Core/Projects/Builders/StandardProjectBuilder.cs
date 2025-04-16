@@ -36,7 +36,6 @@ public class StandardProjectBuilder(EncoderRepository encoders, ILogger<Standard
 
             if (this.encoders.GetEncoder(track.Encoder) is IEncoder encoder)
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
 
                 try
                 {
