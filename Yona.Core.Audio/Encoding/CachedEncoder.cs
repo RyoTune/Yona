@@ -47,6 +47,8 @@ public class CachedEncoder : IEncoder
             LoopSerializer.SerializeFile(cachedLoopFile, cachedLoop);
         }
 
+        Directory.CreateDirectory(Path.GetDirectoryName(outputFile)!);
+        
         // Copy cached file to output.
         await Task.Run(() =>
         {
