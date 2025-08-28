@@ -26,6 +26,7 @@ public partial class DashboardConvertViewModel(ConvertFactory convert) : ViewMod
 
         var files = folders.SelectMany(x => Directory.GetFiles(x, "*", SearchOption.AllDirectories)).ToArray();
         this.CurrentConvert = convert.Create(files);
+        this.CurrentConvert.OutputFolder = FolderSelect;
     }
 
     [RelayCommand]
@@ -38,5 +39,6 @@ public partial class DashboardConvertViewModel(ConvertFactory convert) : ViewMod
         }
 
         this.CurrentConvert = convert.Create(files);
+        this.CurrentConvert.OutputFolder = FolderSelect;
     }
 }
