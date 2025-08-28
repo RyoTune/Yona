@@ -9,7 +9,6 @@ using Yona.Core.Audio.Models;
 using Yona.Core.Common.Dialog;
 using Yona.Core.Projects.Builders;
 using Yona.Core.Projects.Models;
-using Yona.Core.ViewModels.Dashboard.Projects;
 
 namespace Yona.Core.ViewModels.Convert;
 
@@ -18,7 +17,7 @@ public partial class ConvertViewModel : ViewModelBase, IActivatableViewModel
     private readonly ILogger<ConvertViewModel> log;
     private readonly ConvertProjectBuilder builder;
     private readonly LoopService loops;
-
+    private readonly string? baseDir;
     private readonly ObservableAsPropertyHelper<IEnumerable<AudioTrack>> _filteredTracks;
     private string _selectedEncoder = "HCA";
 
@@ -27,11 +26,13 @@ public partial class ConvertViewModel : ViewModelBase, IActivatableViewModel
         EncoderRepository encoders,
         LoopService loops,
         string[] files,
-        ILogger<ConvertViewModel> log)
+        ILogger<ConvertViewModel> log,
+        string? baseDir)
     {
         this.log = log;
         this.builder = builder;
         this.loops = loops;
+        this.baseDir = baseDir;
         this.Encoders = encoders.AvailableEncoders;
 
         this.Project = new ProjectBundle(Path.GetTempFileName());
@@ -90,7 +91,7 @@ public partial class ConvertViewModel : ViewModelBase, IActivatableViewModel
 
     public IEnumerable<string> Encoders { get; }
 
-    public FolderSelectInteraction OutputFolder { get; } = new();
+    public FolderSelectInteraction OutputFolder { get; set; } = new();
 
     public string SelectedEncoder
     {
