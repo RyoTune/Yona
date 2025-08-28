@@ -122,13 +122,6 @@ public partial class ConvertViewModel : ViewModelBase, IActivatableViewModel
             await this.builder.Build(this.Project, null);
             stopwatch.Stop();
 
-#if RELEASE
-            if (stopwatch.ElapsedMilliseconds < ProjectTracksViewModel.MIN_BUILD_TIME_MS)
-            {
-                await Task.Delay((int)(ProjectTracksViewModel.MIN_BUILD_TIME_MS - stopwatch.ElapsedMilliseconds));
-            }
-#endif
-
             this.log.LogInformation("{NumFiles} files converted successfully in {Time}ms!", this.FilteredTracks.Count(), stopwatch.ElapsedMilliseconds);
         }
         catch (Exception ex)
